@@ -13,8 +13,8 @@ export const darkTheme = createTheme({
             dark: "#20242E",
         },
         secondary: {
-            main: alpha("#FEFAE0", 0.7),
-            light: alpha("#FEFAE0", 0.4),
+            main: alpha("#D4A373", 0.7),
+            light: alpha("#D4A373", 0.4),
             dark: alpha("#D4A373", 1.0),
         },
     },
