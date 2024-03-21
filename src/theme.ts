@@ -39,4 +39,62 @@ export const darkTheme = createTheme({
             dark: "#41521F",
         },
     },
+    typography: {
+        fontFamily: "Geist, sans-serif",
+        h1: {
+            fontSize: "96px",
+            fontWeight: 700,
+            lineHeight: 100,
+        },
+        h2: {
+            fontSize: "64px",
+            fontWeight: 700,
+            lineHeight: 72,
+        },
+        h3: {
+            fontSize: "48px",
+            fontWeight: 700,
+            lineHeight: 56,
+        },
+        h4: {
+            fontSize: "34px",
+            fontWeight: 700,
+            lineHeight: 40,
+        },
+        h5: {
+            fontSize: "24px",
+            fontWeight: "semi-bold",
+            lineHeight: 32,
+        },
+        subtitle1: {
+            fontSize: "24px",
+            fontWeight: "medium",
+            lineHeight: 32,
+        },
+        subtitle2: {
+            fontSize: "20px",
+            fontWeight: "medium",
+            lineHeight: 28,
+        },
+        body1: {
+            fontSize: "16px",
+            fontWeight: "regular",
+            lineHeight: 24,
+        },
+        body2: {
+            fontSize: "14px",
+            fontWeight: "regular",
+            lineHeight: 20,
+        },
+        button: {
+            fontSize: "14px",
+            fontWeight: "regular",
+            lineHeight: 20,
+        },
+        caption: {
+            fontSize: "12px",
+            fontWeight: "regular",
+            lineHeight: 16,
+        },
+    }
 });
