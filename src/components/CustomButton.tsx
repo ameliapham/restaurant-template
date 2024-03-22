@@ -27,8 +27,8 @@ export function CustomButton(props: PropsCustomButton) {
 const useStyles = tss
     .create(({ theme }) => ({
         "button": {
-            "border": `1px solid ${theme.palette.primary.main}`,
-            "background": theme.palette.primary.main,
+            "border": `1px solid ${theme.palette.primary.dark}`,
+            "background": theme.palette.primary.dark,
             "color": theme.palette.primary.contrastText,
             "padding": "10px",
             "borderRadius": "5px",
