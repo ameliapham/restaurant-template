@@ -2,8 +2,10 @@ import { darkTheme } from "../theme"
 import { GlobalStyles } from 'tss-react';
 import { tss } from 'tss-react/mui';
 
+import { AllTogether } from "../pages/Home"
 
 export function App() {
+
   return (
     <>
       <GlobalStyles
@@ -11,17 +13,16 @@ export function App() {
           "html, body": {
             margin: 0,
             padding: 0,
-            backgroundColor: darkTheme.palette.background.default,
+            backgroundColor: darkTheme.palette.primary.dark,
             color: darkTheme.palette.text.primary,
           },
         }}
       />
 
+      <div>
+        <AllTogether />
 
-      <h1>
-        I'm the best, you know !
-      </h1>
+      </div>
     </>
-
   )
 }
