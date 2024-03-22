@@ -1,4 +1,4 @@
-import { darkTheme } from "../theme.tsx"
+import { darkTheme } from "../theme"
 import { GlobalStyles } from 'tss-react';
 import { tss } from 'tss-react/mui';
 
@@ -18,9 +18,9 @@ export function App() {
       />
 
 
-      <div>
-        Hello World
-      </div>
+      <h1>
+        I'm the best, you know !
+      </h1>
     </>
 
   )
