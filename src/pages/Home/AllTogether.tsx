@@ -18,10 +18,9 @@ export function AllTogether() {
 
 const useStyles = tss.create(({ theme }) => ({
     "root": {
+        "boxSizing": "border-box",
         "display": "flex",
         "gap": "10px",
-        "padding": "10px",
-        "border": `1px solid ${theme.palette.primary.main}`,
         "borderRadius": "20px",
     },
     "left": {
