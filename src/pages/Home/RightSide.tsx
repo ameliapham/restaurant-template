@@ -1,4 +1,9 @@
 import { tss } from 'tss-react/mui'
+import { CustomCard } from '../../components/CustomCard'
+import firstImage from "../../assets/food-nem.webp"
+import secondImage from "../../assets/reservation.webp"
+import thirdImage from "../../assets/resto3.jpeg"
+
 
 type PropsRightSide = {
     className?: string;
@@ -11,23 +16,40 @@ export function RightSide(props: PropsRightSide) {
 
     return (
         <div className={cx(classes.root, className)}>
-            <h1 className={cx(classes.h1)}>
-                Right side
-            </h1>
+            <CustomCard className={classes.card}
+                backgroundImage={firstImage}
+                onClick={() => { console.log("click") }}
+            >
+                Menu
+            </CustomCard>
+
+            <CustomCard className={classes.card}
+                backgroundImage={secondImage}
+                onClick={() => { console.log("click") }}
+            >
+                Reservation
+            </CustomCard>
+            <CustomCard className={classes.card}
+                backgroundImage={thirdImage}
+                onClick={() => { console.log("click") }}
+            >
+                Our restaurant
+            </CustomCard>
         </div>
+
     )
 }
 
 const useStyles = tss
     .create(({ theme }) => ({
         "root": {
+            "display": "flex",
+            "flexDirection": "column",
             "boxSizing": "border-box",
-            "border": `1px solid ${theme.palette.success.main}`,
-            "borderRadius": "20px",
+            "gap": "20px",
         },
-        "h1": {
-            "color": theme.palette.secondary.main,
-            "fontSize": theme.typography.h1.fontSize,
-            "fontWeight": theme.typography.h1.fontWeight,
+        "card": {
+            "display": "flex",
+            "flexGrow": 1,
         }
     }))
