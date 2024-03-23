@@ -21,8 +21,8 @@ export function RightSide(props: PropsRightSide) {
 const useStyles = tss
     .create(({ theme }) => ({
         "root": {
+            "boxSizing": "border-box",
             "border": `1px solid ${theme.palette.success.main}`,
-            "height": "100vh",
             "borderRadius": "20px",
         },
         "h1": {
