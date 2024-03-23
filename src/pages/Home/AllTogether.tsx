@@ -18,15 +18,16 @@ export function AllTogether() {
 
 const useStyles = tss.create(({ theme }) => ({
     "root": {
-        "boxSizing": "border-box",
         "display": "flex",
+        "flexGrow": 1,
         "gap": "10px",
         "borderRadius": "20px",
+        "margin": "30px",
     },
     "left": {
-        "width": "70%",
+        "width": "75%",
     },
     "right": {
-        "width": "30%",
+        "width": "25%",
     }
 }));
