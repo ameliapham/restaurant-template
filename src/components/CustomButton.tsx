@@ -6,7 +6,7 @@ import React from 'react';
 type PropsCustomButton = {
     className?: string;
     onClick?: () => void;
-    onHover: () => void;
+    onHover?: () => void;
     children: React.ReactNode;
     icon?: React.ReactNode | boolean;
 }
@@ -41,7 +41,7 @@ const useStyles = tss
             "padding": "10px",
             "borderRadius": "5px",
             "cursor": "pointer",
-            "transition": "background 0.4s ease-in-out, border 0.4s ease-in-out",
+            "transition": "background 0.4s ease-in-out, border 0.4s ease-in-out, color 0.4s ease-in-out",
             "&:hover": {
                 "background": alpha(theme.palette.secondary.light, 0.15),
                 "border": `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
