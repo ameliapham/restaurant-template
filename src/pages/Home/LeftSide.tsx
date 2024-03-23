@@ -39,7 +39,6 @@ const useStyles = tss
             "display": "flex",
             "flexDirection": "column",
             "justifyContent": "space-between",
-            "border": `1px solid ${theme.palette.error.main}`,
             "background": `url(${backgroundImage}) center center/cover`,
             "borderRadius": "20px",
             "padding": "30px 50px 30px 50px",
