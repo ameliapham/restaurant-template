@@ -41,6 +41,7 @@ export function MenuBar(props: PropsMenuBar) {
 const useStyles = tss
     .create(({ theme }) => ({
         "root": {
+            "boxSizing": "border-box",
             "display": "inline-flex",
             "justifyContent": "center",
             "gap": "10px",
@@ -49,6 +50,7 @@ const useStyles = tss
             "borderRadius": "10px",
             "background": theme.palette.primary.dark,
             "alignItems": "center",
+            "alignSelf": "flex-start",
         },
         "logo": {
             "width": "80px",
