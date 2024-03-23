@@ -1,17 +1,21 @@
 import { tss } from 'tss-react/mui'
 import { alpha } from "@mui/material/styles";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import React from 'react';
 
 type PropsCustomButton = {
     className?: string;
     onClick?: () => void;
     onHover: () => void;
     children: React.ReactNode;
+    icon?: React.ReactNode | boolean;
 }
 
 export function CustomButton(props: PropsCustomButton) {
 
-    const { className, onClick, onHover, children } = props
+    const { className, onClick, onHover, children, icon } = props
     const { cx, classes } = useStyles()
+    const Icon = React.isValidElement(icon) ? icon : icon ? <ArrowForwardIcon /> : null
 
     return (
         <button
@@ -20,6 +24,7 @@ export function CustomButton(props: PropsCustomButton) {
             onMouseOver={onHover}
         >
             {children}
+            {Icon}
         </button>
     )
 }
@@ -27,6 +32,9 @@ export function CustomButton(props: PropsCustomButton) {
 const useStyles = tss
     .create(({ theme }) => ({
         "button": {
+            "display": "flex",
+            "alignItems": "center",
+            "gap": "5px",
             "border": `1px solid ${theme.palette.primary.dark}`,
             "background": theme.palette.primary.dark,
             "color": theme.palette.primary.contrastText,
