@@ -2,7 +2,7 @@ import { darkTheme } from "../theme"
 import { GlobalStyles } from 'tss-react';
 import { tss } from 'tss-react/mui';
 
-import { AllTogether } from "../pages/Home"
+import { Home } from "../pages/Home"
 
 export function App() {
 
@@ -24,7 +24,7 @@ export function App() {
       />
 
       <div className={classes.root}>
-        <AllTogether />
+        <Home />
 
       </div>
     </>
