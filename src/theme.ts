@@ -79,22 +79,22 @@ export const darkTheme = createTheme({
         },
         body1: {
             fontSize: "16px",
-            fontWeight: "regular",
+            fontWeight: 400,
             lineHeight: 24,
         },
         body2: {
             fontSize: "14px",
-            fontWeight: "regular",
+            fontWeight: 400,
             lineHeight: 20,
         },
         button: {
             fontSize: "14px",
-            fontWeight: "regular",
+            fontWeight: 400,
             lineHeight: 20,
         },
         caption: {
             fontSize: "12px",
-            fontWeight: "regular",
+            fontWeight: 200,
             lineHeight: 16,
         },
     }
