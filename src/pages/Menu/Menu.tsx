@@ -25,9 +25,9 @@ const useStyles = tss.create(({ theme }) => ({
         "margin": "30px",
     },
     "left": {
-        "width": "75%",
+        "width": "60%",
     },
     "right": {
-        "width": "25%",
+        "width": "40%",
     }
 }));
