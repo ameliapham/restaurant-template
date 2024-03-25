@@ -5,7 +5,7 @@ type FoodListProps = {
     className?: string;
     illustration: string;
     nameOfDish: string;
-    price: number;
+    price: string;
     details: string;
 }
 
@@ -23,13 +23,13 @@ export function FoodDetail(props: FoodListProps) {
 
             <div className={classes.textZone}>
                 <div className={classes.nameVsPrice}>
-                    <h4 lassName={classes.details}>Nem</h4>
-                    <h4 className={classes.details}>6.00€</h4>
+                    <text>{nameOfDish}</text>
+                    <text>{price}</text>
                 </div>
 
-                <div>
-                    <h6 className={classes.details} >Detail</h6>
-                </div>
+                <caption className={classes.details}>
+                    {details}
+                </caption>
 
             </div>
 
@@ -64,5 +64,16 @@ const useStyles = tss
             "display": "flex",
             "flexDirection": "row",
             "justifyContent": "space-between",
+            "fontFamily": theme.typography.fontFamily,
+            "color": theme.palette.text.primary,
+            "fontSize": theme.typography.body1.fontSize,
+            "fontWeight": theme.typography.body1.fontWeight,
+        },
+        "details": {
+            "textAlign": "left",
+            "fontFamily": theme.typography.fontFamily,
+            "color": theme.palette.text.primary,
+            "fontSize": theme.typography.caption.fontSize,
+            "fontWeight": theme.typography.caption.fontWeight,
         },
     }))
