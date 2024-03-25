@@ -40,9 +40,9 @@ export const darkTheme = createTheme({
         },
     },
     typography: {
-        fontFamily: "Time New Roman", 
+        fontFamily: "Geist, sans-serif", 
         h1: {
-            fontFamily: "Geist, sans-serif",
+            fontFamily: "Time New Roman",
             fontSize: "112px",
             fontWeight: 700,
             lineHeight: 100,
