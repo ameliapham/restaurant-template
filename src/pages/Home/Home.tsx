@@ -4,7 +4,7 @@ import { LeftSide } from "./LeftSide"
 import { RightSide } from "./RightSide"
 
 
-export function AllTogether() {
+export function Home() {
 
     const { cx, classes } = useStyles()
 

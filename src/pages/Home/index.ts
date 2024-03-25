@@ -1,1 +1,1 @@
-export * from "./AllTogether"
+export * from "./Home"
