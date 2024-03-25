@@ -50,6 +50,10 @@ export function RightSide(props: PropsRightSide) {
             </div>
             <FoodDetail
                 illustration={example}
+                nameOfDish="Nem"
+                price="€10"
+                details="4 fried spring rolls (nem) of your choice: pork, chicken, shrimp, vegetarian."
+                
             >
 
             </FoodDetail>
