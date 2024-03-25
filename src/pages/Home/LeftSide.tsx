@@ -44,6 +44,7 @@ const useStyles = tss
             "padding": "30px 50px 30px 50px",
         },
         "h1": {
+            "fontFamily": theme.typography.fontFamily,
             "color": theme.palette.text.primary,
             "fontSize": theme.typography.h1.fontSize,
             "fontWeight": theme.typography.h1.fontWeight,
