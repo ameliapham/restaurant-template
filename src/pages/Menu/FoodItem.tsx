@@ -1,130 +1,88 @@
-import nemRan from "../../assets/food-nemRan.png"
-import bao from "../../assets/food-bao.png"
-import beer from "../../assets/food-beer.png"
-import bunDau from "../../assets/food-bunDau.png"
-import comGa from "../../assets/food-comGa.png"
-import comTom from "../../assets/food-comTom.png"
-import dimsum from "../../assets/food-dimsum.png"
-import phoBeef from "../../assets/food-phoBeef.png"
-import phoGa from "../../assets/food-phoGa.png"
-import riceMango from "../../assets/food-riceMango.png"
-import springRoll from "../../assets/food-springRolls.png"
-import cafe from "../../assets/food-cafe.png"
-import pudding from "../../assets/food-pudding.png"
-import boBun from "../../assets/food-boBun.png"
+import { darkTheme } from "../../theme"
+import { tss } from 'tss-react/mui'
+import { FoodDetail } from "./FoodDetails"
 
-
-export type FoodItem = {
-    id: number;
-    nameOfDish: string;
-    price: string;
-    details?: string;
-    illustration: string;
+type FoodItemProps = {
+    className?: string;
+    foods: FoodDetail[];
 }
 
-export const starters: FoodItem[] = [
-    {
-        id: 1,
-        nameOfDish: "Nem",
-        price: "€6",
-        details: "4 fried spring rolls (nem) of your choice: pork, chicken, shrimp, vegetarian.",
-        illustration: nemRan
-    },
-    {
-        id: 2,
-        nameOfDish: "Spring rolls",
-        price: "€4",
-        details: "2 spring rolls of your choice: shrimp/beef/chicken/tofu.",
-        illustration: springRoll
-    },
-    {
-        id: 3,
-        nameOfDish: "Dim sum",
-        price: "€4",
-        details: "Basket of dim sum contains 3 of the same filling.",
-        illustration: dimsum
-    }
-]
+export function FoodItem(props: FoodItemProps) {
 
-export const mains: FoodItem[] = [
-    {
-        id: 4,
-        nameOfDish: "Baozi",
-        price: "€10",
-        details: "Basket of baozi contains 4 of the same filling.",
-        illustration: bao
-    },
-    {
-        id: 5,
-        nameOfDish: "Hanoi Style Beef Phở",
-        price: "€12.5",
-        details: "Rice noodles, beef bone broth for 24 hours, spring onion, coriander, onion...",
-        illustration: phoBeef
-    },
-    {
-        id: 6,
-        nameOfDish: "Hanoi Style Chicken Phở",
-        price: "€12",
-        details: "Rice noodles, chicken, chicken bone broth, spring onion, coriander, parsley, lemon leaves...",
-        illustration: phoGa
-    },
-    {
-        id: 7,
-        nameOfDish: "Bun Dau Mam Tom",
-        price: "€16",
-        details: "Rice vermicelli, deep fried tofu, pork nem, green sticky rice patties, pork shank meat...",
-        illustration: bunDau
-    },
-    {
-        id: 8,
-        nameOfDish: "Bo Bun",
-        price: "€14",
-        details: "Rice vermicelli, beef, cucumber, carrot, salad, mint, coriander, peanuts, fish sauce...",
-        illustration: boBun
-    },
-    {
-        id: 9,
-        nameOfDish: "Chicken Rice",
-        price: "€11",
-        details: "Rice, chicken, cucumber, fried onion, mango salad (mango, lettuce, coriander, marinated carrots, laksa leaves, fish sauce...)",
-        illustration: comGa
-    },
-    {
-        id: 10,
-        nameOfDish: "Shrimp Rice",
-        price: "€11",
-        details: "Rice, shrimp, cucumber, fried onion, onion, mango salad (mango, lettuce, coriander, marinated carrots, laksa leaves, fish sauce...)",
-        illustration: comTom
-    }
-]
+    const { className, foods } = props
 
-export const desserts: FoodItem[] = [
-    {
-        id: 11,
-        nameOfDish: "Mango Pudding",
-        price: "€6",
-        illustration: pudding
-    },
-    {
-        id: 12,
-        nameOfDish: "Sticky Rice with Mango",
-        price: "€4",
-        details: "Sticky rice, mango, coconut milk.",
-        illustration: riceMango
-    },
-]
+    const { cx, classes } = useStyles()
 
-export const drinks: FoodItem[] = [
-    {
-        id: 1,
-        nameOfDish: "Vietnamese Coffee",
-        price: "€6",
-        illustration: cafe
-    },
-    {
-        id: 2,
-        nameOfDish: "Hanoi Beer",
-        price: "€4",
-        illustration: beer
-    },
-]
+    return (
+        <div>
+            {foods.map((foods) => (
+                <div key={foods.id} className={cx(classes.root, className)}>
+                    <div
+                        className={classes.illustration}
+                        style={{ backgroundImage: `url(${foods.illustration})` }}
+                    ></div>
+
+                    <div className={classes.textZone}>
+                        <div className={classes.nameVsPrice}>
+                            <div>{foods.nameOfDish}</div>
+                            <div>{foods.price}</div>
+                        </div>
+
+                        <div className={classes.details}>
+                            {foods.details}
+                        </div>
+
+                    </div>
+                </div>
+            ))}
+
+        </div>
+
+    )
+}
+
+const useStyles = tss
+    .create(({ theme }) => ({
+        "root": {
+            "boxSizing": "border-box",
+            "display": "flex",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "borderRadius": "20px",
+            "gap": "20px",
+            "alignItems": "center",
+            "paddingBottom": "20px",
+        },
+        "illustration": {
+            "borderRadius": "10px",
+            "background": "center center/cover",
+            "width": "30%",
+            "height": "100%",
+            "minHeight": "90px",
+            "maxHeight": "90px",
+            "maxWidth": "90px",
+        },
+        "textZone": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "8px",
+            "width": "70%",
+        },
+        "nameVsPrice": {
+            "display": "flex",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "fontFamily": theme.typography.fontFamily,
+            "color": theme.palette.text.primary,
+            "fontSize": theme.typography.body1.fontSize,
+            "fontWeight": theme.typography.body1.fontWeight,
+            "gap": "10px",
+        },
+        "details": {
+            "textAlign": "left",
+            "fontFamily": theme.typography.fontFamily,
+            "color": theme.palette.text.primary,
+            "fontSize": theme.typography.caption.fontSize,
+            "fontWeight": theme.typography.caption.fontWeight,
+        },
+    }))
