@@ -1,39 +1,43 @@
-import { darkTheme } from "../theme"
+import { darkTheme } from "../../theme"
 import { tss } from 'tss-react/mui'
+import { FoodItem } from "./FoodItem"
 
-type FoodListProps = {
+type FoodDetailProps = {
     className?: string;
-    illustration: string;
-    nameOfDish: string;
-    price: string;
-    details: string;
+    foods: FoodItem[];
 }
 
-export function FoodDetail(props: FoodListProps) {
+export function FoodDetail(props: FoodDetailProps) {
 
-    const { className, illustration, nameOfDish, details, price } = props
+    const { className, foods } = props
+
     const { cx, classes } = useStyles()
 
     return (
-        <div className={cx(classes.root, className)}>
-            <div
-                className={classes.illustration}
-                style={{ backgroundImage: `url(${illustration})` }}
-            ></div>
+        <div>
+            {foods.map((foods) => (
+                <div key={foods.id} className={cx(classes.root, className)}>
+                    <div
+                        className={classes.illustration}
+                        style={{ backgroundImage: `url(${foods.illustration})` }}
+                    ></div>
 
-            <div className={classes.textZone}>
-                <div className={classes.nameVsPrice}>
-                    <text>{nameOfDish}</text>
-                    <text>{price}</text>
+                    <div className={classes.textZone}>
+                        <div className={classes.nameVsPrice}>
+                            <div>{foods.nameOfDish}</div>
+                            <div>{foods.price}</div>
+                        </div>
+
+                        <div className={classes.details}>
+                            {foods.details}
+                        </div>
+
+                    </div>
                 </div>
-
-                <caption className={classes.details}>
-                    {details}
-                </caption>
-
-            </div>
+            ))}
 
         </div>
+
     )
 }
 
@@ -43,21 +47,23 @@ const useStyles = tss
             "boxSizing": "border-box",
             "display": "flex",
             "flexDirection": "row",
-            "justifyContent": "flex-start",
+            "justifyContent": "center",
             "borderRadius": "20px",
             "gap": "20px",
-            "alignContent": "center",
+            "alignItems": "center",
         },
         "illustration": {
             "borderRadius": "10px",
             "background": "center center/cover",
             "width": "30%",
-
+            "height": "100%",
+            "minHeight": "90px",
+            "maxWidth": "90px",
         },
         "textZone": {
             "display": "flex",
             "flexDirection": "column",
-            "gap": "5px",
+            "gap": "8px",
             "width": "70%",
         },
         "nameVsPrice": {
