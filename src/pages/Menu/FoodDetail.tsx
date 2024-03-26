@@ -51,6 +51,7 @@ const useStyles = tss
             "borderRadius": "20px",
             "gap": "20px",
             "alignItems": "center",
+            "paddingBottom": "20px",
         },
         "illustration": {
             "borderRadius": "10px",
@@ -58,6 +59,7 @@ const useStyles = tss
             "width": "30%",
             "height": "100%",
             "minHeight": "90px",
+            "maxHeight": "90px",
             "maxWidth": "90px",
         },
         "textZone": {
@@ -74,6 +76,7 @@ const useStyles = tss
             "color": theme.palette.text.primary,
             "fontSize": theme.typography.body1.fontSize,
             "fontWeight": theme.typography.body1.fontWeight,
+            "gap": "10px",
         },
         "details": {
             "textAlign": "left",
