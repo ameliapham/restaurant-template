@@ -16,7 +16,7 @@ export function Home(props: PropsHome) {
 
     const [checked, setChecked] = useState(false)
 
-    const { className, onChangePage } = props
+    const { onChangePage } = props
 
     const { cx, classes } = useStyles()
 
@@ -34,13 +34,16 @@ export function Home(props: PropsHome) {
                     className={classes.left}
                     onChangePage={onChangePage}
                 />
-                <RightSide className={classes.right} />
+                <RightSide 
+                    className={classes.right} 
+                    onChangePage={onChangePage}
+                />
             </div>
         </Fade>
     )
 }
 
-const useStyles = tss.create(({ theme }) => ({
+const useStyles = tss.create(({ }) => ({
     "root": {
         "display": "flex",
         "flexGrow": 1,

@@ -7,31 +7,37 @@ import thirdImage from "../../assets/resto4.webp"
 
 type PropsRightSide = {
     className?: string;
+    onChangePage: (page: SelectedPage) => void;
 }
+
+type SelectedPage = "home" | "menu" | "about" | "book"
 
 export function RightSide(props: PropsRightSide) {
 
-    const { className } = props
+    const { className, onChangePage } = props
     const { cx, classes } = useStyles()
 
     return (
         <div className={cx(classes.root, className)}>
-            <CustomCard className={classes.card}
+            <CustomCard 
+                className={classes.card}
                 backgroundImage={firstImage}
-                onClick={() => { console.log("click") }}
+                onClick={() => onChangePage("menu")}
             >
                 Menu
             </CustomCard>
 
-            <CustomCard className={classes.card}
+            <CustomCard 
+                className={classes.card}
                 backgroundImage={secondImage}
-                onClick={() => { console.log("click") }}
+                onClick={() => onChangePage("book")}
             >
                 Reservation
             </CustomCard>
-            <CustomCard className={classes.card}
+            <CustomCard 
+                className={classes.card}
                 backgroundImage={thirdImage}
-                onClick={() => { console.log("click") }}
+                onClick={() => onChangePage("about")}
             >
                 Our restaurant
             </CustomCard>
@@ -41,7 +47,7 @@ export function RightSide(props: PropsRightSide) {
 }
 
 const useStyles = tss
-    .create(({ theme }) => ({
+    .create(({}) => ({
         "root": {
             "display": "flex",
             "flexDirection": "column",

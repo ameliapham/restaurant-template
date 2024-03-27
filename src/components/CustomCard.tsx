@@ -11,7 +11,7 @@ type PropsCustomCard = {
 
 export function CustomCard(props: PropsCustomCard) {
 
-    const { className, backgroundImage, children } = props
+    const { className, backgroundImage, children, onClick } = props
     const { cx, classes } = useStyles()
 
     return (
@@ -22,10 +22,11 @@ export function CustomCard(props: PropsCustomCard) {
             <div
                 className={classes.background}
                 style={{ backgroundImage: `url(${backgroundImage})` }}
+                onClick= {onClick}
             ></div>
 
             <CustomButton className={classes.button}
-                onClick={() => { console.log("click") }}
+                onClick={onClick}
                 icon={<ArrowForwardIcon />}
             >
                 {children}
@@ -70,8 +71,9 @@ const useStyles = tss
         },
         "button": {
             "zIndex": 1,
-            "right": "10px",
             "alignSelf": "flex-end",
+            "padding": "10px 10px 10px 20px",
+            "borderRadius": "15px 0 0 0",
             "&:hover": {
                 "color": theme.palette.secondary.dark,
                 "background": theme.palette.primary.dark,
