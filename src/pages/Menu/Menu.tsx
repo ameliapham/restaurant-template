@@ -1,4 +1,5 @@
 import { tss } from 'tss-react/mui'
+import Fade from "@mui/material/Fade"
 
 import { RightSide } from "./RightSide"
 import { LeftSide } from "./LeftSide"
@@ -16,17 +17,22 @@ export function Menu(props: PropsMenu) {
     const { onChangePage } = props
 
     return (
-        <div className={cx(classes.root)}>
-            <LeftSide 
-                className={classes.left}
-                onChangePage={onChangePage}
-            />
-            <RightSide className={classes.right}/>
-        </div>
+        <Fade
+            in={true}
+            timeout={800}
+        >
+            <div className={cx(classes.root)}>
+                <LeftSide
+                    className={classes.left}
+                    onChangePage={onChangePage}
+                />
+                <RightSide className={classes.right} />
+            </div>
+        </Fade>
     )
 }
 
-const useStyles = tss.create(({ theme }) => ({
+const useStyles = tss.create(({}) => ({
     "root": {
         "display": "flex",
         "flexGrow": 1,
