@@ -3,14 +3,24 @@ import { tss } from 'tss-react/mui'
 import { RightSide } from "./RightSide"
 import { LeftSide } from "./LeftSide"
 
+type PropsMenu = {
+    className?: string;
+    onChangePage: (page: SelectedPage) => void;
+}
 
-export function Menu() {
+type SelectedPage = "home" | "menu" | "about" | "book"
+
+export function Menu(props: PropsMenu) {
 
     const { cx, classes } = useStyles()
+    const { onChangePage } = props
 
     return (
         <div className={cx(classes.root)}>
-            <LeftSide className={classes.left}/>
+            <LeftSide 
+                className={classes.left}
+                onChangePage={onChangePage}
+            />
             <RightSide className={classes.right}/>
         </div>
     )
