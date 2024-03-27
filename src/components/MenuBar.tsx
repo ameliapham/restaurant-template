@@ -2,34 +2,40 @@ import { tss } from 'tss-react/mui'
 import { CustomButton } from './CustomButton'
 import logo from '../assets/logo.svg'
 import { alpha } from '@mui/material/styles'
+import { useState } from 'react'
 
 type PropsMenuBar = {
     className?: string;
+    onChangePage: (page: SelectedPage) => void;
 }
+
+type SelectedPage = "home" | "menu" | "about" | "book"
 
 export function MenuBar(props: PropsMenuBar) {
 
-    const { className } = props
+    const { className, onChangePage } = props
     const { cx, classes } = useStyles()
 
     return (
         <div className={cx(classes.root, className)}>
-            <img className={cx(classes.logo)} src={logo} alt="logo" />
+            <img
+                className={cx(classes.logo)}
+                src={logo}
+                alt="logo"
+                onClick={() => onChangePage("home")}
+            />
             <CustomButton
-                onHover={() => { console.log("hover") }}
-                onClick={() => { console.log("click") }}
+                onClick={() => onChangePage("menu")}
             >
                 Menu
             </CustomButton>
             <CustomButton
-                onHover={() => { console.log("hover") }}
-                onClick={() => { console.log("click") }}
+                onClick={() => onChangePage("about")}
             >
                 About
             </CustomButton>
             <CustomButton
-                onHover={() => { console.log("hover") }}
-                onClick={() => { console.log("click") }}
+                onClick={() => onChangePage("book")}
                 className={classes.bookTable}
             >
                 Book a table
