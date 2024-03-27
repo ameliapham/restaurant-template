@@ -1,4 +1,6 @@
 import { tss } from 'tss-react/mui'
+import Fade from "@mui/material/Fade"
+import { useState, useEffect } from "react"
 
 import { LeftSide } from "./LeftSide"
 import { RightSide } from "./RightSide"
@@ -12,18 +14,29 @@ type SelectedPage = "home" | "menu" | "about" | "book"
 
 export function Home(props: PropsHome) {
 
+    const [checked, setChecked] = useState(false)
+
     const { className, onChangePage } = props
 
     const { cx, classes } = useStyles()
 
+    useEffect(() => {
+        setChecked(true)
+    }, [])
+
     return (
-        <div className={cx(classes.root)}>
-            <LeftSide 
-                className={classes.left}
-                onChangePage={onChangePage}
-            />
-            <RightSide className={classes.right}/>
-        </div>
+        <Fade
+            in={checked}
+            timeout={500}
+        >
+            <div className={cx(classes.root)}>
+                <LeftSide
+                    className={classes.left}
+                    onChangePage={onChangePage}
+                />
+                <RightSide className={classes.right} />
+            </div>
+        </Fade>
     )
 }
 
