@@ -1,12 +1,28 @@
 import { darkTheme } from "../theme"
 import { GlobalStyles } from 'tss-react';
 import { tss } from 'tss-react/mui';
+import { useState } from "react";
 
 import { Home } from "../pages/Home"
+import { Menu } from "../pages/Menu"
+import { About } from "../pages/About"
+
+
+
+
+type SelectedPage = "home" | "menu" | "about" | "book"
+
+
 
 export function App() {
 
+  const [selectedPage, setSelectedPage] = useState<SelectedPage>("home")
+
   const { cx, classes } = useStyles()
+  /*
+  const handleChangePage = (page: SelectedPage) => {
+    setSelectedPage(page)
+  }*/
 
   return (
     <>
@@ -24,7 +40,14 @@ export function App() {
       />
 
       <div className={classes.root}>
-        <Home />
+        {
+          {
+            "home": <Home onChangePage={setSelectedPage} />,
+            "menu": <Menu onChangePage={setSelectedPage} />,
+            "about": <About onChangePage={setSelectedPage} />,
+            "book": <div>Book</div>
+          }[selectedPage]
+        }
 
       </div>
     </>
