@@ -7,17 +7,20 @@ import backgroundImage from "../../assets/food-nem.webp"
 
 type PropsLeftSide = {
     className?: string;
+    onChangePage: (page: SelectedPage) => void;
 }
+
+type SelectedPage = "home" | "menu" | "about" | "book"
 
 export function LeftSide(props: PropsLeftSide) {
 
-    const { className } = props
+    const { className, onChangePage } = props
     const { cx, classes } = useStyles()
 
     return (
         <div className={cx(classes.root, className)}>
 
-            <MenuBar />
+            <MenuBar onChangePage={onChangePage}/>
 
             <div>
                 <h1 className={cx(classes.h1)}>
