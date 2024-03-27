@@ -2,7 +2,6 @@ import { tss } from 'tss-react/mui'
 import { CustomButton } from './CustomButton'
 import logo from '../assets/logo.svg'
 import { alpha } from '@mui/material/styles'
-import { useState } from 'react'
 
 type PropsMenuBar = {
     className?: string;
