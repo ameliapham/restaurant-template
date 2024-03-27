@@ -10,13 +10,13 @@ type FoodListProps = {
 }
 
 export function FoodList(props: FoodListProps) {
-    
-    const { className, foods, heading } = props
 
-    const { cx, classes } = useStyles()
+    const { foods, heading } = props
+
+    const { classes } = useStyles()
 
     let foodData;
-    switch(foods) {
+    switch (foods) {
         case "starters":
             foodData = starters;
             break;
@@ -32,6 +32,7 @@ export function FoodList(props: FoodListProps) {
     }
 
     return (
+
         <div className={classes.root}>
 
             <div className={classes.objectHeading}>
