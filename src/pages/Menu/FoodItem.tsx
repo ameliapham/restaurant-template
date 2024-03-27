@@ -1,4 +1,3 @@
-import { darkTheme } from "../../theme"
 import { tss } from 'tss-react/mui'
 import { FoodDetail } from "./FoodDetails"
 
