@@ -18,11 +18,7 @@ export function App() {
 
   const [selectedPage, setSelectedPage] = useState<SelectedPage>("home")
 
-  const { cx, classes } = useStyles()
-  /*
-  const handleChangePage = (page: SelectedPage) => {
-    setSelectedPage(page)
-  }*/
+  const { classes } = useStyles()
 
   return (
     <>
@@ -54,7 +50,7 @@ export function App() {
   )
 }
 
-const useStyles = tss.create(({ theme }) => ({
+const useStyles = tss.create(({}) => ({
   "root": {
     "display": "flex",
     "height": "100vh",
