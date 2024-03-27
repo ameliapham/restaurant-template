@@ -24,24 +24,28 @@ export function RightSide(props: PropsRightSide) {
                 <CustomButton
                     className={classes.button}
                     onClick={() => setSelectedCategory("starters")}
+                    selected={selectedCategory === "starters"}
                 >
                     Starters
                 </CustomButton>
                 <CustomButton
                     className={classes.button}
                     onClick={() => setSelectedCategory("mains")}
+                    selected={selectedCategory === "mains"}
                 >
                     Mains
                 </CustomButton>
                 <CustomButton
                     className={classes.button}
                     onClick={() => setSelectedCategory("desserts")}
+                    selected={selectedCategory === "desserts"}
                 >
                     Desserts
                 </CustomButton>
                 <CustomButton
                     className={classes.button}
                     onClick={() => setSelectedCategory("drinks")}
+                    selected={selectedCategory === "drinks"}
                 >
                     Drinks
                 </CustomButton>
