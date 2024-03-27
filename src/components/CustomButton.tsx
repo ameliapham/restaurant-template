@@ -8,18 +8,18 @@ type CustomButtonProps = {
     onClick?: () => void;
     children: React.ReactNode;
     icon?: React.ReactNode | boolean;
-    selected: boolean;
+    selected?: boolean;
 }
 
 export function CustomButton(props: CustomButtonProps) {
 
     const { className, onClick, children, icon, selected } = props
-    const { cx, classes } = useStyles()
+    const { cx, classes } = useStyles({ selected: !!selected })
     const Icon = React.isValidElement(icon) ? icon : icon ? <ArrowForwardIcon /> : null
 
     return (
         <button
-            className={cx(classes.button, {[classes.selected]: selected}, classes.hoverEffect, className)}
+            className={cx(classes.button, { [classes.selected]: selected }, className)}
             onClick={onClick}
         >
             {children}
@@ -29,24 +29,23 @@ export function CustomButton(props: CustomButtonProps) {
 }
 
 const useStyles = tss
-    .create(({ theme }) => ({
+    .withParams<{ selected: boolean }>()
+    .create(({ theme, selected }) => ({
         "button": {
             "display": "flex",
             "alignItems": "center",
             "gap": "5px",
             "border": `1px solid ${theme.palette.primary.dark}`,
-            "background": theme.palette.primary.dark,
-            "color": theme.palette.primary.contrastText,
+            "background": selected ? theme.palette.secondary.dark : theme.palette.primary.dark,
+            "color": selected ? theme.palette.primary.main : theme.palette.primary.contrastText,
             "padding": "10px",
             "borderRadius": "5px",
             "cursor": "pointer",
             "transition": "background 0.4s ease-in-out, border 0.4s ease-in-out, color 0.4s ease-in-out",
-        },
-        "hoverEffect": {
-            "&:not($selected):hover": {
+            "&:hover": selected ? {} : {
                 "background": alpha(theme.palette.secondary.light, 0.15),
                 "border": `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
-            }
+            },
         },
         "selected": {
             "background": theme.palette.secondary.dark,
