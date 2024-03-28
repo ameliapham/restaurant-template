@@ -27,7 +27,7 @@ export function Home(props: PropsHome) {
     return (
         <Fade
             in={checked}
-            timeout={500}
+            timeout={800}
         >
             <div className={cx(classes.root)}>
                 <LeftSide
