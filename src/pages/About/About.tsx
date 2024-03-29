@@ -9,7 +9,7 @@ type PropsAbout = {
     onChangePage: (page: SelectedPage) => void;
 }
 
-type SelectedPage = "home" | "menu" | "about" | "book"
+type SelectedPage = "home" | "menu" | "about" | "reservation"
 
 export function About(props: PropsAbout) {
 

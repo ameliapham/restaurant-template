@@ -8,7 +8,7 @@ type PropsMenuBar = {
     onChangePage: (page: SelectedPage) => void;
 }
 
-type SelectedPage = "home" | "menu" | "about" | "book"
+type SelectedPage = "home" | "menu" | "about" | "reservation"
 
 export function MenuBar(props: PropsMenuBar) {
 
@@ -34,8 +34,8 @@ export function MenuBar(props: PropsMenuBar) {
                 About
             </CustomButton>
             <CustomButton
-                onClick={() => onChangePage("book")}
-                className={classes.bookTable}
+                onClick={() => onChangePage("reservation")}
+                className={classes.reservation}
             >
                 Book a table
             </CustomButton>
@@ -61,7 +61,7 @@ const useStyles = tss
             "width": "80px",
             "cursor": "pointer",
         },
-        "bookTable": {
+        "reservation": {
             "border": `1px solid ${alpha(theme.palette.secondary.light, 0.5)}`,
         }
     }))

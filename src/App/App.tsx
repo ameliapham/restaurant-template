@@ -11,7 +11,7 @@ import { Reservation } from "../pages/Reservation"
 
 
 
-type SelectedPage = "home" | "menu" | "about" | "book"
+type SelectedPage = "home" | "menu" | "about" | "reservation"
 
 
 
@@ -42,7 +42,7 @@ export function App() {
             "home": <Home onChangePage={setSelectedPage} />,
             "menu": <Menu onChangePage={setSelectedPage} />,
             "about": <About onChangePage={setSelectedPage} />,
-            "book": <Reservation onChangePage={setSelectedPage} />,
+            "reservation": <Reservation onChangePage={setSelectedPage} />,
           }[selectedPage]
         }
 

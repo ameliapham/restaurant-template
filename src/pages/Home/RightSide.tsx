@@ -10,7 +10,7 @@ type PropsRightSide = {
     onChangePage: (page: SelectedPage) => void;
 }
 
-type SelectedPage = "home" | "menu" | "about" | "book"
+type SelectedPage = "home" | "menu" | "about" | "reservation"
 
 export function RightSide(props: PropsRightSide) {
 
@@ -30,7 +30,7 @@ export function RightSide(props: PropsRightSide) {
             <CustomCard 
                 className={classes.card}
                 backgroundImage={secondImage}
-                onClick={() => onChangePage("book")}
+                onClick={() => onChangePage("reservation")}
             >
                 Reservation
             </CustomCard>
