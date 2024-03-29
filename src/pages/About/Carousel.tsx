@@ -29,8 +29,6 @@ export function Carousel() {
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-    const [isTransitioning, setIsTransitioning] = useState(false);
-
     const { cx, classes } = useStyles();
 
     const goToNextImage = () => {
@@ -44,11 +42,20 @@ export function Carousel() {
     return (
         <div className={cx(classes.root)}>
 
-            <img
-                className={cx(classes.image)}
-                src={images[currentImageIndex].src}
-                alt={images[currentImageIndex].alt}
-            />
+            {images.map((image, index) => (
+                <img
+                    key={index}
+                    className={cx(classes.image)}
+                    src={image.src}
+                    alt={image.alt}
+                    style={{
+                        opacity: index === currentImageIndex ? 1 : 0,
+                        position: 'absolute',
+                        left: 0,
+                        top: 0,
+                    }}
+                />
+            ))}
 
             <CustomButton
                 className={cx(classes.button)}
@@ -87,6 +94,7 @@ const useStyles = tss.create(({ theme }) => ({
         "objectFit": "cover",
         "objectPosition": "center center",
         "background": "center center/cover",
+        "transition": "opacity .4s ease-in-out",
     },
     "button": {
         "position": "absolute",
@@ -97,7 +105,7 @@ const useStyles = tss.create(({ theme }) => ({
         "width": "40px",
         "height": "40px",
         "padding": "0",
-        "background": alpha(theme.palette.secondary.light, 0.15),
+        "background": alpha(theme.palette.secondary.light, 0.25),
         "border": `1px solid ${alpha(theme.palette.secondary.light, 0.25)}`,
         "&:first-of-type": {
             "left": "10px",
@@ -112,5 +120,6 @@ const useStyles = tss.create(({ theme }) => ({
     },
     "icon": {
         "color": theme.palette.text.primary,
+        "fontSize": "20px",
     }
 }));
