@@ -40,7 +40,7 @@ const useStyles = tss
             "flexDirection": "column",
             "justifyContent": "space-between",
             "background": `url(${backgroundImage}) center center/cover`,
-            "borderRadius": "20px",
+            "borderRadius": "15px",
             "padding": "30px 50px 30px 50px",
         },
         "h1": {
