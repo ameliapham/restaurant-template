@@ -2,6 +2,9 @@ import { tss } from 'tss-react/mui'
 import { alpha } from '@mui/material/styles'
 import logo from '../../assets/logoColor.svg'
 import { Carousel } from './Carousel'
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
 
 
 type PropsRightSide = {
@@ -45,13 +48,13 @@ export function RightSide(props: PropsRightSide) {
 
             <div className={classes.social}>
                 <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" >
-                    <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="facebook" className={classes.icon} />
+                    <FacebookIcon className={classes.icon} />
                 </a>
                 <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" >
-                    <img src="https://img.icons8.com/color/48/000000/instagram-new--v2.png" alt="instagram" className={classes.icon} />
+                    <InstagramIcon className={classes.icon} />
                 </a>
                 <a href="https://www.twitter.com/" target="_blank" rel="noreferrer">
-                    <img src="https://img.icons8.com/color/48/000000/twitter--v1.png" alt="twitter" className={classes.icon} />
+                    <InstagramIcon className={classes.icon} />
                 </a>
             </div>
 
@@ -132,5 +135,6 @@ const useStyles = tss
         "icon": {
             "width": "25px",
             "height": "25px",
+            "color": theme.palette.secondary.dark,
         },
     }))
