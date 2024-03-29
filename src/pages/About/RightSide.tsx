@@ -5,6 +5,7 @@ import { Carousel } from './Carousel'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import { Map } from '../../components/Map'
 
 
 type PropsRightSide = {
@@ -41,6 +42,13 @@ export function RightSide(props: PropsRightSide) {
 
                 <div className={classes.address}>
                     <p className={classes.infoHeading}>Find us</p>
+                    <Map 
+                        className={classes.map}
+                        center={{
+                            lat: 48.8477,
+                            lng: 2.3446,
+                        }}
+                    />
                     <p>3 Avenue Theophile Gautier, 75005 Paris</p>
                     <p>01 42 88 56 46</p>
                 </div>
@@ -54,7 +62,7 @@ export function RightSide(props: PropsRightSide) {
                     <InstagramIcon className={classes.icon} />
                 </a>
                 <a href="https://www.twitter.com/" target="_blank" rel="noreferrer">
-                    <InstagramIcon className={classes.icon} />
+                    <TwitterIcon className={classes.icon} />
                 </a>
             </div>
 
@@ -84,13 +92,13 @@ const useStyles = tss
             "padding": "20px",
             "alignItems": "flex-end",
             "justifyContent": "space-between",
-            "flexGrow": 1,
         },
         "describe": {
             "margin": 0,
+            "padding": 0,
         },
         "carousel": {
-            "flexGrow": 6,
+            "flexGrow": 2,
         },
         "info": {
             "display": "flex",
@@ -105,7 +113,7 @@ const useStyles = tss
             "fontWeight": theme.typography.body2.fontWeight,
             "border": `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
             "borderRadius": "15px",
-            "padding": "20px",
+            "padding": "10px 20px 10px 20px",
             "flexGrow": 1,
         },
         "address": {
@@ -114,8 +122,14 @@ const useStyles = tss
             "fontWeight": theme.typography.body2.fontWeight,
             "border": `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
             "borderRadius": "15px",
-            "padding": "20px",
+            "padding": "10px 20px 10px 20px",
             "flexGrow": 1,
+            "overflow": "hidden",
+        },
+        "map": {
+            "width": "100%",
+            "maxHeight": "200px",
+            "borderRadius": "15px",
         },
         "infoHeading": {
             "fontFamily": theme.typography.fontFamily,
