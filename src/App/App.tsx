@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Home } from "../pages/Home"
 import { Menu } from "../pages/Menu"
 import { About } from "../pages/About"
+import { Reservation } from "../pages/Reservation"
 
 
 
@@ -41,7 +42,7 @@ export function App() {
             "home": <Home onChangePage={setSelectedPage} />,
             "menu": <Menu onChangePage={setSelectedPage} />,
             "about": <About onChangePage={setSelectedPage} />,
-            "book": <div>Book</div>
+            "book": <Reservation onChangePage={setSelectedPage} />,
           }[selectedPage]
         }
 
