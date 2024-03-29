@@ -82,10 +82,10 @@ const useStyles = tss.create(({ theme }) => ({
         "alignContent": "center",
         "justifyContent": "center",
         "width": "100%",
-        "height": "200px",
+        "height": "100%",
         "overflow": "hidden",
         "gap": "10px",
-        "borderRadius": "10px",
+        "borderRadius": "15px",
         "border": `1px solid ${theme.palette.secondary.light}`,
     },
     "image": {
