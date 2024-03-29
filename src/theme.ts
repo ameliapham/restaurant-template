@@ -74,7 +74,7 @@ export const darkTheme = createTheme({
         },
         subtitle2: {
             fontSize: "20px",
-            fontWeight: "medium",
+            fontWeight: 400,
             lineHeight: 28,
         },
         body1: {
@@ -84,7 +84,7 @@ export const darkTheme = createTheme({
         },
         body2: {
             fontSize: "14px",
-            fontWeight: 400,
+            fontWeight: 200,
             lineHeight: 20,
         },
         button: {
