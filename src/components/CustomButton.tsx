@@ -32,6 +32,9 @@ const useStyles = tss
     .withParams<{ selected: boolean }>()
     .create(({ theme, selected }) => ({
         "button": {
+            "fontFamily": theme.typography.button.fontFamily,
+            "fontSize": theme.typography.button.fontSize,
+            "fontWeight": theme.typography.button.fontWeight,
             "display": "flex",
             "alignItems": "center",
             "gap": "5px",
