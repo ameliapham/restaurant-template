@@ -124,6 +124,11 @@ const useStyles = tss
             "& .MuiInput-underline:after": {
                 "borderBottomColor": theme.palette.secondary.dark,
             },
+            "& .MuiFormHelperText-root": {
+                "margin": "10px 0 0 0",
+                "padding": 0,
+                "lineHeight": 1,
+            },
         },
         "input": {
             "fontFamily": theme.typography.fontFamily,
