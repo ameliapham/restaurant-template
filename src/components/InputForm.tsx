@@ -1,7 +1,5 @@
 import TextField from '@mui/material/TextField'
-import { tss } from 'tss-react'
-import { darkTheme } from '../theme'
-
+import { tss } from 'tss-react/mui'
 
 type PropsInputForm = {
     className?: string;
@@ -12,15 +10,23 @@ export function InputForm(props: PropsInputForm) {
     const { className } = props
     const { cx, classes } = useStyles()
 
+
     return (
         <div className={cx(classes.root, className)}>
-            <p className={classes.test}></p>
             <TextField
                 className={classes.textField}
-                InputLabelProps={{ shrink: true }}
+                InputLabelProps={{ 
+                    shrink: true,
+                    className: classes.inputLabel
+                }}
+                InputProps={{ 
+                    className: classes.input
+                }}
                 label="Your name"
                 variant="filled"
                 size="small"
+                color="secondary"
+                required
             />
             <TextField
                 className={classes.textField}
@@ -28,7 +34,7 @@ export function InputForm(props: PropsInputForm) {
                 label="Email"
                 variant="filled"
                 size="small"
-
+                color="secondary"
             />
             <TextField
                 className={classes.textField}
@@ -36,6 +42,7 @@ export function InputForm(props: PropsInputForm) {
                 label="Phone number"
                 variant="filled"
                 size="small"
+                color="secondary"
             />
             <TextField
                 className={classes.textField}
@@ -43,6 +50,7 @@ export function InputForm(props: PropsInputForm) {
                 label="Number of guests"
                 variant="filled"
                 size="small"
+                color="secondary"
             />
             <TextField
                 className={classes.textField}
@@ -51,6 +59,7 @@ export function InputForm(props: PropsInputForm) {
                 variant="filled"
                 type="date"
                 size="small"
+                color="secondary"
             />
             <TextField
                 className={classes.textField}
@@ -59,6 +68,7 @@ export function InputForm(props: PropsInputForm) {
                 variant="filled"
                 type="time"
                 size="small"
+                color="secondary"
             />
             <TextField
                 className={classes.textField}
@@ -69,6 +79,7 @@ export function InputForm(props: PropsInputForm) {
                 multiline
                 rows={4}
                 size="small"
+                color="secondary"
             />
 
         </div>
@@ -77,19 +88,36 @@ export function InputForm(props: PropsInputForm) {
 }
 
 const useStyles = tss
-    .create(({  }) => ({
-        "test": {
-            "display": "none",
-            "color": darkTheme.palette.secondary.main,
-        },
+    .create(({ theme }) => ({
         "root": {
             "display": "flex",
             "flexDirection": "column",
             "gap": "20px",
-            "color": darkTheme.palette.text.primary,
-            "fontFamily": darkTheme.typography.fontFamily,
         },
         "textField": {
             "width": "100%",
+            "& .MuiFilledInput-root": {
+                "background": theme.palette.secondary.light,
+                "color": theme.palette.text.primary,
+            },
+            "& .MuiFormLabel-root": {
+                "color": theme.palette.text.primary,
+            },
+            "& .MuiInputBase-input": {
+                "color": theme.palette.secondary.main,
+            },
+            "& .MuiInput-underline:before": {
+                "borderBottomColor": theme.palette.secondary.main,
+            },
+            "& .MuiInput-underline:after": {
+                "borderBottomColor": theme.palette.secondary.dark,
+            },
+        },
+        "input": {
+            "fontFamily": theme.typography.fontFamily,
+
+        },
+        "inputLabel": {
+            "fontStyle": "italic",
         },
     }))
