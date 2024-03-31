@@ -1,5 +1,6 @@
 import TextField from '@mui/material/TextField'
 import { tss } from 'tss-react/mui'
+import { useState } from 'react'
 
 type PropsInputForm = {
     className?: string;
@@ -9,7 +10,15 @@ export function InputForm(props: PropsInputForm) {
 
     const { className } = props
     const { cx, classes } = useStyles()
+    const [error, setError] = useState(false)
 
+    const handleValidation = (event: any) => {
+        if (event.target.value === "") {
+            setError(true)
+        } else {
+            setError(false)
+        }
+    }
 
     return (
         <div className={cx(classes.root, className)}>
@@ -27,6 +36,9 @@ export function InputForm(props: PropsInputForm) {
                 size="small"
                 color="secondary"
                 required
+                error={error}
+                helperText={error ? "This field is required" : ""}
+                onChange={handleValidation}
             />
             <TextField
                 className={classes.textField}
