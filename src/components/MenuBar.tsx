@@ -7,7 +7,7 @@ import { useFoo } from "tools/useFoo";
 
 type PropsMenuBar = {
     className?: string;
-    selectedPage: "home" | "menu" | "about" | "reservation";
+    selectedPage?: "home" | "menu" | "about" | "reservation";
     onChangePage: (page: SelectedPage) => void;
 }
 
