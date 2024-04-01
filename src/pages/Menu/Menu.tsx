@@ -32,7 +32,7 @@ export function Menu(props: PropsMenu) {
     )
 }
 
-const useStyles = tss.create(({}) => ({
+const useStyles = tss.create(() => ({
     "root": {
         "display": "flex",
         "flexGrow": 1,

@@ -12,7 +12,7 @@ type SelectedPage = "home" | "menu" | "about" | "reservation"
 
 export function App() {
 
-  const [selectedPage, setSelectedPage] = useState<SelectedPage>("home")
+  const [selectedPage, setSelectedPage] = useState<SelectedPage>("reservation")
 
   const { classes, theme } = useStyles()
 
@@ -25,22 +25,25 @@ export function App() {
             width: "100%",
             margin: 0,
             padding: 0,
-            backgroundColor: theme.palette.primary.dark,
+            backgroundColor: theme.palette.background.default,
             color: theme.palette.text.primary,
           },
         }}
       />
 
       <div className={classes.root}>
-        {
-          {
-            "home": <Home onChangePage={setSelectedPage} />,
-            "menu": <Menu onChangePage={setSelectedPage} />,
-            "about": <About onChangePage={setSelectedPage} />,
-            "reservation": <Reservation onChangePage={setSelectedPage} />,
-          }[selectedPage]
-        }
-
+        {(() => {
+          switch (selectedPage) {
+            case "home":
+              return <Home onChangePage={setSelectedPage} />
+            case "menu":
+              return <Menu onChangePage={setSelectedPage} />
+            case "about":
+              return <About onChangePage={setSelectedPage} />
+            case "reservation":
+              return <Reservation onChangePage={setSelectedPage} />
+          }
+        })()}
       </div>
     </>
   )

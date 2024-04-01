@@ -2,7 +2,7 @@ import { tss } from 'tss-react/mui'
 import { CustomTextField } from './CustomTextField'
 import Checkbox from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
-import { darkTheme } from '../theme'
+import { useFoo } from "tools/useFoo";
 
 type PropsInputForm = {
     className?: string;
@@ -11,10 +11,13 @@ type PropsInputForm = {
 export function InputForm(props: PropsInputForm) {
 
     const { className } = props
-    const { cx, classes } = useStyles()
+    const { cx, classes, theme } = useStyles()
+
+    const { foo } = useFoo();
 
     return (
         <div className={cx(classes.root, className)}>
+            <h1>{foo}</h1>
             <div className={classes.line}>
                 <CustomTextField
                     label="Your name"
@@ -66,10 +69,10 @@ export function InputForm(props: PropsInputForm) {
                 label="I agree to use my personal data."
                 sx={{
                     '& .MuiFormControlLabel-label': {
-                        "fontFamily": darkTheme.typography.fontFamily,
+                        "fontFamily": theme.typography.fontFamily,
                         "lineHeight": 1.5,
-                        "fontSize": darkTheme.typography.body2.fontSize,
-                        "fontWeight": darkTheme.typography.body2.fontWeight,
+                        "fontSize": theme.typography.body2.fontSize,
+                        "fontWeight": theme.typography.body2.fontWeight,
                     }
                 }}
             />
@@ -80,7 +83,7 @@ export function InputForm(props: PropsInputForm) {
 }
 
 const useStyles = tss
-    .create(({ }) => ({
+    .create(() => ({
         "root": {
             "display": "flex",
             "flexDirection": "column",

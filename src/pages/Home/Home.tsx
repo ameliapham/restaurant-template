@@ -43,7 +43,7 @@ export function Home(props: PropsHome) {
     )
 }
 
-const useStyles = tss.create(({ }) => ({
+const useStyles = tss.create(() => ({
     "root": {
         "display": "flex",
         "flexGrow": 1,

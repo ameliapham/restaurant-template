@@ -23,11 +23,13 @@ export function LeftSide(props: PropsLeftSide) {
 
             <MenuBar onChangePage={onChangePage}/>
 
-            <div style={{ border: "1px solid red" }}>
-                <Typography variant="h1">
+            <div>
+                <Typography 
+                    variant="h1"
+                >
                     Book
                 </Typography>
-                <Typography variant="h2">
+                <Typography variant="body1" >
                     A Table
                 </Typography>
             </div>
@@ -37,7 +39,7 @@ export function LeftSide(props: PropsLeftSide) {
 }
 
 const useStyles = tss
-    .create(() => ({
+    .create(({ theme }) => ({
         "root": {
             "boxSizing": "border-box",
             "display": "flex",
@@ -46,5 +48,6 @@ const useStyles = tss
             "background": `url(${backgroundImage}) center center/cover`,
             "borderRadius": "15px",
             "padding": "30px 50px 30px 50px",
+            "color": theme.palette.grey[100],
         },
     }))

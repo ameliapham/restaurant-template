@@ -2,6 +2,8 @@ import { tss } from 'tss-react/mui'
 import { CustomButton } from './CustomButton'
 import logo from '../assets/logo.svg'
 import { alpha } from '@mui/material/styles'
+import { DarkModeSwitch } from "theme";
+import { useFoo } from "tools/useFoo";
 
 type PropsMenuBar = {
     className?: string;
@@ -14,9 +16,13 @@ export function MenuBar(props: PropsMenuBar) {
 
     const { className, onChangePage } = props
     const { cx, classes } = useStyles()
+    const { setFoo } = useFoo();
 
     return (
-        <div className={cx(classes.root, className)}>
+        <div 
+        className={cx(classes.root, className)}
+        onMouseEnter={() => setFoo("Hello!!!!")}
+        >
             <img
                 className={cx(classes.logo)}
                 src={logo}
@@ -39,6 +45,7 @@ export function MenuBar(props: PropsMenuBar) {
             >
                 Book a table
             </CustomButton>
+            <DarkModeSwitch />
         </div>
     )
 }
