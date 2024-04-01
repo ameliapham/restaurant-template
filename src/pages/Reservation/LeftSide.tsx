@@ -1,6 +1,7 @@
 //import { darkTheme } from "../../theme"
 import { tss } from 'tss-react/mui'
 import { MenuBar } from '../../components/MenuBar';
+import Typography from '@mui/material/Typography';
 
 import backgroundImage from "../../assets/reservation2.webp"
 
@@ -22,13 +23,13 @@ export function LeftSide(props: PropsLeftSide) {
 
             <MenuBar onChangePage={onChangePage}/>
 
-            <div>
-                <h1 className={cx(classes.h1)}>
+            <div style={{ border: "1px solid red" }}>
+                <Typography variant="h1">
                     Book
-                </h1>
-                <h1 className={cx(classes.h1)}>
+                </Typography>
+                <Typography variant="h2">
                     A Table
-                </h1>
+                </Typography>
             </div>
 
         </div >
@@ -36,7 +37,7 @@ export function LeftSide(props: PropsLeftSide) {
 }
 
 const useStyles = tss
-    .create(({ theme }) => ({
+    .create(() => ({
         "root": {
             "boxSizing": "border-box",
             "display": "flex",
@@ -46,11 +47,4 @@ const useStyles = tss
             "borderRadius": "15px",
             "padding": "30px 50px 30px 50px",
         },
-        "h1": {
-            "fontFamily": theme.typography.h1.fontFamily,
-            "color": theme.palette.text.primary,
-            "fontSize": theme.typography.h1.fontSize,
-            "fontWeight": theme.typography.h1.fontWeight,
-            "margin": "0",
-        }
     }))

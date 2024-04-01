@@ -45,17 +45,17 @@ export const darkTheme = createTheme({
             fontFamily: "Time New Roman",
             fontSize: "112px",
             fontWeight: 700,
-            lineHeight: 100,
+            //lineHeight: "20rem",
         },
         h2: {
             fontSize: "64px",
             fontWeight: 700,
-            lineHeight: 72,
+            //lineHeight: 72,
         },
         h3: {
             fontSize: "48px",
             fontWeight: 700,
-            lineHeight: 56,
+            //lineHeight: 56,
         },
         h4: {
             fontSize: "34px",
