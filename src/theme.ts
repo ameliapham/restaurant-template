@@ -84,12 +84,12 @@ export const darkTheme = createTheme({
         },
         body2: {
             fontSize: "14px",
-            fontWeight: 200,
+            fontWeight: 300,
             lineHeight: 20,
         },
         button: {
             fontSize: "14px",
-            fontWeight: 400,
+            fontWeight: 300,
             lineHeight: 20,
         },
         caption: {
