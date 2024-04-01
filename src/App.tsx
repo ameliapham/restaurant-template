@@ -1,25 +1,20 @@
-import { darkTheme } from "../theme"
 import { GlobalStyles } from 'tss-react';
 import { tss } from 'tss-react/mui';
 import { useState } from "react";
 
-import { Home } from "../pages/Home"
-import { Menu } from "../pages/Menu"
-import { About } from "../pages/About"
-import { Reservation } from "../pages/Reservation"
-
-
-
+import { Home } from "pages/Home"
+import { Menu } from "pages/Menu"
+import { About } from "pages/About"
+import { Reservation } from "pages/Reservation"
 
 type SelectedPage = "home" | "menu" | "about" | "reservation"
-
 
 
 export function App() {
 
   const [selectedPage, setSelectedPage] = useState<SelectedPage>("home")
 
-  const { classes } = useStyles()
+  const { classes, theme } = useStyles()
 
   return (
     <>
@@ -30,8 +25,8 @@ export function App() {
             width: "100%",
             margin: 0,
             padding: 0,
-            backgroundColor: darkTheme.palette.primary.dark,
-            color: darkTheme.palette.text.primary,
+            backgroundColor: theme.palette.primary.dark,
+            color: theme.palette.text.primary,
           },
         }}
       />
@@ -51,10 +46,10 @@ export function App() {
   )
 }
 
-const useStyles = tss.create(({}) => ({
+const useStyles = tss.create({
   "root": {
     "display": "flex",
     "height": "100vh",
     "width": "100vw",
   }
-}));
+});
