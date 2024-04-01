@@ -37,7 +37,8 @@ export function CustomCard(props: PropsCustomCard) {
 }
 
 const useStyles = tss
-    .create(({ theme }) => ({
+    .withNestedSelectors<"button" | "background">()
+    .create(({ theme, classes }) => ({
         "root": {
             "position": "relative",
             "display": "flex",
@@ -47,14 +48,15 @@ const useStyles = tss
             "overflow": "hidden",
             "background": "center center/cover",
             "cursor": "pointer",
-            //Test hover in the button here but failed
-            "&&:hover $button": {
+            [`&:hover .${classes.button}`]: {
                 "color": theme.palette.secondary.dark,
                 "background": theme.palette.primary.dark,
                 "border": `1px solid ${theme.palette.primary.dark}`,
                 "filter": "none"
+            },
+            [`&:hover .${classes.background}`]: {
+                "filter": "brightness(1.05)"
             }
-
         },
         "background": {
             "position": "absolute",
@@ -64,21 +66,12 @@ const useStyles = tss
             "height": "100%",
             "background": "center center/cover",
             "transition": "filter 0.4s ease-in-out",
-            "filter": "brightness(0.8)",
-            "&:hover": {
-                "filter": "brightness(1.05)"
-            }
+            "filter": "brightness(0.8)"
         },
         "button": {
             "zIndex": 1,
             "alignSelf": "flex-end",
             "padding": "10px 10px 10px 20px",
-            "borderRadius": "15px 0 0 0",
-            "&:hover": {
-                "color": theme.palette.secondary.dark,
-                "background": theme.palette.primary.dark,
-                "border": `1px solid ${theme.palette.primary.dark}`,
-                "filter": "none"
-            }
+            "borderRadius": "15px 0 0 0"
         }
     }))
