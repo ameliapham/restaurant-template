@@ -43,7 +43,7 @@ export function Home(props: PropsHome) {
     )
 }
 
-const useStyles = tss.create(() => ({
+const useStyles = tss.create(({ theme }) => ({
     "root": {
         "display": "flex",
         "flexGrow": 1,
@@ -53,8 +53,14 @@ const useStyles = tss.create(() => ({
     },
     "left": {
         "width": "75%",
+        [theme.breakpoints.down("lg")]: {
+            "display": "none"
+        }
     },
     "right": {
         "width": "25%",
+        [theme.breakpoints.down("lg")]: {
+            "width": "100%"
+        }
     }
 }));
