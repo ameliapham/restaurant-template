@@ -1,5 +1,8 @@
 import { tss } from 'tss-react/mui'
 import { CustomTextField } from './CustomTextField'
+import Checkbox from '@mui/material/Checkbox'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import { darkTheme } from '../theme'
 
 type PropsInputForm = {
     className?: string;
@@ -54,6 +57,22 @@ export function InputForm(props: PropsInputForm) {
                 rows={2}
             />
 
+            <FormControlLabel
+                control={
+                    <Checkbox
+                        color="secondary"
+                    />
+                }
+                label="I agree to use my personal data."
+                sx={{
+                    '& .MuiFormControlLabel-label': {
+                        "fontFamily": darkTheme.typography.fontFamily,
+                        "lineHeight": 1.5,
+                        "fontSize": darkTheme.typography.body2.fontSize,
+                        "fontWeight": darkTheme.typography.body2.fontWeight,
+                    }
+                }}
+            />
 
         </div>
 
