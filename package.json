@@ -17,7 +17,8 @@
     "@react-google-maps/api": "^2.19.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tss-react": "^4.9.4"
+    "tss-react": "^4.9.4",
+    "tsafe": "^1.6.6"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",
