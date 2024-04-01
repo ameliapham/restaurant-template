@@ -2,8 +2,10 @@ import { tss } from 'tss-react/mui'
 import Fade from "@mui/material/Fade"
 import { useState, useEffect } from "react"
 
-import { LeftSide } from "./LeftSide"
+import { LeftSide } from "components/LeftSide"
 import { RightSide } from "./RightSide"
+
+import backgroundImageUrl from "assets/food-pho.webp"
 
 type PropsHome = {
     className?: string;
@@ -31,8 +33,14 @@ export function Home(props: PropsHome) {
         >
             <div className={cx(classes.root)}>
                 <LeftSide
+                    selectedPage='home'
                     className={classes.left}
+                    classes={{
+                        "heroText": classes.leftSideHeroText
+                    }}
                     onChangePage={onChangePage}
+                    heroText={<> Zen<br />Gourmet </>}
+                    backgroundImageUrl={backgroundImageUrl}
                 />
                 <RightSide 
                     className={classes.right} 
@@ -55,7 +63,10 @@ const useStyles = tss.create(({ theme }) => ({
         "width": "75%",
         [theme.breakpoints.down("lg")]: {
             "display": "none"
-        }
+        },
+    },
+    "leftSideHeroText": {
+        "color": theme.palette.grey[200]
     },
     "right": {
         "width": "25%",
