@@ -44,7 +44,10 @@ export function CustomTextField(props: PropsCustomTextField) {
             }}
 
             InputProps={{
-                className: classes.input
+                className: classes.input,
+                classes: {
+                    "underline": classes.inputUnderline
+                }
             }}
         />
     )
@@ -66,12 +69,6 @@ const useStyles = tss
             "& .MuiInputBase-input": { // Style de l'input
                 "color": theme.palette.secondary.main,
             },
-            "& .MuiInput-underline:before": { // Style de l'underline avant
-                "borderBottomColor": theme.palette.primary.main,
-            },
-            "& .MuiInput-underline:after": { // Style de l'underline après
-                "borderBottomColor": theme.palette.secondary.dark,
-            },
             "& .MuiFormHelperText-root": { // Style de l'helper text
                 "margin": "10px 0 0 0",
                 "padding": 0,
@@ -80,7 +77,14 @@ const useStyles = tss
         },
         "input": { // Style de l'input
             "fontFamily": theme.typography.fontFamily,
-
+        },
+        "inputUnderline": {
+                "&:before": {
+                    "borderBottomColor": theme.palette.primary.main,
+                },
+                "&:after": {
+                    "borderBottomColor": theme.palette.secondary.dark,
+                },
         },
         "inputLabel": { // Style de l'input label
             "fontStyle": "italic",
