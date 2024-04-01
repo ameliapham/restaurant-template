@@ -71,6 +71,7 @@ const useStyles = tss
             "borderRadius": "20px",
             "padding": "20px",
             "border": `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
+            "overflow": "hidden",
         },
         "button": {
             "border": `1px solid ${alpha(theme.palette.secondary.light, 0.5)}`,

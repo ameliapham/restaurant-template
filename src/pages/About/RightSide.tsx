@@ -79,6 +79,7 @@ const useStyles = tss
             "boxSizing": "border-box",
             "gap": "20px",
             "borderRadius": "20px",
+            "overflow": "hidden",
         },
         "about": {
             "display": "flex",

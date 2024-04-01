@@ -50,6 +50,7 @@ const useStyles = tss
             "borderRadius": "20px",
             "padding": "20px",
             "border": `1px solid ${theme.palette.secondary.light}`,
+            "overflow": "hidden",
         },
         "objectHeading": {
             "display": "flex",

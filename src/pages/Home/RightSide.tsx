@@ -53,6 +53,7 @@ const useStyles = tss
             "flexDirection": "column",
             "boxSizing": "border-box",
             "gap": "20px",
+            "overflow": "hidden",
         },
         "card": {
             "display": "flex",
