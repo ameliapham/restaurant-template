@@ -1,5 +1,5 @@
 import { tss } from 'tss-react/mui'
-import { CustomButton } from '../../components/CustomButton'
+import { CustomButton } from 'components/CustomButton'
 import { alpha } from '@mui/material/styles'
 import { FoodList } from './FoodList'
 import { useState } from 'react'
