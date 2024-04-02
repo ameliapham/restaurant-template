@@ -1,8 +1,8 @@
 import { tss } from 'tss-react/mui'
-import { CustomCard } from '../../components/CustomCard'
-import firstImage from "../../assets/food-nem.webp"
-import secondImage from "../../assets/reservation2.webp"
-import thirdImage from "../../assets/resto4.webp"
+import { CustomCard } from 'components/CustomCard'
+import firstImage from "assets/food-nem.webp"
+import secondImage from "assets/reservation2.webp"
+import thirdImage from "assets/resto4.webp"
 
 
 type PropsRightSide = {
