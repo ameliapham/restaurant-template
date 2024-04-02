@@ -2,8 +2,8 @@ import { tss } from 'tss-react/mui'
 import Divider from '@mui/material/Divider'
 import { alpha } from '@mui/material/styles'
 
-import { InputForm } from '../../components/InputForm'
-import { CustomButton } from '../../components/CustomButton'
+import { InputForm } from 'components/InputForm'
+import { CustomButton } from 'components/CustomButton'
 
 type PropsRightSide = {
     className?: string;
@@ -45,7 +45,7 @@ const useStyles = tss
             "display": "flex",
             "flexDirection": "column",
             "boxSizing": "border-box",
-            "gap": "50px",
+            "gap": "40px",
             "alignItems": "center",
             "borderRadius": "20px",
             "padding": "20px",
