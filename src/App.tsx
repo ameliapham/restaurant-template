@@ -1,12 +1,12 @@
-import { darkTheme } from "../theme"
+import { darkTheme } from "./theme"
 import { GlobalStyles } from 'tss-react';
 import { tss } from 'tss-react/mui';
 import { useState } from "react";
 
-import { Home } from "../pages/Home"
-import { Menu } from "../pages/Menu"
-import { About } from "../pages/About"
-import { Reservation } from "../pages/Reservation"
+import { Home } from "./pages/Home"
+import { Menu } from "./pages/Menu"
+import { About } from "./pages/About"
+import { Reservation } from "./pages/Reservation"
 
 
 
