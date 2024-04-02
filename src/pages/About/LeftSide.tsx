@@ -1,8 +1,8 @@
 //import { darkTheme } from "../../theme"
 import { tss } from 'tss-react/mui'
-import { MenuBar } from '../../components/MenuBar';
+import { MenuBar } from 'components/MenuBar';
 
-import backgroundImage from "../../assets/resto4.webp"
+import backgroundImage from "assets/resto4.webp"
 
 
 type PropsLeftSide = {
