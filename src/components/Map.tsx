@@ -11,7 +11,7 @@ type Props = {
 
 export function Map(props: Props) {
 
-    const { className, center } = props;
+    const { center } = props;
 
     const containerStyle = {
         width: '100%',
