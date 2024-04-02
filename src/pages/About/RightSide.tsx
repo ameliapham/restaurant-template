@@ -1,11 +1,11 @@
 import { tss } from 'tss-react/mui'
 import { alpha } from '@mui/material/styles'
-import logo from '../../assets/logoColor.svg'
+import logo from 'assets/logoColor.svg'
 import { Carousel } from './Carousel'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import { Map } from '../../components/Map'
+import { Map } from 'components/Map'
 
 
 type PropsRightSide = {
