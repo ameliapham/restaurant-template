@@ -1,11 +1,11 @@
-import restoImage from '../../assets/resto3.jpeg';
-import restoImage2 from "../../assets/resto4.webp"
+import restoImage from 'assets/resto3.jpeg';
+import restoImage2 from "assets/resto4.webp"
 import { useState } from 'react';
 import { tss } from 'tss-react/mui';
 import { alpha } from '@mui/material/styles';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { CustomButton } from '../../components/CustomButton';
+import { CustomButton } from 'components/CustomButton';
 
 
 type PropsImage = {
