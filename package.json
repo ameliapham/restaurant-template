@@ -30,7 +30,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "typescript": "^5.2.2",
-    "vite": "^5.1.4"
+    "vite": "^5.1.4",
+    "vite-tsconfig-paths": "^4.3.2"
   },
   "main": "index.js",
   "repository": "https://github.com/ameliapham/react-starter-kit.git",
