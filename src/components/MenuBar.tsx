@@ -5,6 +5,7 @@ import { alpha } from '@mui/material/styles'
 
 type PropsMenuBar = {
     className?: string;
+    selectedPage: SelectedPage;
     onChangePage: (page: SelectedPage) => void;
 }
 
