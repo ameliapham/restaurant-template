@@ -2,7 +2,7 @@ import { tss } from 'tss-react/mui'
 import Divider from '@mui/material/Divider'
 import { alpha } from '@mui/material/styles'
 
-import { InputForm } from 'components/InputForm'
+import { ReservationForm } from 'pages/Reservation/ReservationForm'
 import { CustomButton } from 'components/CustomButton'
 
 type PropsRightSide = {
@@ -26,7 +26,7 @@ export function RightSide(props: PropsRightSide) {
                 Book at ZenAsia for a captivating culinary adventure with Asia's finest flavors. Reserve now!
             </p>
 
-            <InputForm className={classes.inputForm}/>
+            <ReservationForm className={classes.inputForm}/>
 
             <CustomButton
                 className={classes.reservation}

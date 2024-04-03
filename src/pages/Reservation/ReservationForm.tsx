@@ -1,14 +1,14 @@
 import { tss } from 'tss-react/mui'
-import { CustomTextField } from './CustomTextField'
+import { CustomTextField } from '../../components/CustomTextField'
 import Checkbox from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
-import { darkTheme } from '../theme'
+import { darkTheme } from '../../theme'
 
 type PropsInputForm = {
     className?: string;
 }
 
-export function InputForm(props: PropsInputForm) {
+export function ReservationForm(props: PropsInputForm) {
 
     const { className } = props
     const { cx, classes } = useStyles()
