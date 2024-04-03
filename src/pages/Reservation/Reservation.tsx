@@ -2,7 +2,9 @@ import { tss } from 'tss-react/mui'
 import Fade from "@mui/material/Fade"
 
 import { RightSide } from "./RightSide"
-import { LeftSide } from "./LeftSide"
+import { LeftSide } from "components/LeftSide"
+import backgroundImageUrl from "assets/reservation2.webp"
+
 
 type PropsReservation = {
     className?: string;
@@ -24,8 +26,11 @@ export function Reservation(props: PropsReservation) {
         >
             <div className={cx(classes.root)}>
                 <LeftSide
+                    selectedPage='reservation'
                     className={classes.left}
                     onChangePage={onChangePage}
+                    backgroundImageUrl={backgroundImageUrl}
+                    heroText={<>Book <br/> A Table </>}
                 />
                 <RightSide className={classes.right} />
             </div>

@@ -2,7 +2,9 @@ import { tss } from 'tss-react/mui'
 import Fade from "@mui/material/Fade"
 
 import { RightSide } from "./RightSide"
-import { LeftSide } from "./LeftSide"
+import { LeftSide } from "components/LeftSide"
+import backgroundImageUrl from "assets/food-nem.webp"
+
 
 type PropsMenu = {
     className?: string;
@@ -23,8 +25,11 @@ export function Menu(props: PropsMenu) {
         >
             <div className={cx(classes.root)}>
                 <LeftSide
+                    selectedPage='menu'
                     className={classes.left}
                     onChangePage={onChangePage}
+                    backgroundImageUrl={backgroundImageUrl}
+                    heroText={<>Menu</>}
                 />
                 <RightSide className={classes.right} />
             </div>

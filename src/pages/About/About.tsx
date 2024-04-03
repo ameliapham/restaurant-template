@@ -2,7 +2,9 @@ import { tss } from 'tss-react/mui'
 import Fade from "@mui/material/Fade"
 
 import { RightSide } from "./RightSide"
-import { LeftSide } from "./LeftSide"
+import { LeftSide } from "components/LeftSide"
+import backgroundImageUrl from "assets/resto4.webp"
+
 
 type PropsAbout = {
     className?: string;
@@ -24,8 +26,11 @@ export function About(props: PropsAbout) {
         >
             <div className={cx(classes.root)}>
                 <LeftSide
+                    selectedPage='about'
                     className={classes.left}
                     onChangePage={onChangePage}
+                    backgroundImageUrl={backgroundImageUrl}
+                    heroText={<>About</>}
                 />
                 <RightSide className={classes.right} />
             </div>
