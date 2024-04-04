@@ -4,15 +4,15 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 type PropsCustomCard = {
     className?: string;
-    backgroundImage: string;
+    backgroundImageUrl: string;
     onClick?: () => void;
     children?: React.ReactNode;
 }
 
 export function CustomCard(props: PropsCustomCard) {
 
-    const { className, backgroundImage, children, onClick } = props
-    const { cx, classes } = useStyles()
+    const { className, backgroundImageUrl, children, onClick } = props
+    const { cx, classes } = useStyles({ backgroundImageUrl })
 
     return (
         <div
@@ -21,7 +21,6 @@ export function CustomCard(props: PropsCustomCard) {
 
             <div
                 className={classes.background}
-                style={{ backgroundImage: `url(${backgroundImage})` }}
                 onClick={onClick}
             ></div>
 
@@ -38,8 +37,9 @@ export function CustomCard(props: PropsCustomCard) {
 
 const useStyles = tss
     .withName("CustomCard")
+    .withParams<{ backgroundImageUrl: string }>()
     .withNestedSelectors<"button" | "background">()
-    .create(({ theme, classes }) => ({
+    .create(({ theme, classes, backgroundImageUrl }) => ({
         "root": {
             "position": "relative",
             "display": "flex",
@@ -47,7 +47,6 @@ const useStyles = tss
             "boxSizing": "border-box",
             "borderRadius": "10px",
             "overflow": "hidden",
-            "background": "center center/cover",
             "cursor": "pointer",
             [`&:hover .${classes.button}`]: {
                 "color": theme.palette.secondary.dark,
@@ -66,7 +65,7 @@ const useStyles = tss
             "left": "0",
             "width": "100%",
             "height": "100%",
-            "background": "center center/cover",
+            "background": `url(${backgroundImageUrl}) center center/cover`,
             "transition": "filter 0.4s ease-in-out",
             "filter": "brightness(0.8)",
         },
