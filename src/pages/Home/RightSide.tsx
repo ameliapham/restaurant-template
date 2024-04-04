@@ -21,7 +21,7 @@ export function RightSide(props: PropsRightSide) {
         <div className={cx(classes.root, className)}>
             <CustomCard 
                 className={classes.card}
-                backgroundImage={firstImage}
+                backgroundImageUrl={firstImage}
                 onClick={() => onChangePage("menu")}
             >
                 Menu
@@ -29,14 +29,14 @@ export function RightSide(props: PropsRightSide) {
 
             <CustomCard 
                 className={classes.card}
-                backgroundImage={secondImage}
+                backgroundImageUrl={secondImage}
                 onClick={() => onChangePage("reservation")}
             >
                 Reservation
             </CustomCard>
             <CustomCard 
                 className={classes.card}
-                backgroundImage={thirdImage}
+                backgroundImageUrl={thirdImage}
                 onClick={() => onChangePage("about")}
             >
                 Our restaurant
