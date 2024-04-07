@@ -15,6 +15,10 @@ export const darkTheme = createTheme({
             secondary: "#D0D4DA",
             disabled: "#373E4F",
         },
+        background: {
+            default: "#2C323F",
+            paper: "#373E4F",
+        },
         primary: {
             main: "#2C323F",
             light: "#373E4F",
