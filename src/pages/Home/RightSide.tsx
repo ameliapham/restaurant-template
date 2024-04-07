@@ -47,12 +47,12 @@ export function RightSide(props: PropsRightSide) {
 }
 
 const useStyles = tss
-    .create(({}) => ({
+    .create(({ theme }) => ({
         "root": {
             "display": "flex",
             "flexDirection": "column",
             "boxSizing": "border-box",
-            "gap": "20px",
+            "gap": theme.spacing(2),
             "overflow": "hidden",
         },
         "card": {

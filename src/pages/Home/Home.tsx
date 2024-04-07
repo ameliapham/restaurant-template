@@ -52,8 +52,8 @@ const useStyles = tss.create(({ theme }) => ({
     "root": {
         "display": "flex",
         "flexGrow": 1,
-        "gap": "20px",
-        "margin": theme.spacing(4),
+        "gap": theme.spacing(2),
+        "margin": theme.spacing(2),
     },
     "left": {
         "width": "75%",
