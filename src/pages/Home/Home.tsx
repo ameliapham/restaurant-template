@@ -48,17 +48,19 @@ export function Home(props: PropsHome) {
     )
 }
 
-const useStyles = tss.create(({ theme }) => ({
-    "root": {
-        "display": "flex",
-        "flexGrow": 1,
-        "gap": theme.spacing(2),
-        "margin": theme.spacing(2),
-    },
-    "left": {
-        "width": "75%",
-    },
-    "right": {
-        "width": "25%",
-    }
-}));
+const useStyles = tss
+    .withName("Home")
+    .create(({ theme }) => ({
+        "root": {
+            "display": "flex",
+            "flexGrow": 1,
+            "gap": theme.spacing(2),
+            "margin": theme.spacing(2),
+        },
+        "left": {
+            "width": "75%",
+        },
+        "right": {
+            "width": "25%",
+        }
+    }));
