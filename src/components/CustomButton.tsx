@@ -30,6 +30,7 @@ export function CustomButton(props: CustomButtonProps) {
 }
 
 const useStyles = tss
+    .withName("CustomButton")
     .withParams<{ selected: boolean }>()
     .create(({ theme, selected }) => ({
         "button": {
