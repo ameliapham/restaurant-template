@@ -50,8 +50,8 @@ export function RightSide(props: PropsRightSide) {
                     Drinks
                 </CustomButton>
             </div>
-            
-            <FoodList 
+
+            <FoodList
                 heading={selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}
                 foods={selectedCategory}
             ></FoodList>
@@ -62,14 +62,15 @@ export function RightSide(props: PropsRightSide) {
 }
 
 const useStyles = tss
+    .withName("RightSide")
     .create(({ theme }) => ({
         "root": {
             "display": "flex",
             "flexDirection": "column",
             "boxSizing": "border-box",
-            "gap": "40px",
-            "borderRadius": "20px",
-            "padding": "20px",
+            "gap": theme.spacing(5),
+            "borderRadius": theme.spacing(2),
+            "padding": `30px ${theme.spacing(2)} 30px ${theme.spacing(2)}`,
             "border": `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
             "overflow": "hidden",
         },
@@ -78,7 +79,7 @@ const useStyles = tss
         },
         "hashtag": {
             "display": "flex",
-            "gap": "10px",
+            "gap": theme.spacing(1),
             "flexWrap": "wrap",
             "justifyContent": "center",
         },

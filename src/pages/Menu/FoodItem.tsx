@@ -1,5 +1,6 @@
 import { tss } from 'tss-react/mui'
 import { FoodDetail } from "./FoodDetails"
+import Typography from '@mui/material/Typography'
 
 type FoodItemProps = {
     className?: string;
@@ -23,65 +24,71 @@ export function FoodItem(props: FoodItemProps) {
 
                     <div className={classes.textZone}>
                         <div className={classes.nameVsPrice}>
-                            <div>{foods.nameOfDish}</div>
-                            <div>{foods.price}</div>
+                            <Typography
+                                variant='body2'
+                            >
+                                {foods.nameOfDish}
+                            </Typography>
+
+                            <Typography
+                                variant='body2'
+                            >
+                                {foods.price}
+                            </Typography>
                         </div>
 
-                        <div className={classes.details}>
+                        <Typography
+                            variant='caption'
+                            className={classes.details}
+                        >
                             {foods.details}
-                        </div>
+                        </Typography>
 
                     </div>
                 </div>
-            ))}
+            ))
+            }
 
-        </div>
+        </div >
 
     )
 }
 
 const useStyles = tss
+    .withName("FoodItem")
     .create(({ theme }) => ({
         "root": {
             "boxSizing": "border-box",
             "display": "flex",
             "flexDirection": "row",
             "justifyContent": "center",
-            "borderRadius": "20px",
-            "gap": "20px",
+            "gap": theme.spacing(2),
             "alignItems": "center",
-            "paddingBottom": "20px",
+            "paddingBottom": theme.spacing(2),
         },
         "illustration": {
-            "borderRadius": "10px",
             "background": "center center/cover",
             "width": "30%",
             "height": "100%",
-            "minHeight": "90px",
-            "maxHeight": "90px",
-            "maxWidth": "90px",
+            "minHeight": theme.spacing(12),
+            "maxHeight": theme.spacing(12),
+            "maxWidth": theme.spacing(12),
         },
         "textZone": {
             "display": "flex",
             "flexDirection": "column",
-            "gap": "8px",
+            "gap": theme.spacing(1),
             "width": "70%",
         },
         "nameVsPrice": {
             "display": "flex",
             "flexDirection": "row",
             "justifyContent": "space-between",
-            "fontFamily": theme.typography.fontFamily,
-            "color": theme.palette.text.primary,
-            "fontSize": theme.typography.body1.fontSize,
-            "fontWeight": theme.typography.body1.fontWeight,
-            "gap": "10px",
+            "color": theme.palette.secondary.dark,
+            "gap": theme.spacing(1),
         },
         "details": {
             "textAlign": "left",
-            "fontFamily": theme.typography.fontFamily,
             "color": theme.palette.text.primary,
-            "fontSize": theme.typography.caption.fontSize,
-            "fontWeight": theme.typography.caption.fontWeight,
         },
     }))
