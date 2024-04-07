@@ -16,8 +16,8 @@ export const darkTheme = createTheme({
             disabled: "#373E4F",
         },
         background: {
-            default: "#2C323F",
-            paper: "#373E4F",
+            default: "#20242E",
+            paper: "#2C323F",
         },
         primary: {
             main: "#2C323F",
