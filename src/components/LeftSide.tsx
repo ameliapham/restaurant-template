@@ -39,7 +39,7 @@ const useStyles = tss
             "flexDirection": "column",
             "justifyContent": "space-between",
             "background": `url(${backgroundImageUrl}) center center/cover`,
-            "borderRadius": "20px",
+            "borderRadius": theme.spacing(2),
             "padding": "30px 50px 30px 50px",
         },
         "heroText": {
