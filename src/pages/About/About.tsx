@@ -38,18 +38,20 @@ export function About(props: PropsAbout) {
     )
 }
 
-const useStyles = tss.create(({}) => ({
-    "root": {
-        "display": "flex",
-        "flexGrow": 1,
-        "gap": "20px",
-        "borderRadius": "20px",
-        "margin": "30px",
-    },
-    "left": {
-        "width": "60%",
-    },
-    "right": {
-        "width": "40%",
-    }
-}));
+const useStyles = tss
+    .withName("About")
+    .create(({ theme }) => ({
+        "root": {
+            "display": "flex",
+            "flexGrow": 1,
+            "gap": theme.spacing(2),
+            "borderRadius": theme.spacing(2),
+            "margin": theme.spacing(2),
+        },
+        "left": {
+            "width": "60%",
+        },
+        "right": {
+            "width": "40%",
+        }
+    }));
