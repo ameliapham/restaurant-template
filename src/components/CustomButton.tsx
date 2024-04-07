@@ -2,6 +2,7 @@ import { tss } from 'tss-react/mui'
 import { alpha } from "@mui/material/styles";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import React from 'react';
+import Button from '@mui/material/Button';
 
 type CustomButtonProps = {
     className?: string;
@@ -18,13 +19,13 @@ export function CustomButton(props: CustomButtonProps) {
     const Icon = React.isValidElement(icon) ? icon : icon ? <ArrowForwardIcon /> : null
 
     return (
-        <button
+        <Button
             className={cx(classes.button, { [classes.selected]: selected }, className)}
             onClick={onClick}
         >
             {children}
             {Icon}
-        </button>
+        </Button>
     )
 }
 
@@ -32,22 +33,13 @@ const useStyles = tss
     .withParams<{ selected: boolean }>()
     .create(({ theme, selected }) => ({
         "button": {
-            "fontFamily": theme.typography.button.fontFamily,
-            "fontSize": theme.typography.button.fontSize,
-            "fontWeight": theme.typography.button.fontWeight,
-            "display": "flex",
-            "alignItems": "center",
-            "gap": "5px",
+            "textTransform": "none",
             "border": `1px solid ${theme.palette.primary.dark}`,
-            "background": selected ? theme.palette.secondary.dark : theme.palette.primary.dark,
             "color": selected ? theme.palette.primary.main : theme.palette.primary.contrastText,
-            "padding": "10px",
-            "borderRadius": "5px",
-            "cursor": "pointer",
             "transition": "background 0.4s ease-in-out, border 0.4s ease-in-out, color 0.4s ease-in-out",
-            "&:hover": selected ? {} : {
-                "background": alpha(theme.palette.secondary.light, 0.15),
-                "border": `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
+            "&:hover": {
+                "background": selected ? theme.palette.secondary.dark : alpha(theme.palette.secondary.light, 0.15),
+                "border": selected ? "" : `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
             },
         },
         "selected": {
