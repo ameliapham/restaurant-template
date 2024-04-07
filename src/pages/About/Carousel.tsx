@@ -75,51 +75,52 @@ export function Carousel() {
 }
 
 
-const useStyles = tss.create(({ theme }) => ({
-    "root": {
-        "position": "relative",
-        "display": "flex",
-        "alignContent": "center",
-        "justifyContent": "center",
-        "width": "100%",
-        "height": "100%",
-        "overflow": "hidden",
-        "gap": "10px",
-        "borderRadius": "15px",
-        "border": `1px solid ${theme.palette.secondary.light}`,
-    },
-    "image": {
-        "width": "100%",
-        "height": "100%",
-        "objectFit": "cover",
-        "objectPosition": "center center",
-        "background": "center center/cover",
-        "transition": "opacity .4s ease-in-out",
-    },
-    "button": {
-        "position": "absolute",
-        "top": "50%",
-        "transform": "translateY(-50%)",
-        "justifyContent": "center",
-        "borderRadius": "50px",
-        "width": "40px",
-        "height": "40px",
-        "padding": "0",
-        "background": alpha(theme.palette.secondary.light, 0.25),
-        "border": `1px solid ${alpha(theme.palette.secondary.light, 0.25)}`,
-        "&:first-of-type": {
-            "left": "10px",
+const useStyles = tss
+    .withName("Carousel")
+    .create(({ theme }) => ({
+        "root": {
+            "position": "relative",
+            "display": "flex",
+            "alignContent": "center",
+            "justifyContent": "center",
+            "width": "100%",
+            "height": "100%",
+            "overflow": "hidden",
+            "borderRadius": theme.spacing(2),
+            "border": `1px solid ${theme.palette.secondary.light}`,
         },
-        "&:last-of-type": {
-            "right": "10px",
+        "image": {
+            "width": "100%",
+            "height": "100%",
+            "objectFit": "cover",
+            "objectPosition": "center center",
+            "background": "center center/cover",
+            "transition": "opacity .4s ease-in-out",
         },
-        "&:hover": {
-            "background": alpha(theme.palette.secondary.light, 0.55),
+        "button": {
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "justifyContent": "center",
+            "borderRadius": theme.spacing(5),
+            "min-width": theme.spacing(4.5),
+            "height": theme.spacing(4.5),
+            "padding": "0",
+            "background": alpha(theme.palette.secondary.light, 0.25),
+            "border": `1px solid ${alpha(theme.palette.secondary.light, 0.25)}`,
+            "&:first-of-type": {
+                "left": theme.spacing(3),
+            },
+            "&:last-of-type": {
+                "right": theme.spacing(3),
+            },
+            "&:hover": {
+                "background": alpha(theme.palette.secondary.light, 0.55),
 
+            },
         },
-    },
-    "icon": {
-        "color": theme.palette.text.primary,
-        "fontSize": "20px",
-    }
-}));
+        "icon": {
+            "color": theme.palette.text.primary,
+            "fontSize": theme.spacing(2),
+        }
+    }));
