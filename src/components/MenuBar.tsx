@@ -26,16 +26,19 @@ export function MenuBar(props: PropsMenuBar) {
             />
             <CustomButton
                 onClick={() => onChangePage("menu")}
+                selected={props.selectedPage === "menu"}
             >
                 Menu
             </CustomButton>
             <CustomButton
                 onClick={() => onChangePage("about")}
+                selected={props.selectedPage === "about"}
             >
                 About
             </CustomButton>
             <CustomButton
                 onClick={() => onChangePage("reservation")}
+                selected={props.selectedPage === "reservation"}
                 className={classes.reservation}
             >
                 Book a table
@@ -50,16 +53,16 @@ const useStyles = tss
             "boxSizing": "border-box",
             "display": "inline-flex",
             "justifyContent": "center",
-            "gap": "10px",
-            "padding": "5px 15px 5px 15px",
+            "gap": theme.spacing(1.2),
+            "padding": "5px 5px 5px 15px",
             "border": `1px solid ${theme.palette.primary.main}`,
-            "borderRadius": "10px",
+            "borderRadius": theme.spacing(1),
             "background": theme.palette.primary.dark,
             "alignItems": "center",
             "alignSelf": "flex-start",
         },
         "logo": {
-            "width": "80px",
+            "width": theme.spacing(10),
             "cursor": "pointer",
         },
         "reservation": {
