@@ -1,4 +1,3 @@
-import { darkTheme } from "./theme"
 import { GlobalStyles } from 'tss-react';
 import { tss } from 'tss-react/mui';
 import { useState } from "react";
@@ -19,7 +18,7 @@ export function App() {
 
   const [selectedPage, setSelectedPage] = useState<SelectedPage>("home")
 
-  const { classes } = useStyles()
+  const { classes, theme } = useStyles()
 
   return (
     <>
@@ -30,8 +29,8 @@ export function App() {
             width: "100%",
             margin: 0,
             padding: 0,
-            backgroundColor: darkTheme.palette.primary.dark,
-            color: darkTheme.palette.text.primary,
+            backgroundColor: theme.palette.background.default,
+            color: theme.palette.text.primary,
           },
         }}
       />
