@@ -1,6 +1,7 @@
 import { tss } from 'tss-react/mui'
-import Divider from '@mui/material/Divider'
+//import Divider from '@mui/material/Divider'
 import { alpha } from '@mui/material/styles'
+import Typography from '@mui/material/Typography'
 
 import { ReservationForm } from 'pages/Reservation/ReservationForm'
 import { CustomButton } from 'components/CustomButton'
@@ -16,17 +17,28 @@ export function RightSide(props: PropsRightSide) {
 
     return (
         <div className={cx(classes.root, className)}>
-            <div className={classes.objectHeading}>
-                <Divider className={classes.divider}>
-                    Reservation
-                </Divider>
+           
+           <div className={classes.objectHeading}>
+                
+
+                    <Typography
+                        variant="h6"
+                    >
+                        Reservation
+                    </Typography>
+
+                
+
             </div>
 
-            <p className={classes.text}>
+            <Typography
+                variant="body2"
+                className={classes.text}
+            >
                 Book at ZenAsia for a captivating culinary adventure with Asia's finest flavors. Reserve now!
-            </p>
+            </Typography>
 
-            <ReservationForm className={classes.inputForm}/>
+            <ReservationForm className={classes.inputForm} />
 
             <CustomButton
                 className={classes.reservation}
@@ -40,36 +52,28 @@ export function RightSide(props: PropsRightSide) {
 }
 
 const useStyles = tss
+    .withName("RightSideReservation")
     .create(({ theme }) => ({
         "root": {
             "display": "flex",
             "flexDirection": "column",
             "boxSizing": "border-box",
-            "gap": "40px",
+            "gap": theme.spacing(5),
             "alignItems": "center",
-            "borderRadius": "20px",
-            "padding": "20px",
+            "borderRadius": theme.spacing(2),
+            "padding": theme.spacing(3),
             "border": `1px solid ${theme.palette.secondary.light}`,
             "overflow": "hidden",
+            "justifyContent": "center",
         },
         "objectHeading": {
-            "display": "flex",
-            "justifyContent": "center",
-            "fontFamily": theme.typography.fontFamily,
-            "color": theme.palette.text.primary,
-            "fontSize": theme.typography.body1.fontSize,
-        },
-        "divider": {
-            "width": "82%",
+            "color": theme.palette.secondary.dark,
+            "textTransform": "uppercase",
         },
         "text": {
             "display": "flex",
             "textAlign": "center",
             "justifyContent": "center",
-            "fontFamily": theme.typography.fontFamily,
-            "color": theme.palette.text.primary,
-            "fontSize": theme.typography.body2.fontSize,
-            "fontWeight": theme.typography.body2.fontWeight,
             "margin": 0,
             "padding": 0,
         },

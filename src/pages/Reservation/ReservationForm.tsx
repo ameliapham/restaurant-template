@@ -2,7 +2,6 @@ import { tss } from 'tss-react/mui'
 import { CustomTextField } from '../../components/CustomTextField'
 import Checkbox from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
-import { darkTheme } from '../../theme'
 
 type PropsInputForm = {
     className?: string;
@@ -11,7 +10,7 @@ type PropsInputForm = {
 export function ReservationForm(props: PropsInputForm) {
 
     const { className } = props
-    const { cx, classes } = useStyles()
+    const { cx, classes, theme } = useStyles()
 
     return (
         <div className={cx(classes.root, className)}>
@@ -66,10 +65,10 @@ export function ReservationForm(props: PropsInputForm) {
                 label="I agree to use my personal data."
                 sx={{
                     '& .MuiFormControlLabel-label': {
-                        "fontFamily": darkTheme.typography.fontFamily,
+                        "fontFamily": theme.typography.fontFamily,
                         "lineHeight": 1.5,
-                        "fontSize": darkTheme.typography.body2.fontSize,
-                        "fontWeight": darkTheme.typography.body2.fontWeight,
+                        "fontSize": theme.typography.body2.fontSize,
+                        "fontWeight": theme.typography.body2.fontWeight,
                     }
                 }}
             />
@@ -80,14 +79,15 @@ export function ReservationForm(props: PropsInputForm) {
 }
 
 const useStyles = tss
-    .create(({ }) => ({
+    .withName("ReservationForm")
+    .create(({ theme }) => ({
         "root": {
             "display": "flex",
             "flexDirection": "column",
-            "gap": "20px",
+            "gap": theme.spacing(2),
         },
         "line": {
             "display": "flex",
-            "gap": "50px",
+            "gap": theme.spacing(5),
         },
     }))

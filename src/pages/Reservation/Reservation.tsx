@@ -30,7 +30,7 @@ export function Reservation(props: PropsReservation) {
                     className={classes.left}
                     onChangePage={onChangePage}
                     backgroundImageUrl={backgroundImageUrl}
-                    heroText={<>Book <br/> A Table </>}
+                    heroText={<>Book <br /> A Table </>}
                 />
                 <RightSide className={classes.right} />
             </div>
@@ -38,18 +38,19 @@ export function Reservation(props: PropsReservation) {
     )
 }
 
-const useStyles = tss.create(({}) => ({
-    "root": {
-        "display": "flex",
-        "flexGrow": 1,
-        "gap": "20px",
-        "borderRadius": "20px",
-        "margin": "30px",
-    },
-    "left": {
-        "width": "60%",
-    },
-    "right": {
-        "width": "40%",
-    }
-}));
+const useStyles = tss
+    .withName("Reservation")
+    .create(({ theme }) => ({
+        "root": {
+            "display": "flex",
+            "flexGrow": 1,
+            "gap": theme.spacing(2),
+            "margin": theme.spacing(2),
+        },
+        "left": {
+            "width": "60%",
+        },
+        "right": {
+            "width": "40%",
+        }
+    }));
