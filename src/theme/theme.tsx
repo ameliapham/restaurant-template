@@ -27,7 +27,7 @@ export const darkTheme = createTheme({
         secondary: {
             main: alpha("#D4A373", 0.7),
             light: alpha("#D4A373", 0.4),
-            dark: alpha("#D4A373", 1.0),
+            dark: alpha("#D4A373", 1),
         },
         error: {
             main: "#E04E41",
@@ -56,6 +56,25 @@ export const darkTheme = createTheme({
 export const lightTheme = createTheme({
     palette: {
         mode: "light",
+        text: {
+            primary: "#2C323F",
+            secondary: "#373E4F",
+            disabled: "#D0D4DA",
+        },
+        background: {
+            default: "#F6EDDE",
+            paper: "#EBD8BD",
+        },
+        primary: {
+            main: "#F6EDDE",
+            light: "#EAEAEA",
+            dark: "#F6EDDE",
+        },
+        secondary: {
+            main: alpha("#c68249", 1),
+            light: alpha("#d4a373", 1),
+            dark: alpha("#b86d3e", 1),
+        },
     },
     typography,
 });
