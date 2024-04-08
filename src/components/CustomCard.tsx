@@ -1,6 +1,7 @@
 import { tss } from 'tss-react/mui'
 import { CustomButton } from './CustomButton'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { alpha } from '@mui/material/styles'
 
 type PropsCustomCard = {
     className?: string;
@@ -51,8 +52,8 @@ const useStyles = tss
             [`&:hover .${classes.button}`]: {
                 "color": theme.palette.secondary.dark,
                 "background": theme.palette.primary.dark,
-                "border": `1px solid ${theme.palette.primary.dark}`,
-                "filter": "none"
+                "filter": "none",
+                "border": `1px solid ${alpha(theme.palette.secondary.light, 0)}`,
             },
             [`&:hover .${classes.background}`]: {
                 "filter": "brightness(1.05)"
