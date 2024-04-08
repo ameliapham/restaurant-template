@@ -1,8 +1,8 @@
 import { tss } from 'tss-react/mui'
-import { CustomButton } from 'components/CustomButton'
-import { alpha } from '@mui/material/styles'
 import { FoodList } from './FoodList'
 import { useState } from 'react'
+import { Divider } from '@mui/material'
+import { HashtagButton } from './HashtagButton'
 
 
 type PropsRightSide = {
@@ -15,40 +15,62 @@ export function RightSide(props: PropsRightSide) {
 
 
     const { className } = props
-    const { cx, classes } = useStyles()
+    const { cx, classes } = useStyles({ selected: false })
     const [selectedCategory, setSelectedCategory] = useState<FoodCategory>("starters")
 
     return (
         <div className={cx(classes.root, className)}>
             <div className={classes.hashtag}>
-                <CustomButton
-                    className={classes.button}
+                <HashtagButton
                     onClick={() => setSelectedCategory("starters")}
                     selected={selectedCategory === "starters"}
                 >
                     Starters
-                </CustomButton>
-                <CustomButton
-                    className={classes.button}
+                </HashtagButton>
+
+                <Divider
+                    orientation="vertical"
+                    variant="middle"
+                    flexItem
+                    className={classes.divider}
+                />
+
+                <HashtagButton
                     onClick={() => setSelectedCategory("mains")}
                     selected={selectedCategory === "mains"}
                 >
                     Mains
-                </CustomButton>
-                <CustomButton
-                    className={classes.button}
+                </HashtagButton>
+
+
+                <Divider
+                    orientation="vertical"
+                    variant="middle"
+                    flexItem
+                    className={classes.divider}
+                />
+
+                <HashtagButton
                     onClick={() => setSelectedCategory("desserts")}
                     selected={selectedCategory === "desserts"}
                 >
                     Desserts
-                </CustomButton>
-                <CustomButton
-                    className={classes.button}
+                </HashtagButton>
+
+
+                <Divider
+                    orientation="vertical"
+                    variant="middle"
+                    flexItem
+                    className={classes.divider}
+                />
+
+                <HashtagButton
                     onClick={() => setSelectedCategory("drinks")}
                     selected={selectedCategory === "drinks"}
                 >
                     Drinks
-                </CustomButton>
+                </HashtagButton>
             </div>
 
             <FoodList
@@ -63,6 +85,7 @@ export function RightSide(props: PropsRightSide) {
 
 const useStyles = tss
     .withName("RightSide")
+    .withParams<{ selected: boolean }>()
     .create(({ theme }) => ({
         "root": {
             "display": "flex",
@@ -74,13 +97,12 @@ const useStyles = tss
             "border": `1px solid ${theme.palette.secondary.light}`,
             "overflow": "hidden",
         },
-        "button": {
-            "border": `1px solid ${alpha(theme.palette.secondary.light, 0.5)}`,
-        },
         "hashtag": {
             "display": "flex",
-            "gap": theme.spacing(1),
             "flexWrap": "wrap",
             "justifyContent": "center",
         },
+        "divider": {
+            "background": theme.palette.secondary.light,
+        }
     }))
