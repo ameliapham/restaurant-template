@@ -1,5 +1,4 @@
 import { tss } from 'tss-react/mui'
-import { alpha } from '@mui/material/styles'
 import logo from 'assets/logoColor.svg'
 import { Carousel } from './Carousel'
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -111,7 +110,7 @@ const useStyles = tss
         "about": {
             "display": "flex",
             "gap": theme.spacing(3),
-            "border": `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
+            "border": `1px solid ${theme.palette.secondary.light}`,            
             "borderRadius": theme.spacing(2),
             "overflow": "hidden",
             "padding": theme.spacing(3),
@@ -141,7 +140,7 @@ const useStyles = tss
             "display": "flex",
             "flexDirection": "column",
             "gap": theme.spacing(2),
-            "border": `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
+            "border": `1px solid ${theme.palette.secondary.light}`,            
             "borderRadius": theme.spacing(2),
             "padding": theme.spacing(2),
             "flexGrow": 1,
@@ -157,7 +156,7 @@ const useStyles = tss
             "gap": theme.spacing(2),
             "justifyContent": "center",
             "alignItems": "center",
-            "border": `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
+            "border": `1px solid ${theme.palette.secondary.light}`,            
             "borderRadius": theme.spacing(2),
             "height": theme.spacing(6),
         },
