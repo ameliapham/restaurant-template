@@ -44,7 +44,9 @@ export function FoodList(props: FoodListProps) {
                     textAlign='center'>
 
                     <Typography
-                        variant="body1">
+                        variant="h6"
+                        className={classes.h6}
+                    >
                         {heading}
                     </Typography>
 
@@ -75,6 +77,10 @@ const useStyles = tss
         },
         "divider": {
             "width": "90%",
-        }
+        },
+        "h6": {
+            "textTransform": "uppercase",
+            "color": theme.palette.secondary.dark,
+        },
 
     }))

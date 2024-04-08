@@ -25,13 +25,13 @@ export function FoodItem(props: FoodItemProps) {
                     <div className={classes.textZone}>
                         <div className={classes.nameVsPrice}>
                             <Typography
-                                variant='body2'
+                                variant='body1'
                             >
                                 {foods.nameOfDish}
                             </Typography>
 
                             <Typography
-                                variant='body2'
+                                variant='body1'
                             >
                                 {foods.price}
                             </Typography>
@@ -84,11 +84,13 @@ const useStyles = tss
             "display": "flex",
             "flexDirection": "row",
             "justifyContent": "space-between",
-            "color": theme.palette.secondary.dark,
+            "color": theme.palette.text.primary,
             "gap": theme.spacing(1),
+            //"textTransform": "uppercase",
         },
         "details": {
             "textAlign": "left",
             "color": theme.palette.text.primary,
+            "fontWeight": "lighter",
         },
     }))
