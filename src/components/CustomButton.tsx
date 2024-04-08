@@ -37,7 +37,7 @@ const useStyles = tss
             "textTransform": "none",
             "border": `1px solid ${theme.palette.primary.dark}`,
             "background": selected ? theme.palette.secondary.dark : theme.palette.primary.dark,
-            "color": selected ? theme.palette.primary.main : theme.palette.primary.contrastText,
+            "color": selected ? theme.palette.primary.main : theme.palette.text.primary,
             "transition": "background 0.4s ease-in-out, border 0.4s ease-in-out, color 0.4s ease-in-out",
             "&:hover": {
                 "background": selected ? theme.palette.secondary.dark : alpha(theme.palette.secondary.light, 0.15),
