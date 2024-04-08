@@ -71,7 +71,7 @@ const useStyles = tss
             "gap": theme.spacing(5),
             "borderRadius": theme.spacing(2),
             "padding": `30px ${theme.spacing(2)} 30px ${theme.spacing(2)}`,
-            "border": `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
+            "border": `1px solid ${theme.palette.secondary.light}`,
             "overflow": "hidden",
         },
         "button": {
