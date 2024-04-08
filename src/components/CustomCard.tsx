@@ -46,7 +46,7 @@ const useStyles = tss
             "display": "flex",
             "justifyContent": "flex-end",
             "boxSizing": "border-box",
-            "borderRadius": "10px",
+            "borderRadius": theme.spacing(2),
             "overflow": "hidden",
             "cursor": "pointer",
             [`&:hover .${classes.button}`]: {
@@ -74,6 +74,6 @@ const useStyles = tss
             "zIndex": 1,
             "alignSelf": "flex-end",
             "padding": "10px 10px 10px 20px",
-            "borderRadius": "15px 0 0 0",
+            "borderRadius": `${theme.spacing(2)} 0 ${theme.spacing(2)} 0`,
         }
     }))
