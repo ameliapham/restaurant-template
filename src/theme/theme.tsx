@@ -25,9 +25,9 @@ export const darkTheme = createTheme({
             dark: "#20242E",
         },
         secondary: {
-            main: alpha("#D4A373", 0.7),
-            light: alpha("#D4A373", 0.4),
-            dark: alpha("#D4A373", 1),
+            main: alpha("#debc93", 1),
+            light: alpha("#ebd8bd", 0.5),
+            dark: alpha("#d4a373", 1),
         },
         error: {
             main: "#E04E41",
