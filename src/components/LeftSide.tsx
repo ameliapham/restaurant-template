@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
 import { tss } from 'tss-react/mui'
 import Typography from '@mui/material/Typography'
-
 import { MenuBar } from 'components/MenuBar';
+import { DarkModeSwitch } from 'theme/DarkModeSwitch';
 
 type PropsLeftSide = {
     className?: string;
@@ -19,7 +19,10 @@ export function LeftSide(props: PropsLeftSide) {
 
     return (
         <div className={cx(classes.root, className)}>
-            <MenuBar selectedPage={selectedPage} onChangePage={onChangePage} />
+            <div className={classes.header}>
+                <MenuBar selectedPage={selectedPage} onChangePage={onChangePage} />
+                <DarkModeSwitch />
+            </div>
 
             <Typography variant='h1' className={classes.heroText}>
                 {heroText}
@@ -41,6 +44,11 @@ const useStyles = tss
             "background": `url(${backgroundImageUrl}) center center/cover`,
             "borderRadius": theme.spacing(2),
             "padding": "30px 50px 30px 50px",
+        },
+        "header": {
+            "display": "flex",
+            "justifyContent": "start",
+            "gap": "10px",
         },
         "heroText": {
             "color": theme.palette.text.primary,
