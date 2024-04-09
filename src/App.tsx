@@ -36,14 +36,18 @@ export function App() {
       />
 
       <div className={classes.root}>
-        {
-          {
-            "home": <Home onChangePage={setSelectedPage} />,
-            "menu": <Menu onChangePage={setSelectedPage} />,
-            "about": <About onChangePage={setSelectedPage} />,
-            "reservation": <Reservation onChangePage={setSelectedPage} />,
-          }[selectedPage]
-        }
+        {(() => {
+          switch (selectedPage) {
+            case "home":
+              return <Home onChangePage={setSelectedPage} />
+            case "menu":
+              return <Menu onChangePage={setSelectedPage} />
+            case "about":
+              return <About onChangePage={setSelectedPage} />
+            case "reservation":
+              return <Reservation onChangePage={setSelectedPage} />
+          }
+        })()}
 
       </div>
     </>
