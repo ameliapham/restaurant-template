@@ -1,6 +1,7 @@
 import { tss } from 'tss-react/mui'
 import { CustomButton } from './CustomButton'
-import logo from '../assets/logo.svg'
+import logoDark from 'assets/logoDark.svg'
+import logoLight from 'assets/logoLight.svg'
 import { alpha } from '@mui/material/styles'
 
 type PropsMenuBar = {
@@ -14,13 +15,13 @@ type SelectedPage = "home" | "menu" | "about" | "reservation"
 export function MenuBar(props: PropsMenuBar) {
 
     const { className, onChangePage } = props
-    const { cx, classes } = useStyles()
+    const { cx, classes, theme } = useStyles()
 
     return (
         <div className={cx(classes.root, className)}>
             <img
                 className={cx(classes.logo)}
-                src={logo}
+                src = {theme.palette.mode === 'dark' ? logoDark : logoLight}
                 alt="logo"
                 onClick={() => onChangePage("home")}
             />
