@@ -24,7 +24,7 @@ export function LeftSide(props: PropsLeftSide) {
                 <DarkModeSwitch />
             </div>
 
-            <Typography variant='h1' className={classes.heroText}>
+            <Typography variant='h1'>
                 {heroText}
             </Typography>
 
@@ -44,14 +44,11 @@ const useStyles = tss
             "background": `url(${backgroundImageUrl}) center center/cover`,
             "borderRadius": theme.spacing(2),
             "padding": "30px 50px 30px 50px",
+            "color": "#f6edde",
         },
         "header": {
             "display": "flex",
             "justifyContent": "start",
             "gap": "10px",
-        },
-        "heroText": {
-            "color": theme.palette.text.primary,
-            "margin": "0",
         },
     }))
