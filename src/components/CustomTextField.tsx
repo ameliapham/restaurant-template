@@ -29,7 +29,7 @@ export function CustomTextField(props: PropsCustomTextField) {
             label={label}
             type={type}
             variant="standard"
-            size="small"
+            size="medium"
             color="secondary"
             required={required}
             error={error}
@@ -40,12 +40,18 @@ export function CustomTextField(props: PropsCustomTextField) {
 
             InputLabelProps={{
                 shrink: true,
-                //className: classes.inputLabel
+                classes: {
+                    "focused": classes.focused,
+                },
             }}
 
             InputProps={{
-                className: classes.input
+                classes: {
+                    "input": classes.input,
+                    "underline": classes.inputUnderline,
+                },
             }}
+
         />
     )
 }
@@ -54,33 +60,31 @@ const useStyles = tss
     .create(({ theme }) => ({
         "textField": {
             "width": "100%",
-            "& .MuiFilledInput-root": { // Style de l'input root
-                "background": theme.palette.primary.dark,
-            },
+
             "& .MuiFormLabel-root": { // Style de form label avant
                 "color": alpha(theme.palette.text.secondary, 0.5),
             },
-            "& .Mui-focused": { // Style de form label après
-                "color": theme.palette.secondary.main,
-            },
-            "& .MuiInputBase-input": { // Style de l'input
-                "color": theme.palette.secondary.main,
-            },
-            "& .MuiInput-underline:before": { // Style de l'underline avant
-                "borderBottomColor": theme.palette.primary.main,
-            },
-            "& .MuiInput-underline:after": { // Style de l'underline après
-                "borderBottomColor": theme.palette.secondary.dark,
-            },
+            
             "& .MuiFormHelperText-root": { // Style de l'helper text
                 "margin": "10px 0 0 0",
                 "padding": 0,
                 "lineHeight": 1,
             },
         },
-        "input": { // Style de l'input
+        "focused": { // Style de l'input label focused
+            "color": theme.palette.secondary.main,
+        },
+        "input": { 
             "fontFamily": theme.typography.fontFamily,
-
+            "color": theme.palette.text.primary,
+        },
+        "inputUnderline": {
+            "&:before": {
+                borderBottomColor: alpha(theme.palette.text.primary, 0.2),
+            },
+            "&:after": {
+                borderBottomColor: theme.palette.secondary.dark,
+            },
         },
         "inputLabel": { // Style de l'input label
             "fontStyle": "italic",
