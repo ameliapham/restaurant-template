@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { tss } from 'tss-react/mui'
 import Typography from '@mui/material/Typography'
-import { MenuBar } from 'components/MenuBar';
+import { MenuBar } from 'components/AppBar';
 import { DarkModeSwitch } from 'theme/DarkModeSwitch';
 
 type PropsLeftSide = {
