@@ -57,7 +57,7 @@ const useStyles = tss.create(({ theme }) => ({
             },
     },
     "switchThumb": {
-            backgroundColor: theme.palette.mode === 'dark' ? '#001e3c' : '#d4a373',
+            backgroundColor: theme.palette.mode === 'dark' ? '#373E4F' : '#d4a373',
             width: 32,
             height: 32,
             '&::before': {
