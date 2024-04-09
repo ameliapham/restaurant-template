@@ -20,7 +20,7 @@ type DarkModeProviderProps = {
 export function DarkModeProvider(props: DarkModeProviderProps) {
     const { children } = props;
 
-    const [isDarkMode, setIsDarkMode] = useState(() => /*getIsDarkModeEnabledByDefault()*/ true);
+    const [isDarkMode, setIsDarkMode] = useState(() => getIsDarkModeEnabledByDefault());
 
     const contextValue = {
         isDarkMode,
