@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { tss } from 'tss-react/mui'
 import Typography from '@mui/material/Typography'
-import { MenuBar } from 'components/AppBar';
+import { AppBar } from 'components/AppBar';
 import { DarkModeSwitch } from 'theme/DarkModeSwitch';
 
 type PropsLeftSide = {
@@ -20,7 +20,7 @@ export function LeftSide(props: PropsLeftSide) {
     return (
         <div className={cx(classes.root, className)}>
             <div className={classes.header}>
-                <MenuBar selectedPage={selectedPage} onChangePage={onChangePage} />
+                <AppBar selectedPage={selectedPage} onChangePage={onChangePage} />
                 <DarkModeSwitch />
             </div>
 
