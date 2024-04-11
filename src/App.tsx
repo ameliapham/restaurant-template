@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import { GlobalStyles } from 'tss-react';
-import { tss } from 'tss-react/mui';
+import { tss } from 'tss';
 import { useState } from "react";
 
 import { Home } from "pages/Home"
@@ -18,8 +19,26 @@ export function App() {
 
   const [selectedPage, setSelectedPage] = useState<SelectedPage>("home")
 
-  const { classes } = useStyles()
+  const { classes, theme } = useStyles()
 
+  // This is for the theme color of the browser
+  // it will take effect when the user is on mobile
+  useEffect(
+    ()=> {
+
+      const existingMeta = document.querySelector("meta[name='theme-color']")
+      if (existingMeta !== null) {
+        existingMeta.remove()
+      }
+
+      const meta = document.createElement("meta");
+      meta.name = "theme-color";
+      meta.content = theme.palette.background.default;
+      document.head.appendChild(meta);
+
+    },
+    [theme.palette.mode]
+  );
 
   return (
     <>
@@ -29,6 +48,9 @@ export function App() {
             margin: 0,
             padding: 0,
           },
+          "body": {
+            "backgroundColor": theme.palette.background.default,
+          }
         }}
       />
 
@@ -54,7 +76,6 @@ export function App() {
 const useStyles = tss.create(({ theme }) => ({
   "root": {
     "width": "100vw",
-    "backgroundColor": theme.palette.background.default,
     "color": theme.palette.text.primary,
     "overflow": "hidden",
     "height": "100vh",
