@@ -22,8 +22,8 @@ export function AppBar(props: PropsMenuBar) {
 
     const { className, onChangePage } = props
     const { cx, classes, theme } = useStyles()
-    const [openDrawer, setOpenDrawer] = useState(false)
 
+    const [openDrawer, setOpenDrawer] = useState(false)
     const toggleDrawer = (newOpenDrawer: boolean) => () => {
         setOpenDrawer(newOpenDrawer);
     };

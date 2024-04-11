@@ -26,20 +26,19 @@ export function NavigationMenu(props: PropsDrawerList) {
     const DrawerList = (
         <Box
             role="presentation"
-            onClick={onCLick}
             className={classes.drawer}
         >
             <div className={classes.container}>
                 <List className={classes.head}>
                     <IconButton
                         className={classes.closeButton}
-                        //onClick={() => setOpenDrawer(true)}
+                        onClick={onCLick}
                     >
                         <CloseIcon />
                     </IconButton>
                     <DarkModeSwitch />
                 </List>
-    
+
                 <List>
                     {['Home', 'Menu', 'About', 'Reservation'].map((text) => (
                         <ListItem key={text} disablePadding >
@@ -54,7 +53,7 @@ export function NavigationMenu(props: PropsDrawerList) {
                         </ListItem>
                     ))}
                 </List>
-    
+
                 <div className={classes.social}>
                     <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" >
                         <FacebookIcon className={classes.icon} />
@@ -66,7 +65,7 @@ export function NavigationMenu(props: PropsDrawerList) {
                         <TwitterIcon className={classes.icon} />
                     </a>
                 </div>
-    
+
             </div>
         </Box>
     );
@@ -75,6 +74,7 @@ export function NavigationMenu(props: PropsDrawerList) {
 }
 
 const useStyles = tss
+    .withName("NavigationMenu")
     .create(({ theme }) => ({
         "drawer": {
             "height": "100vh",
