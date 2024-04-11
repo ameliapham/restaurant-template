@@ -10,6 +10,7 @@ export function DarkModeSwitch() {
 
     return (
         <FormControlLabel
+            className={classes.formControlLabel}
             control={
                 <Switch
                     className={classes.switch}
@@ -32,6 +33,9 @@ export function DarkModeSwitch() {
 }
 
 const useStyles = tss.create(({ theme }) => ({
+    "formControlLabel": {
+        margin: 0,
+    },
     "switch": {
         margin: theme.spacing(1),
         width: 62,
