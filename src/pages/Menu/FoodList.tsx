@@ -2,6 +2,7 @@ import { starters, desserts, mains, drinks } from './FoodDetails';
 import Divider from '@mui/material/Divider';
 import { FoodItem } from './FoodItem'
 import { tss } from 'tss-react/mui'
+import Typography from '@mui/material/Typography'
 
 type FoodListProps = {
     className?: string;
@@ -36,9 +37,21 @@ export function FoodList(props: FoodListProps) {
         <div className={classes.root}>
 
             <div className={classes.objectHeading}>
-                <Divider className={classes.divider}>
-                    {heading}
+                <Divider
+                    component="div"
+                    role="presentation"
+                    className={classes.divider}
+                    textAlign='center'>
+
+                    <Typography
+                        variant="h6"
+                        className={classes.h6}
+                    >
+                        {heading}
+                    </Typography>
+
                 </Divider>
+
             </div>
 
             <FoodItem foods={foodData}>
@@ -49,23 +62,25 @@ export function FoodList(props: FoodListProps) {
 }
 
 const useStyles = tss
+    .withName("FoodList")
     .create(({ theme }) => ({
         "root": {
             "display": "flex",
             "flexDirection": "column",
-            "gap": "30px",
+            "gap": theme.spacing(4),
         },
         "objectHeading": {
             "display": "flex",
             "justifyContent": "center",
             "alignItems": "center",
-            //"border": "1px solid red",
-            "fontFamily": theme.typography.fontFamily,
             "color": theme.palette.text.primary,
-            "fontSize": theme.typography.body1.fontSize,
         },
         "divider": {
-            "width": "82%",
-        }
+            "width": "90%",
+        },
+        "h6": {
+            "textTransform": "uppercase",
+            "color": theme.palette.secondary.dark,
+        },
 
     }))

@@ -2,7 +2,9 @@ import { tss } from 'tss-react/mui'
 import Fade from "@mui/material/Fade"
 
 import { RightSide } from "./RightSide"
-import { LeftSide } from "./LeftSide"
+import { LeftSide } from "components/LeftSide"
+import backgroundImageUrl from "assets/food-nem.webp"
+
 
 type PropsMenu = {
     className?: string;
@@ -23,8 +25,11 @@ export function Menu(props: PropsMenu) {
         >
             <div className={cx(classes.root)}>
                 <LeftSide
+                    selectedPage='menu'
                     className={classes.left}
                     onChangePage={onChangePage}
+                    backgroundImageUrl={backgroundImageUrl}
+                    heroText={<>Menu</>}
                 />
                 <RightSide className={classes.right} />
             </div>
@@ -32,18 +37,19 @@ export function Menu(props: PropsMenu) {
     )
 }
 
-const useStyles = tss.create(({}) => ({
-    "root": {
-        "display": "flex",
-        "flexGrow": 1,
-        "gap": "20px",
-        "borderRadius": "20px",
-        "margin": "30px",
-    },
-    "left": {
-        "width": "60%",
-    },
-    "right": {
-        "width": "40%",
-    }
-}));
+const useStyles = tss
+    .withName("Menu")
+    .create(({ theme }) => ({
+        "root": {
+            "display": "flex",
+            "flexGrow": 1,
+            "gap": theme.spacing(2),
+            "margin": theme.spacing(2),
+        },
+        "left": {
+            "width": "60%",
+        },
+        "right": {
+            "width": "40%",
+        }
+    }));

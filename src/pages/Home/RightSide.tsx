@@ -1,8 +1,8 @@
 import { tss } from 'tss-react/mui'
-import { CustomCard } from '../../components/CustomCard'
-import firstImage from "../../assets/food-nem.webp"
-import secondImage from "../../assets/reservation2.webp"
-import thirdImage from "../../assets/resto4.webp"
+import { CustomCard } from 'components/CustomCard'
+import firstImage from "assets/food-nem.webp"
+import secondImage from "assets/reservation2.webp"
+import thirdImage from "assets/resto4.webp"
 
 
 type PropsRightSide = {
@@ -21,7 +21,7 @@ export function RightSide(props: PropsRightSide) {
         <div className={cx(classes.root, className)}>
             <CustomCard 
                 className={classes.card}
-                backgroundImage={firstImage}
+                backgroundImageUrl={firstImage}
                 onClick={() => onChangePage("menu")}
             >
                 Menu
@@ -29,14 +29,14 @@ export function RightSide(props: PropsRightSide) {
 
             <CustomCard 
                 className={classes.card}
-                backgroundImage={secondImage}
+                backgroundImageUrl={secondImage}
                 onClick={() => onChangePage("reservation")}
             >
                 Reservation
             </CustomCard>
             <CustomCard 
                 className={classes.card}
-                backgroundImage={thirdImage}
+                backgroundImageUrl={thirdImage}
                 onClick={() => onChangePage("about")}
             >
                 Our restaurant
@@ -47,16 +47,23 @@ export function RightSide(props: PropsRightSide) {
 }
 
 const useStyles = tss
-    .create(({}) => ({
+    .create(({ theme }) => ({
         "root": {
+            "boxSizing": "border-box",
+            "gap": theme.spacing(2),
             "display": "flex",
             "flexDirection": "column",
-            "boxSizing": "border-box",
-            "gap": "20px",
-            "overflow": "hidden",
+            [theme.breakpoints.only("mobile")]: {
+                "paddingTop": theme.spacing(2),
+            }
+
         },
         "card": {
-            "display": "flex",
-            "flexGrow": 1,
+            "flex": 1,
+            [theme.breakpoints.only("mobile")]: {
+                //"flex": "unset",
+                //"height": 300
+                "flex": "300px"
+            }
         }
     }))

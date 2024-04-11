@@ -1,22 +1,18 @@
 import { tss } from 'tss-react/mui'
-import { alpha } from "@mui/material/styles";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import React from 'react';
 import Button from '@mui/material/Button';
 
-type CustomButtonProps = {
+type HashtagButtonProps = {
     className?: string;
     onClick?: () => void;
     children: React.ReactNode;
-    icon?: React.ReactNode | boolean;
     selected?: boolean;
 }
 
-export function CustomButton(props: CustomButtonProps) {
+export function HashtagButton(props: HashtagButtonProps) {
 
-    const { className, onClick, children, icon, selected } = props
+    const { className, onClick, children, selected } = props
     const { cx, classes } = useStyles({ selected: !!selected })
-    const Icon = React.isValidElement(icon) ? icon : icon ? <ArrowForwardIcon /> : null
 
     return (
         <Button
@@ -24,28 +20,24 @@ export function CustomButton(props: CustomButtonProps) {
             onClick={onClick}
         >
             {children}
-            {Icon}
         </Button>
     )
 }
 
 const useStyles = tss
-    .withName("CustomButton")
+    .withName("HashtagButton")
     .withParams<{ selected: boolean }>()
     .create(({ theme, selected }) => ({
         "button": {
             "textTransform": "none",
             "border": `1px solid ${theme.palette.primary.dark}`,
-            "background": selected ? theme.palette.secondary.dark : theme.palette.primary.dark,
             "color": selected ? theme.palette.primary.main : theme.palette.text.primary,
             "transition": "background 0.4s ease-in-out, border 0.4s ease-in-out, color 0.4s ease-in-out",
             "&:hover": {
-                "background": selected ? theme.palette.secondary.dark : alpha(theme.palette.secondary.light, 0.15),
-                "border": selected ? "" : `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
+                "color": selected ? theme.palette.secondary.dark : theme.palette.secondary.light, 
             },
         },
         "selected": {
-            "background": theme.palette.secondary.dark,
-            "color": theme.palette.primary.main,
+            "color": theme.palette.secondary.dark,
         }
     }))

@@ -1,18 +1,19 @@
 import { tss } from 'tss-react/mui'
 import { CustomButton } from './CustomButton'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { alpha } from '@mui/material/styles'
 
 type PropsCustomCard = {
     className?: string;
-    backgroundImage: string;
+    backgroundImageUrl: string;
     onClick?: () => void;
     children?: React.ReactNode;
 }
 
 export function CustomCard(props: PropsCustomCard) {
 
-    const { className, backgroundImage, children, onClick } = props
-    const { cx, classes } = useStyles()
+    const { className, backgroundImageUrl, children, onClick } = props
+    const { cx, classes } = useStyles({ backgroundImageUrl })
 
     return (
         <div
@@ -21,8 +22,7 @@ export function CustomCard(props: PropsCustomCard) {
 
             <div
                 className={classes.background}
-                style={{ backgroundImage: `url(${backgroundImage})` }}
-                onClick= {onClick}
+                onClick={onClick}
             ></div>
 
             <CustomButton className={classes.button}
@@ -37,23 +37,27 @@ export function CustomCard(props: PropsCustomCard) {
 }
 
 const useStyles = tss
-    .create(({ theme }) => ({
+    .withName("CustomCard")
+    .withParams<{ backgroundImageUrl: string }>()
+    .withNestedSelectors<"button" | "background">()
+    .create(({ theme, classes, backgroundImageUrl }) => ({
         "root": {
             "position": "relative",
             "display": "flex",
             "justifyContent": "flex-end",
             "boxSizing": "border-box",
-            "borderRadius": "10px",
+            "borderRadius": theme.spacing(2),
             "overflow": "hidden",
-            "background": "center center/cover",
             "cursor": "pointer",
-            //Test hover in the button here but failed
-            "&&:hover $button": {
+            [`&:hover .${classes.button}`]: {
                 "color": theme.palette.secondary.dark,
                 "background": theme.palette.primary.dark,
-                "border": `1px solid ${theme.palette.primary.dark}`,
-                "filter": "none"
-            }
+                "filter": "none",
+                "border": `1px solid ${alpha(theme.palette.secondary.light, 0)}`,
+            },
+            [`&:hover .${classes.background}`]: {
+                "filter": "brightness(1.05)"
+            },
 
         },
         "background": {
@@ -62,23 +66,14 @@ const useStyles = tss
             "left": "0",
             "width": "100%",
             "height": "100%",
-            "background": "center center/cover",
+            "background": `url(${backgroundImageUrl}) center center/cover`,
             "transition": "filter 0.4s ease-in-out",
             "filter": "brightness(0.8)",
-            "&:hover": {
-                "filter": "brightness(1.05)"
-            }
         },
         "button": {
             "zIndex": 1,
             "alignSelf": "flex-end",
             "padding": "10px 10px 10px 20px",
-            "borderRadius": "15px 0 0 0",
-            "&:hover": {
-                "color": theme.palette.secondary.dark,
-                "background": theme.palette.primary.dark,
-                "border": `1px solid ${theme.palette.primary.dark}`,
-                "filter": "none"
-            }
+            "borderRadius": `${theme.spacing(2)} 0 ${theme.spacing(2)} 0`,
         }
     }))

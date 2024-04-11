@@ -1,11 +1,11 @@
 import { tss } from 'tss-react/mui'
-import { alpha } from '@mui/material/styles'
-import logo from '../../assets/logoColor.svg'
+import logo from 'assets/logoColor.svg'
 import { Carousel } from './Carousel'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import { Map } from '../../components/Map'
+import { Map } from 'components/Map'
+import Typography from '@mui/material/Typography';
 
 
 type PropsRightSide = {
@@ -24,9 +24,12 @@ export function RightSide(props: PropsRightSide) {
                     src={logo}
                     alt="logo"
                 />
-                <p className={classes.describe}>
+                <Typography
+                    variant="body2"
+                    className={classes.describe}
+                >
                     Just a short walk from the heart of Paris, our ZenAsia restaurant is the ideal spot for a lunch or dinner before exploring the city. ZenAsia offers a refreshing ambiance and authentic Asian flavours right in the centre of Europe. Our establishment features traditional sunken tables for a unique dining experience. We recommend booking these in advance, as they are highly sought after.
-                </p>
+                </Typography>
             </div>
 
             <div className={classes.carousel}>
@@ -34,23 +37,45 @@ export function RightSide(props: PropsRightSide) {
             </div>
 
             <div className={classes.info}>
-                <div className={classes.times}>
-                    <p className={classes.infoHeading}>Opening Times</p>
-                    <p>Monday - Friday: 12:00 - 22:00</p>
-                    <p>Saturday - Sunday: 10:00 - 23:00</p>
+                <div className={classes.infoDetail}>
+                    <Typography
+                        variant='body1'
+                        className={classes.infoHeading}
+                    >
+                        Opening Times
+                    </Typography>
+                    <Typography
+                        variant='body2'
+                    >
+                        Monday - Friday: 12:00 - 22:00
+                        <br />
+                        Saturday - Sunday: 10:00 - 23:00
+                    </Typography>
                 </div>
 
-                <div className={classes.address}>
-                    <p className={classes.infoHeading}>Find us</p>
-                    <Map 
+                <div className={classes.infoDetail}>
+                    <Typography
+                        variant='body1'
+                        className={classes.infoHeading}
+                    >
+                        Find us
+                    </Typography>
+
+                    <Map
                         className={classes.map}
                         center={{
                             lat: 48.8477,
                             lng: 2.3446,
                         }}
                     />
-                    <p>3 Avenue Theophile Gautier, 75005 Paris</p>
-                    <p>01 42 88 56 46</p>
+
+                    <Typography
+                        variant='body2'
+                    >
+                        3 Avenue Theophile Gautier, 75005 Paris
+                        <br />
+                        01 42 88 56 46
+                    </Typography>
                 </div>
             </div>
 
@@ -72,31 +97,31 @@ export function RightSide(props: PropsRightSide) {
 }
 
 const useStyles = tss
+    .withName("RightSideAbout")
     .create(({ theme }) => ({
         "root": {
             "display": "flex",
             "flexDirection": "column",
             "boxSizing": "border-box",
-            "gap": "20px",
-            "borderRadius": "20px",
+            "gap": theme.spacing(2),
+            "borderRadius": theme.spacing(2),
             "overflow": "hidden",
         },
         "about": {
             "display": "flex",
-            "gap": "20px",
-            "fontFamily": theme.typography.fontFamily,
-            "fontSize": theme.typography.body2.fontSize,
-            "fontWeight": theme.typography.body2.fontWeight,
-            "border": `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
-            "borderRadius": "15px",
+            "gap": theme.spacing(3),
+            "border": `1px solid ${theme.palette.secondary.light}`,            
+            "borderRadius": theme.spacing(2),
             "overflow": "hidden",
-            "padding": "20px",
+            "padding": theme.spacing(3),
             "alignItems": "flex-end",
             "justifyContent": "space-between",
         },
         "describe": {
             "margin": 0,
             "padding": 0,
+            "width": "70%",
+            "fontWeight": theme.typography.caption.fontWeight,
         },
         "carousel": {
             "flexGrow": 2,
@@ -104,48 +129,36 @@ const useStyles = tss
         "info": {
             "display": "flex",
             "flexDirection": "row",
-            "gap": "20px",
+            "gap": theme.spacing(2),
             "width": "100%",
             "flexGrow": 1,
         },
-        "times": {
-            "fontFamily": theme.typography.fontFamily,
-            "fontSize": theme.typography.body2.fontSize,
-            "fontWeight": theme.typography.body2.fontWeight,
-            "border": `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
-            "borderRadius": "15px",
-            "padding": "10px 20px 10px 20px",
-            "flexGrow": 1,
+        "infoHeading": {
+            "color": theme.palette.secondary.dark,
         },
-        "address": {
-            "fontFamily": theme.typography.fontFamily,
-            "fontSize": theme.typography.body2.fontSize,
-            "fontWeight": theme.typography.body2.fontWeight,
-            "border": `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
-            "borderRadius": "15px",
-            "padding": "10px 20px 10px 20px",
+        "infoDetail": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": theme.spacing(2),
+            "border": `1px solid ${theme.palette.secondary.light}`,            
+            "borderRadius": theme.spacing(2),
+            "padding": theme.spacing(2),
             "flexGrow": 1,
             "overflow": "hidden",
         },
         "map": {
             "width": "100%",
             "maxHeight": "200px",
-            "borderRadius": "15px",
-        },
-        "infoHeading": {
-            "fontFamily": theme.typography.fontFamily,
-            "fontSize": theme.typography.body1.fontSize,
-            "fontWeight": theme.typography.body1.fontWeight,
-            "color": theme.palette.secondary.dark,
+            "borderRadius": theme.spacing(2),
         },
         "social": {
             "display": "flex",
-            "gap": "10px",
+            "gap": theme.spacing(2),
             "justifyContent": "center",
             "alignItems": "center",
-            "border": `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
-            "borderRadius": "12px",
-            "height": "40px",
+            "border": `1px solid ${theme.palette.secondary.light}`,            
+            "borderRadius": theme.spacing(2),
+            "height": theme.spacing(6),
         },
         "icon": {
             "width": "25px",
