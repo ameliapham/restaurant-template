@@ -17,10 +17,13 @@ import ListItemButton from '@mui/material/ListItemButton';
 type PropsDrawerList = {
     className?: string;
     onCLick?: () => void;
+    onChangePage: (page: SelectedPage) => void;
 }
 
+type SelectedPage = "home" | "menu" | "about" | "reservation"
+
 export function NavigationMenu(props: PropsDrawerList) {
-    const { onCLick } = props
+    const { onCLick, onChangePage } = props
     const { classes, theme } = useStyles()
 
     const DrawerList = (
@@ -40,14 +43,15 @@ export function NavigationMenu(props: PropsDrawerList) {
                 </List>
 
                 <List>
-                    {['Home', 'Menu', 'About', 'Reservation'].map((text) => (
+                    {['home', 'menu', 'about', 'reservation'].map((text) => (
                         <ListItem key={text} disablePadding >
                             <ListItemButton className={classes.text}>
                                 <Typography
                                     variant="h1"
                                     fontSize={theme.typography.h3.fontSize}
+                                    onClick={() => onChangePage(text as SelectedPage)}
                                 >
-                                    {text}
+                                    {text.charAt(0).toUpperCase() + text.slice(1)}
                                 </Typography>
                             </ListItemButton>
                         </ListItem>
@@ -82,6 +86,7 @@ const useStyles = tss
             "background": theme.palette.primary.dark,
             "padding": theme.spacing(2),
             "boxSizing": "border-box",
+            "overflow": "hidden",
         },
         "container": {
             "display": "flex",
@@ -114,7 +119,7 @@ const useStyles = tss
         },
         "social": {
             "display": "flex",
-            "gap": theme.spacing(2),
+            "gap": theme.spacing(3),
             "justifyContent": "center",
             "alignItems": "center",
             "borderTop": `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
