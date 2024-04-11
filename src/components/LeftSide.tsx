@@ -22,7 +22,7 @@ export function LeftSide(props: PropsLeftSide) {
                 <AppBar selectedPage={selectedPage} onChangePage={onChangePage} />
             </div>
 
-            <Typography variant='h1'>
+            <Typography className={classes.heroText} variant='h1'>
                 {heroText}
             </Typography>
 
@@ -43,10 +43,16 @@ const useStyles = tss
             "borderRadius": theme.spacing(2),
             "padding": "30px 50px 30px 50px",
             "color": "#f6edde",
+            "overflow": "hidden",
         },
         "header": {
             "display": "flex",
             "justifyContent": "start",
             "gap": "10px",
         },
+        "heroText": {
+            [theme.breakpoints.only("mobile")]: {
+                "fontSize": "3rem",
+            }
+        },  
     }))

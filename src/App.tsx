@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import { GlobalStyles } from 'tss-react';
-import { tss } from 'tss-react/mui';
+import { tss } from 'tss';
 import { useState } from "react";
 
 import { Home } from "pages/Home"
@@ -20,18 +21,36 @@ export function App() {
 
   const { classes, theme } = useStyles()
 
+  // This is for the theme color of the browser
+  // it will take effect when the user is on mobile
+  useEffect(
+    ()=> {
+
+      const existingMeta = document.querySelector("meta[name='theme-color']")
+      if (existingMeta !== null) {
+        existingMeta.remove()
+      }
+
+      const meta = document.createElement("meta");
+      meta.name = "theme-color";
+      meta.content = theme.palette.background.default;
+      document.head.appendChild(meta);
+
+    },
+    [theme.palette.mode]
+  );
+
   return (
     <>
       <GlobalStyles
         styles={{
           "html, body": {
-            height: "100%",
-            width: "100%",
             margin: 0,
             padding: 0,
-            backgroundColor: theme.palette.background.default,
-            color: theme.palette.text.primary,
           },
+          "body": {
+            "backgroundColor": theme.palette.background.default,
+          }
         }}
       />
 
@@ -54,10 +73,15 @@ export function App() {
   )
 }
 
-const useStyles = tss.create(({}) => ({
+const useStyles = tss.create(({ theme }) => ({
   "root": {
-    "display": "flex",
-    "height": "100vh",
     "width": "100vw",
+    "color": theme.palette.text.primary,
+    "overflow": "hidden",
+    "height": "100vh",
+    [theme.breakpoints.only("mobile")]: {
+      "overflow": "unset",
+      "height": "unset",
+    }
   }
 }));
