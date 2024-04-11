@@ -38,7 +38,10 @@ export function AppBar(props: PropsMenuBar) {
             </IconButton>
 
             <Drawer open={openDrawer} onClose={toggleDrawer(false)}>
-                <NavigationMenu onCLick={toggleDrawer(false)} />
+                <NavigationMenu
+                    onCLick={toggleDrawer(false)}
+                    onChangePage={onChangePage}
+                />
             </Drawer>
 
             <img
@@ -51,6 +54,7 @@ export function AppBar(props: PropsMenuBar) {
             <CustomButton
                 onClick={() => onChangePage("menu")}
                 selected={props.selectedPage === "menu"}
+                className={classes.button}
             >
                 Menu
             </CustomButton>
@@ -58,6 +62,7 @@ export function AppBar(props: PropsMenuBar) {
             <CustomButton
                 onClick={() => onChangePage("about")}
                 selected={props.selectedPage === "about"}
+                className={classes.button}
             >
                 About
             </CustomButton>
@@ -96,8 +101,13 @@ const useStyles = tss
         "logo": {
             "width": theme.spacing(10),
             "cursor": "pointer",
-            "padding": "0 0 0 10px",
+            "padding": `0 ${theme.spacing(1)}`,
             "color": theme.palette.text.secondary,
+        },
+        "button": {
+            [theme.breakpoints.down('tablet')]: {
+                "display": "none",
+            },
         },
         "reservation": {
             "border": `1px solid ${alpha(theme.palette.secondary.light, 0.5)}`,
