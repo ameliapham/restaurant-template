@@ -49,14 +49,21 @@ export function RightSide(props: PropsRightSide) {
 const useStyles = tss
     .create(({ theme }) => ({
         "root": {
-            "display": "flex",
-            "flexDirection": "column",
             "boxSizing": "border-box",
             "gap": theme.spacing(2),
-            "overflow": "hidden",
+            "display": "flex",
+            "flexDirection": "column",
+            [theme.breakpoints.only("mobile")]: {
+                "paddingTop": theme.spacing(2),
+            }
+
         },
         "card": {
-            "display": "flex",
-            "flexGrow": 1,
+            "flex": 1,
+            [theme.breakpoints.only("mobile")]: {
+                //"flex": "unset",
+                //"height": 300
+                "flex": "300px"
+            }
         }
     }))

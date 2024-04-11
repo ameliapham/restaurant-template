@@ -21,7 +21,7 @@ declare module '@mui/material/styles' {
     }
   }
 
-const breakpoints = {
+export const breakpoints = {
     values: {
         mobile: 0,
         tablet: 640,
@@ -102,3 +102,15 @@ export const lightTheme = createTheme({
     typography,
     breakpoints,
 });
+
+export const lightCustomTheme = {
+    "colors": {
+        "textFocus": lightTheme.palette.primary.main,
+    }
+}
+
+export const darkCustomTheme: typeof lightCustomTheme = {
+    "colors": {
+        "textFocus": darkTheme.palette.primary.main,
+    }
+};
