@@ -6,7 +6,8 @@ import { alpha } from '@mui/material/styles'
 import IconButton from '@mui/material/IconButton'
 import Menu from '@mui/icons-material/Menu'
 import { useState } from 'react'
-import { NavigationMenu } from './NavigationMenu'
+import { DrawerList } from './NavigationMenu'
+import Drawer from '@mui/material/Drawer';
 
 
 type PropsMenuBar = {
@@ -23,17 +24,22 @@ export function AppBar(props: PropsMenuBar) {
     const { cx, classes, theme } = useStyles()
     const [openDrawer, setOpenDrawer] = useState(false)
 
+    const toggleDrawer = (newOpenDrawer: boolean) => () => {
+        setOpenDrawer(newOpenDrawer);
+    };
+
     return (
         <div className={cx(classes.root, className)}>
             <IconButton
                 className={classes.menuButton}
-                color="inherit"
-                onClick={() => setOpenDrawer(true)}
+                onClick={toggleDrawer(true)}
             >
                 <Menu />
             </IconButton>
 
-            <NavigationMenu open={openDrawer} />
+            <Drawer open={openDrawer} onClose={toggleDrawer(false)}>
+                <DrawerList onCLick={toggleDrawer(false)} />
+            </Drawer>
 
             <img
                 className={cx(classes.logo)}
@@ -82,15 +88,16 @@ const useStyles = tss
             "alignSelf": "flex-start",
         },
         "menuButton": {
-            "border": `1px solid ${theme.palette.secondary.light}`,
+            "border": `1px solid ${alpha(theme.palette.secondary.light, 0.5)}`,
             "borderRadius": "4px",
             "padding": theme.spacing(0.6),
-
+            "transition": "background 0.4s ease-in-out, border 0.4s ease-in-out, color 0.4s ease-in-out",
         },
         "logo": {
             "width": theme.spacing(10),
             "cursor": "pointer",
             "padding": "0 0 0 10px",
+            "color": theme.palette.text.secondary,
         },
         "reservation": {
             "border": `1px solid ${alpha(theme.palette.secondary.light, 0.5)}`,
