@@ -2,7 +2,6 @@ import { ReactNode } from 'react'
 import { tss } from 'tss-react/mui'
 import Typography from '@mui/material/Typography'
 import { AppBar } from 'components/AppBar';
-import { DarkModeSwitch } from 'theme/DarkModeSwitch';
 
 type PropsLeftSide = {
     className?: string;
@@ -21,7 +20,6 @@ export function LeftSide(props: PropsLeftSide) {
         <div className={cx(classes.root, className)}>
             <div className={classes.header}>
                 <AppBar selectedPage={selectedPage} onChangePage={onChangePage} />
-                <DarkModeSwitch />
             </div>
 
             <Typography variant='h1'>
