@@ -20,6 +20,7 @@ export function App() {
 
   const { classes } = useStyles()
 
+
   return (
     <>
       <GlobalStyles
@@ -52,10 +53,14 @@ export function App() {
 
 const useStyles = tss.create(({ theme }) => ({
   "root": {
-    "height": "100vh",
     "width": "100vw",
-    "overflow": "hidden",
     "backgroundColor": theme.palette.background.default,
     "color": theme.palette.text.primary,
+    "overflow": "hidden",
+    "height": "100vh",
+    [theme.breakpoints.only("mobile")]: {
+      "overflow": "unset",
+      "height": "unset",
+    }
   }
 }));

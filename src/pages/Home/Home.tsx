@@ -1,11 +1,9 @@
 import { tss } from 'tss'
-import Fade from "@mui/material/Fade"
 import { useState, useEffect } from "react"
 
 import { LeftSide } from "components/LeftSide"
 import { RightSide } from "./RightSide"
 import backgroundImageUrl from "assets/food-pho.webp"
-import { breakpoints } from "theme";
 
 
 type PropsHome = {
@@ -28,75 +26,74 @@ export function Home(props: PropsHome) {
     }, [])
 
     return (
-
-            <div className={cx(classes.root)}>
-                <LeftSide
-                    selectedPage='home'
-                    className={classes.left}
-                    onChangePage={onChangePage}
-                    backgroundImageUrl={backgroundImageUrl}
-                    heroText={<>Zen <br /> Gourmet</>}
-                />
-                <RightSide
-                    className={classes.right}
-                    onChangePage={onChangePage}
-                />
-            </div>
+        <div className={cx(classes.root)}>
+            <LeftSide
+                selectedPage='home'
+                className={classes.left}
+                onChangePage={onChangePage}
+                backgroundImageUrl={backgroundImageUrl}
+                heroText={<>Zen <br /> Gourmet</>}
+            />
+            <RightSide
+                className={classes.right}
+                onChangePage={onChangePage}
+            />
+        </div>
     )
 }
 
 const useStyles = tss
     .withName("Home")
     .create(({ theme }) => ({
-            "root": {
-                "height": "100%",
-                "gap": theme.spacing(2),
-                "padding": theme.spacing(2),
-                "boxSizing": "border-box",
-                /*
-                "border": (() => {
+        "root": {
+            "gap": theme.spacing(2),
+            "padding": theme.spacing(2),
+            "boxSizing": "border-box",
+            /*
+            "border": (() => {
 
-                    if (windowInnerWidth >= breakpoints.values.desktop) {
-                        return "1px solid red";
-                    }
+                if (windowInnerWidth >= breakpoints.values.desktop) {
+                    return "1px solid red";
+                }
 
-                    if (windowInnerWidth >= breakpoints.values.tablet) {
-                        return "1px solid green"
-                    }
+                if (windowInnerWidth >= breakpoints.values.tablet) {
+                    return "1px solid green"
+                }
 
-                    return "10px solid blue"
+                return "10px solid blue"
 
-                })(),
-                */
-                "display": "flex",
-                [theme.breakpoints.only("mobile")]: {
-                    "display": "block",
-                    "overflow": "auto"
-                },
-                /*
-                [theme.breakpoints.only("desktop")]: {
-                    "border": "1px solid red",
-                },
-                [theme.breakpoints.only("tablet")]: {
-                    "border": "1px solid green",
-                },
-                [theme.breakpoints.only("mobile")]: {
-                    "border": "1px solid blue",
-                },
-                */
-
+            })(),
+            */
+            "height": "100%",
+            "display": "flex",
+            [theme.breakpoints.only("mobile")]: {
+                "display": "block",
+                "height": "unset",
             },
-            "left": {
-                "width": "75%",
-                [theme.breakpoints.only("mobile")]: {
-                    "width": "unset",
-                    "height": 400,
-                },
+            /*
+            [theme.breakpoints.only("desktop")]: {
+                "border": "1px solid red",
             },
-            "right": {
-                "flex": 1,
-                [theme.breakpoints.only("mobile")]: {
-                    "flex": "unset",
-                },
+            [theme.breakpoints.only("tablet")]: {
+                "border": "1px solid green",
             },
+            [theme.breakpoints.only("mobile")]: {
+                "border": "1px solid blue",
+            },
+            */
+
+        },
+        "left": {
+            "width": "75%",
+            [theme.breakpoints.only("mobile")]: {
+                "width": "unset",
+                "height": 400,
+            },
+        },
+        "right": {
+            "flex": 1,
+            [theme.breakpoints.only("mobile")]: {
+                "flex": "unset",
+            },
+        },
     }));
