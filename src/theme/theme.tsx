@@ -1,10 +1,32 @@
 import { createTheme, alpha } from "@mui/material/styles";
 
 const typography = {
-    fontFamily: "Geist", 
+    fontFamily: "Geist",
     h1: {
-        fontFamily: "Time New Roman",
-    }, 
+        fontFamily: "Georgia",
+    },
+};
+
+declare module '@mui/material/styles' {
+    interface BreakpointOverrides {
+      xs: false; // removes the `xs` breakpoint
+      sm: false;
+      md: false;
+      lg: false;
+      xl: false;
+      mobile: true; // adds the `mobile` breakpoint
+      tablet: true;
+      laptop: false;
+      desktop: true;
+    }
+  }
+
+const breakpoints = {
+    values: {
+        mobile: 0,
+        tablet: 640,
+        desktop: 1200,
+    },
 };
 
 export const darkTheme = createTheme({
@@ -51,6 +73,7 @@ export const darkTheme = createTheme({
         },
     },
     typography,
+    breakpoints,
 });
 
 export const lightTheme = createTheme({
@@ -77,4 +100,5 @@ export const lightTheme = createTheme({
         },
     },
     typography,
+    breakpoints,
 });
