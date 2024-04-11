@@ -6,7 +6,7 @@ import { alpha } from '@mui/material/styles'
 import IconButton from '@mui/material/IconButton'
 import Menu from '@mui/icons-material/Menu'
 import { useState } from 'react'
-import { DrawerList } from './NavigationMenu'
+import { NavigationMenu } from './NavigationMenu'
 import Drawer from '@mui/material/Drawer';
 
 
@@ -38,7 +38,7 @@ export function AppBar(props: PropsMenuBar) {
             </IconButton>
 
             <Drawer open={openDrawer} onClose={toggleDrawer(false)}>
-                <DrawerList onCLick={toggleDrawer(false)} />
+                <NavigationMenu onCLick={toggleDrawer(false)} />
             </Drawer>
 
             <img
