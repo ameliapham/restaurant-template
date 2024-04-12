@@ -53,14 +53,15 @@ const useStyles = tss
     .create(({ theme }) => ({
         "root": {
             "display": "flex",
-            "flexGrow": 1,
             "gap": theme.spacing(2),
-            "margin": theme.spacing(2),
+            "padding": theme.spacing(2),
+            "boxSizing": "border-box",
+            "height": "100%",
         },
         "left": {
             "width": "75%",
         },
         "right": {
-            "width": "25%",
+            "flex": "1",
         }
     }));
