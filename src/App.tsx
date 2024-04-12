@@ -25,13 +25,12 @@ export function App() {
       <GlobalStyles
         styles={{
           "html, body": {
-            height: "100%",
-            width: "100%",
             margin: 0,
             padding: 0,
-            backgroundColor: theme.palette.background.default,
-            color: theme.palette.text.primary,
           },
+          "body": {
+            "backgroundColor": theme.palette.background.default,
+          }
         }}
       />
 
@@ -54,10 +53,12 @@ export function App() {
   )
 }
 
-const useStyles = tss.create(({}) => ({
+const useStyles = tss.create(({ theme }) => ({
   "root": {
     "display": "flex",
     "height": "100vh",
     "width": "100vw",
+    "overflow": "hidden",
+    "color": theme.palette.text.primary,
   }
 }));
