@@ -82,15 +82,18 @@ const useStyles = tss
     .create(({ theme }) => ({
         "root": {
             "boxSizing": "border-box",
-            "display": "inline-flex",
+            "display": "flex",
             "justifyContent": "center",
             "gap": theme.spacing(1),
-            "padding": "5px 5px 5px 5px",
+            "padding": theme.spacing(0.8),
             "border": `1px solid ${theme.palette.primary.main}`,
             "borderRadius": theme.spacing(1),
             "background": theme.palette.primary.dark,
             "alignItems": "center",
-            "alignSelf": "flex-start",
+
+            [theme.breakpoints.only('desktop')]: {
+                "alignSelf": "flex-start",
+            },
         },
         "menuButton": {
             "border": `1px solid ${alpha(theme.palette.secondary.light, 0.5)}`,
@@ -105,7 +108,7 @@ const useStyles = tss
             "color": theme.palette.text.secondary,
         },
         "button": {
-            [theme.breakpoints.down('tablet')]: {
+            [theme.breakpoints.only('mobile')]: {
                 "display": "none",
             },
         },
