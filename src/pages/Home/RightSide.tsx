@@ -53,9 +53,21 @@ const useStyles = tss
             "flexDirection": "column",
             "boxSizing": "border-box",
             "gap": theme.spacing(2),
-           
+
+            [theme.breakpoints.only('tablet')]: {
+                "flexDirection": "row",
+            },
+
+            [theme.breakpoints.only("mobile")]: {
+                "paddingTop": theme.spacing(2),
+            },
         },
         "card": {
             "flex": 1,
+
+            [theme.breakpoints.only("mobile")]: {
+                "flex": "300px",
+            },
+
         }
     }))

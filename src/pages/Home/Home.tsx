@@ -57,11 +57,34 @@ const useStyles = tss
             "padding": theme.spacing(2),
             "boxSizing": "border-box",
             "height": "100%",
+
+            [theme.breakpoints.only('tablet')]: {
+                "flexDirection": "column",
+            },
+
+            [theme.breakpoints.only("mobile")]: {
+                "display": "block",
+                "height": "unset",
+            },
         },
         "left": {
             "width": "75%",
+
+            [theme.breakpoints.only('tablet')]: {
+                "width": "unset",
+                "height": "70%",
+            },
+
+            [theme.breakpoints.only("mobile")]: {
+                "width": "unset",
+                "height": 400,
+            },
         },
         "right": {
             "flex": "1",
+
+            [theme.breakpoints.only("mobile")]: {
+                "flex": "unset",
+            },
         }
     }));
