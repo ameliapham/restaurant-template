@@ -18,11 +18,15 @@ export function LeftSide(props: PropsLeftSide) {
 
     return (
         <div className={cx(classes.root, className)}>
-            <div className={classes.header}>
-                <AppBar selectedPage={selectedPage} onChangePage={onChangePage} />
-            </div>
+            <AppBar
+                selectedPage={selectedPage}
+                onChangePage={onChangePage}
+            />
 
-            <Typography variant='h1'>
+            <Typography
+                variant='h1'
+                className={classes.heroText}
+            >
                 {heroText}
             </Typography>
 
@@ -41,12 +45,27 @@ const useStyles = tss
             "justifyContent": "space-between",
             "background": `url(${backgroundImageUrl}) center center/cover`,
             "borderRadius": theme.spacing(2),
-            "padding": "30px 50px 30px 50px",
             "color": "#f6edde",
+            "overflow": "hidden",
+            
+            [theme.breakpoints.only('desktop')]: {
+                "padding": "30px 50px 30px 50px",
+            },
+
+            [theme.breakpoints.down("desktop")]: {
+               "padding": "30px 0 30px 0",
+               "alignItems": "center",
+            },
         },
-        "header": {
-            "display": "flex",
-            "justifyContent": "start",
-            "gap": "10px",
-        },
+        "heroText": {
+            
+            [theme.breakpoints.only('tablet')]: {
+                "textAlign": "center",
+            },
+
+            [theme.breakpoints.only("mobile")]: {
+                "textAlign": "center",
+                "fontSize": theme.typography.h2.fontSize,
+            },
+        }
     }))
