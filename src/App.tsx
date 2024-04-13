@@ -55,10 +55,13 @@ export function App() {
 
 const useStyles = tss.create(({ theme }) => ({
   "root": {
-    "display": "flex",
     "height": "100vh",
     "width": "100vw",
     "overflow": "hidden",
     "color": theme.palette.text.primary,
-  }
+    [theme.breakpoints.only('mobile')]: {
+      "overflow": "unset",
+      "height": "unset",
+    },
+  },
 }));
