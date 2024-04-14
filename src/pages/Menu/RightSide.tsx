@@ -98,7 +98,7 @@ const useStyles = tss
             "overflow": "hidden",
             "height": "100%",
 
-            [theme.breakpoints.only('tablet')]: {
+            [theme.breakpoints.down('desktop')]: {
                 "marginTop": `${theme.spacing(2)}`,
             },
         },

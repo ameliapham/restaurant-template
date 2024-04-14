@@ -65,6 +65,10 @@ const useStyles = tss
             "gap": theme.spacing(2),
             "alignItems": "center",
             "paddingBottom": theme.spacing(2),
+
+            [theme.breakpoints.only('mobile')]: {
+                "flexDirection": "column",
+            },
         },
         "illustration": {
             "background": "center center/cover",
@@ -79,6 +83,10 @@ const useStyles = tss
             "flexDirection": "column",
             "gap": theme.spacing(1),
             "width": "70%",
+
+            [theme.breakpoints.only('mobile')]: {
+                "width": "90%",
+            },
         },
         "nameVsPrice": {
             "display": "flex",
@@ -86,7 +94,6 @@ const useStyles = tss
             "justifyContent": "space-between",
             "color": theme.palette.text.primary,
             "gap": theme.spacing(1),
-            //"textTransform": "uppercase",
         },
         "details": {
             "textAlign": "left",
