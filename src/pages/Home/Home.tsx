@@ -82,9 +82,5 @@ const useStyles = tss
         },
         "right": {
             "flex": "1",
-
-            [theme.breakpoints.only("mobile")]: {
-                "flex": "unset",
-            },
         }
     }));
