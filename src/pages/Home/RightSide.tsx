@@ -66,7 +66,7 @@ const useStyles = tss
             "flex": 1,
 
             [theme.breakpoints.only("mobile")]: {
-                "flex": "300px",
+                "flex": theme.spacing(40),
             },
 
         }

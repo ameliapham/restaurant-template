@@ -77,7 +77,7 @@ const useStyles = tss
 
             [theme.breakpoints.only("mobile")]: {
                 "width": "unset",
-                "height": 400,
+                "height": theme.spacing(40),
             },
         },
         "right": {
