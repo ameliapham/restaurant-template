@@ -93,9 +93,10 @@ const useStyles = tss
             "boxSizing": "border-box",
             "gap": theme.spacing(5),
             "borderRadius": theme.spacing(2),
-            "padding": `30px ${theme.spacing(2)} 30px ${theme.spacing(2)}`,
+            "padding": `${theme.spacing(2)}`,
             "border": `1px solid ${theme.palette.secondary.light}`,
             "overflow": "hidden",
+            "height": "100%",
         },
         "hashtag": {
             "display": "flex",

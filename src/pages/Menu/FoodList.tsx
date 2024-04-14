@@ -53,9 +53,11 @@ export function FoodList(props: FoodListProps) {
                 </Divider>
 
             </div>
+            <div className={classes.foodList}>
+                <FoodItem foods={foodData}>
+                </FoodItem>
+            </div>
 
-            <FoodItem foods={foodData}>
-            </FoodItem>
 
         </div>
     )
@@ -67,7 +69,10 @@ const useStyles = tss
         "root": {
             "display": "flex",
             "flexDirection": "column",
-            "gap": theme.spacing(4),
+            "gap": theme.spacing(3),
+            "height": "100%",
+            "overflow": "auto",
+            "boxSizing": "border-box",
         },
         "objectHeading": {
             "display": "flex",
@@ -81,6 +86,9 @@ const useStyles = tss
         "h6": {
             "textTransform": "uppercase",
             "color": theme.palette.secondary.dark,
+        },
+        "foodList": {
+            "overflow": "auto",
         },
 
     }))
