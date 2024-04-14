@@ -89,5 +89,9 @@ const useStyles = tss
         "line": {
             "display": "flex",
             "gap": theme.spacing(5),
+
+            [theme.breakpoints.only('mobile')]: {
+                "flexDirection": "column",
+            },
         },
     }))

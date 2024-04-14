@@ -55,10 +55,15 @@ const useStyles = tss
         },
         "left": {
             "width": "60%",
-            
+
             [theme.breakpoints.only('tablet')]: {
                 "width": "unset",
                 "height": "70%",
+            },
+
+            [theme.breakpoints.only("mobile")]: {
+                "width": "unset",
+                "height": theme.spacing(40),
             },
         },
         "right": {
