@@ -105,7 +105,10 @@ const useStyles = tss
             "flexDirection": "column",
             "boxSizing": "border-box",
             "gap": theme.spacing(2),
-            "paddingTop": theme.spacing(2),
+
+            [theme.breakpoints.down('desktop')]: {
+                "paddingTop": theme.spacing(2),
+            },
         },
         "about": {
             "display": "flex",
