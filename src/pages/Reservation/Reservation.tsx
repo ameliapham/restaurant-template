@@ -47,9 +47,19 @@ const useStyles = tss
             "padding": theme.spacing(2),
             "boxSizing": "border-box",
             "height": "100%",
+   
+            [theme.breakpoints.down('desktop')]: {
+                "display": "block",  
+                "overflow": "auto",
+            },
         },
         "left": {
             "width": "60%",
+            
+            [theme.breakpoints.only('tablet')]: {
+                "width": "unset",
+                "height": "70%",
+            },
         },
         "right": {
             "flex": 1,
