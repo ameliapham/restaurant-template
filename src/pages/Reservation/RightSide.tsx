@@ -59,13 +59,16 @@ const useStyles = tss
             "flexDirection": "column",
             "boxSizing": "border-box",
             "gap": theme.spacing(5),
-            "marginTop": theme.spacing(2),
             "alignItems": "center",
             "borderRadius": theme.spacing(2),
             "padding": `${theme.spacing(10)} ${theme.spacing(3)}`,
             "border": `1px solid ${theme.palette.secondary.light}`,
             "overflow": "hidden",
             "justifyContent": "center",
+            
+            [theme.breakpoints.down('desktop')]: {
+                "marginTop": theme.spacing(2),
+            },
         },
         "objectHeading": {
             "color": theme.palette.secondary.dark,
