@@ -43,15 +43,33 @@ const useStyles = tss
     .create(({ theme }) => ({
         "root": {
             "display": "flex",
-            "flexGrow": 1,
             "gap": theme.spacing(2),
-            "borderRadius": theme.spacing(2),
-            "margin": theme.spacing(2),
+            "padding": theme.spacing(2),
+            "height": "100%",
+            "boxSizing": "border-box",
+
+            [theme.breakpoints.only('tablet')]: {
+                "display": "block",  
+                //"flexDirection": "column",
+                //"height": "unset",
+                "overflow": "auto",
+            },
+
+
         },
         "left": {
             "width": "60%",
+
+            [theme.breakpoints.only('tablet')]: {
+                "width": "unset",
+                "height": "70%",
+            },
         },
         "right": {
-            "width": "40%",
+            "flex": 1,
+
+            [theme.breakpoints.only('tablet')]: {
+                "flex": "unset",
+            },
         }
     }));

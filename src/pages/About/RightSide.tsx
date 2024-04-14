@@ -23,6 +23,7 @@ export function RightSide(props: PropsRightSide) {
                 <img
                     src={logo}
                     alt="logo"
+                    className={classes.logo}
                 />
                 <Typography
                     variant="body2"
@@ -104,34 +105,47 @@ const useStyles = tss
             "flexDirection": "column",
             "boxSizing": "border-box",
             "gap": theme.spacing(2),
-            "borderRadius": theme.spacing(2),
-            "overflow": "hidden",
+            "paddingTop": theme.spacing(2),
         },
         "about": {
             "display": "flex",
             "gap": theme.spacing(3),
             "border": `1px solid ${theme.palette.secondary.light}`,            
             "borderRadius": theme.spacing(2),
-            "overflow": "hidden",
             "padding": theme.spacing(3),
             "alignItems": "flex-end",
             "justifyContent": "space-between",
+        },
+        "logo": {
+            "flex": 1,
+            "maxWidth": "200px",
         },
         "describe": {
             "margin": 0,
             "padding": 0,
             "width": "70%",
             "fontWeight": theme.typography.caption.fontWeight,
+
+            [theme.breakpoints.only('tablet')]: {
+                "width": "60%",
+            },
         },
         "carousel": {
             "flexGrow": 2,
+
+            [theme.breakpoints.only('tablet')]: {
+                "height": theme.spacing(50),
+            },
         },
         "info": {
             "display": "flex",
             "flexDirection": "row",
             "gap": theme.spacing(2),
-            "width": "100%",
             "flexGrow": 1,
+            
+            [theme.breakpoints.only('tablet')]: {
+                "height": theme.spacing(40),
+            },
         },
         "infoHeading": {
             "color": theme.palette.secondary.dark,
@@ -147,8 +161,6 @@ const useStyles = tss
             "overflow": "hidden",
         },
         "map": {
-            "width": "100%",
-            "maxHeight": "200px",
             "borderRadius": theme.spacing(2),
         },
         "social": {
