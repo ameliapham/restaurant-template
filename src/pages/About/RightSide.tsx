@@ -115,10 +115,16 @@ const useStyles = tss
             "padding": theme.spacing(3),
             "alignItems": "flex-end",
             "justifyContent": "space-between",
+
+            [theme.breakpoints.only('mobile')]: {
+                "flexDirection": "column",
+                "alignItems": "flex-start",
+            },
         },
         "logo": {
             "flex": 1,
             "maxWidth": "200px",
+
         },
         "describe": {
             "margin": 0,
@@ -129,12 +135,16 @@ const useStyles = tss
             [theme.breakpoints.only('tablet')]: {
                 "width": "60%",
             },
+
+            [theme.breakpoints.only('mobile')]: {
+                "width": "100%",
+            },
         },
         "carousel": {
             "flexGrow": 2,
 
-            [theme.breakpoints.only('tablet')]: {
-                "height": theme.spacing(50),
+            [theme.breakpoints.down('desktop')]: {
+                "height": theme.spacing(40),
             },
         },
         "info": {
@@ -143,7 +153,7 @@ const useStyles = tss
             "gap": theme.spacing(2),
             "flexGrow": 1,
             
-            [theme.breakpoints.only('tablet')]: {
+            [theme.breakpoints.down('desktop')]: {
                 "height": theme.spacing(40),
             },
         },
@@ -162,6 +172,9 @@ const useStyles = tss
         },
         "map": {
             "borderRadius": theme.spacing(2),
+            [theme.breakpoints.only('mobile')]: {
+                "display": "none",
+            },
         },
         "social": {
             "display": "flex",

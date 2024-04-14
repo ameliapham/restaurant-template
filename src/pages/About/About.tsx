@@ -48,14 +48,10 @@ const useStyles = tss
             "height": "100%",
             "boxSizing": "border-box",
 
-            [theme.breakpoints.only('tablet')]: {
+            [theme.breakpoints.down('desktop')]: {
                 "display": "block",  
-                //"flexDirection": "column",
-                //"height": "unset",
                 "overflow": "auto",
             },
-
-
         },
         "left": {
             "width": "60%",
@@ -64,12 +60,13 @@ const useStyles = tss
                 "width": "unset",
                 "height": "70%",
             },
+
+            [theme.breakpoints.only("mobile")]: {
+                "width": "unset",
+                "height": theme.spacing(40),
+            },
         },
         "right": {
             "flex": 1,
-
-            [theme.breakpoints.only('tablet')]: {
-                "flex": "unset",
-            },
         }
     }));
