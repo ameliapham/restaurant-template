@@ -97,6 +97,10 @@ const useStyles = tss
             "border": `1px solid ${theme.palette.secondary.light}`,
             "overflow": "hidden",
             "height": "100%",
+
+            [theme.breakpoints.only('tablet')]: {
+                "marginTop": `${theme.spacing(2)}`,
+            },
         },
         "hashtag": {
             "display": "flex",
