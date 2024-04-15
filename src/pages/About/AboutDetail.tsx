@@ -6,16 +6,19 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { Map } from 'components/Map'
 import Typography from '@mui/material/Typography';
+import { declareComponentKeys } from "i18nifty"
+import { useTranslation } from "i18n"
 
 
-type PropsRightSide = {
+type PropsAboutDetail = {
     className?: string;
 }
 
-export function RightSide(props: PropsRightSide) {
+export function AboutDetail(props: PropsAboutDetail) {
 
     const { className } = props
     const { cx, classes } = useStyles()
+    const { t } = useTranslation({ AboutDetail })
 
     return (
         <div className={cx(classes.root, className)}>
@@ -98,7 +101,7 @@ export function RightSide(props: PropsRightSide) {
 }
 
 const useStyles = tss
-    .withName("RightSideAbout")
+    .withName({ AboutDetail })
     .create(({ theme }) => ({
         "root": {
             "display": "flex",
@@ -113,7 +116,7 @@ const useStyles = tss
         "about": {
             "display": "flex",
             "gap": theme.spacing(3),
-            "border": `1px solid ${theme.palette.secondary.light}`,            
+            "border": `1px solid ${theme.palette.secondary.light}`,
             "borderRadius": theme.spacing(2),
             "padding": theme.spacing(3),
             "alignItems": "flex-end",
@@ -155,7 +158,7 @@ const useStyles = tss
             "flexDirection": "row",
             "gap": theme.spacing(2),
             "flexGrow": 1,
-            
+
             [theme.breakpoints.down('desktop')]: {
                 "height": theme.spacing(40),
             },
@@ -167,7 +170,7 @@ const useStyles = tss
             "display": "flex",
             "flexDirection": "column",
             "gap": theme.spacing(2),
-            "border": `1px solid ${theme.palette.secondary.light}`,            
+            "border": `1px solid ${theme.palette.secondary.light}`,
             "borderRadius": theme.spacing(2),
             "padding": theme.spacing(2),
             "flexGrow": 1,
@@ -184,7 +187,7 @@ const useStyles = tss
             "gap": theme.spacing(2),
             "justifyContent": "center",
             "alignItems": "center",
-            "border": `1px solid ${theme.palette.secondary.light}`,            
+            "border": `1px solid ${theme.palette.secondary.light}`,
             "borderRadius": theme.spacing(2),
             "height": theme.spacing(6),
         },
