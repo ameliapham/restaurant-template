@@ -1,9 +1,11 @@
 import { tss } from 'tss-react/mui'
 import Fade from "@mui/material/Fade"
 
-import { RightSide } from "./RightSide"
-import { LeftSide } from "components/LeftSide"
+import { AboutDetail } from "./AboutDetail"
+import { HeroSection } from "components/HeroSection"
 import backgroundImageUrl from "assets/resto4.webp"
+import { declareComponentKeys } from "i18nifty"
+import { useTranslation } from "i18n"
 
 
 type PropsAbout = {
@@ -19,27 +21,33 @@ export function About(props: PropsAbout) {
 
     const { onChangePage } = props
 
+    const { t } = useTranslation({ About })
+
     return (
         <Fade
             in={true}
             timeout={800}
         >
             <div className={cx(classes.root)}>
-                <LeftSide
+                <HeroSection
                     selectedPage='about'
                     className={classes.left}
                     onChangePage={onChangePage}
                     backgroundImageUrl={backgroundImageUrl}
-                    heroText={<>About</>}
+                    heroText={
+                        <>
+                            {t("about")}
+                        </>
+                    }
                 />
-                <RightSide className={classes.right} />
+                <AboutDetail className={classes.right} />
             </div>
         </Fade>
     )
 }
 
 const useStyles = tss
-    .withName("About")
+    .withName({ About })
     .create(({ theme }) => ({
         "root": {
             "display": "flex",
@@ -49,7 +57,7 @@ const useStyles = tss
             "boxSizing": "border-box",
 
             [theme.breakpoints.down('desktop')]: {
-                "display": "block",  
+                "display": "block",
                 "overflow": "auto",
             },
         },
@@ -70,3 +78,7 @@ const useStyles = tss
             "flex": 1,
         }
     }));
+
+export const { i18n } = declareComponentKeys<
+    | "about"
+>()({ About });

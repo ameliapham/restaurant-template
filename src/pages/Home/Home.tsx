@@ -2,8 +2,8 @@ import { tss } from 'tss-react/mui'
 import Fade from "@mui/material/Fade"
 import { useState, useEffect } from "react"
 
-import { LeftSide } from "components/LeftSide"
-import { RightSide } from "./RightSide"
+import { HeroSection } from "components/HeroSection"
+import { HomeDetail } from "./HomeDetail"
 import backgroundImageUrl from "assets/food-pho.webp"
 
 
@@ -32,14 +32,14 @@ export function Home(props: PropsHome) {
             timeout={800}
         >
             <div className={cx(classes.root)}>
-                <LeftSide
+                <HeroSection
                     selectedPage='home'
                     className={classes.left}
                     onChangePage={onChangePage}
                     backgroundImageUrl={backgroundImageUrl}
                     heroText={<>Zen <br /> Gourmet</>}
                 />
-                <RightSide
+                <HomeDetail
                     className={classes.right}
                     onChangePage={onChangePage}
                 />
@@ -49,7 +49,7 @@ export function Home(props: PropsHome) {
 }
 
 const useStyles = tss
-    .withName("Home")
+    .withName({ Home })
     .create(({ theme }) => ({
         "root": {
             "display": "flex",

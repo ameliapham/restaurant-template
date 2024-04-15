@@ -1,8 +1,8 @@
 import { tss } from 'tss-react/mui'
 import Fade from "@mui/material/Fade"
 
-import { RightSide } from "./RightSide"
-import { LeftSide } from "components/LeftSide"
+import { MenuDetail } from "./MenuDetail"
+import { HeroSection } from "components/HeroSection"
 import backgroundImageUrl from "assets/food-nem.webp"
 
 
@@ -24,21 +24,21 @@ export function Menu(props: PropsMenu) {
             timeout={800}
         >
             <div className={cx(classes.root)}>
-                <LeftSide
+                <HeroSection
                     selectedPage='menu'
                     className={classes.left}
                     onChangePage={onChangePage}
                     backgroundImageUrl={backgroundImageUrl}
                     heroText={<>Menu</>}
                 />
-                <RightSide className={classes.right} />
+                <MenuDetail className={classes.right} />
             </div>
         </Fade>
     )
 }
 
 const useStyles = tss
-    .withName("Menu")
+    .withName({ Menu })
     .create(({ theme }) => ({
         "root": {
             "display": "flex",
