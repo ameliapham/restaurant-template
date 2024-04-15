@@ -5,13 +5,13 @@ import { Divider } from '@mui/material'
 import { HashtagButton } from './HashtagButton'
 
 
-type PropsRightSide = {
+type PropsMenuDetail = {
     className?: string;
 }
 
 type FoodCategory = "starters" | "mains" | "desserts" | "drinks"
 
-export function RightSide(props: PropsRightSide) {
+export function MenuDetail(props: PropsMenuDetail) {
 
 
     const { className } = props
@@ -84,7 +84,7 @@ export function RightSide(props: PropsRightSide) {
 }
 
 const useStyles = tss
-    .withName("RightSide")
+    .withName({ MenuDetail })
     .withParams<{ selected: boolean }>()
     .create(({ theme }) => ({
         "root": {
