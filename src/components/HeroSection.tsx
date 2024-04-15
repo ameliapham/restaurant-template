@@ -3,7 +3,7 @@ import { tss } from 'tss-react/mui'
 import Typography from '@mui/material/Typography'
 import { AppBar } from 'components/AppBar';
 
-type PropsLeftSide = {
+type PropsHeroSection = {
     className?: string;
     backgroundImageUrl: string;
     heroText: ReactNode;
@@ -11,7 +11,7 @@ type PropsLeftSide = {
     onChangePage: (page: "home" | "menu" | "about" | "reservation") => void;
 }
 
-export function LeftSide(props: PropsLeftSide) {
+export function HeroSection(props: PropsHeroSection) {
 
     const { className, backgroundImageUrl, heroText, selectedPage, onChangePage } = props
     const { cx, classes } = useStyles({ backgroundImageUrl })
@@ -35,7 +35,7 @@ export function LeftSide(props: PropsLeftSide) {
 }
 
 const useStyles = tss
-    .withName({ LeftSide })
+    .withName({ HeroSection })
     .withParams<{ backgroundImageUrl: string }>()
     .create(({ theme, backgroundImageUrl }) => ({
         "root": {
