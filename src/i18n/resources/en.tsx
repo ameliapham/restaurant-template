@@ -11,4 +11,10 @@ export const translations: Translations<"en"> = {
         "about": "About",
         "reservation": "Reservation",
     },
+    "NavigationMenu": {
+        "home": "Home",
+        "menu": "Menu",
+        "about": "About",
+        "reservation": "Reservation",
+    },
 };

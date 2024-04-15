@@ -1,6 +1,8 @@
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { tss } from 'tss-react/mui';
+import { declareComponentKeys } from "i18nifty"
+import { useTranslation } from "i18n"
 
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close';
@@ -25,6 +27,7 @@ type SelectedPage = "home" | "menu" | "about" | "reservation"
 export function NavigationMenu(props: PropsDrawerList) {
     const { onCLick, onChangePage } = props
     const { classes, theme } = useStyles()
+    const { t } = useTranslation({ NavigationMenu })
 
     const DrawerList = (
         <Box
@@ -51,7 +54,7 @@ export function NavigationMenu(props: PropsDrawerList) {
                                     fontSize={theme.typography.h3.fontSize}
                                     onClick={() => onChangePage(text as SelectedPage)}
                                 >
-                                    {text.charAt(0).toUpperCase() + text.slice(1)}
+                                    {text}
                                 </Typography>
                             </ListItemButton>
                         </ListItem>
@@ -134,6 +137,11 @@ const useStyles = tss
     }));
 
 
-
+export const { i18n } = declareComponentKeys<
+    | "home"
+    | "menu"
+    | "reservation"
+    | "about"
+>()({ NavigationMenu });
 
 
