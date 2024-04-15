@@ -1,17 +1,17 @@
 import { tss } from 'tss-react/mui'
-import { FoodList } from './FoodList'
+import { MenuStructure } from './MenuStructure'
 import { useState } from 'react'
 import { Divider } from '@mui/material'
 import { HashtagButton } from './HashtagButton'
 
 
-type PropsMenuDetail = {
+type PropsDesignOfMenuPage = {
     className?: string;
 }
 
 type FoodCategory = "starters" | "mains" | "desserts" | "drinks"
 
-export function MenuDetail(props: PropsMenuDetail) {
+export function DesignOfMenuPage(props: PropsDesignOfMenuPage) {
 
 
     const { className } = props
@@ -73,10 +73,10 @@ export function MenuDetail(props: PropsMenuDetail) {
                 </HashtagButton>
             </div>
 
-            <FoodList
+            <MenuStructure
                 heading={selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}
                 foods={selectedCategory}
-            ></FoodList>
+            ></MenuStructure>
 
         </div>
 
@@ -84,7 +84,7 @@ export function MenuDetail(props: PropsMenuDetail) {
 }
 
 const useStyles = tss
-    .withName({ MenuDetail })
+    .withName({ MenuDetail: DesignOfMenuPage })
     .withParams<{ selected: boolean }>()
     .create(({ theme }) => ({
         "root": {

@@ -1,13 +1,13 @@
 import { tss } from 'tss-react/mui'
-import { FoodDetail } from "./FoodDetails"
+import { ListOfDishes } from "./ListOfDishes"
 import Typography from '@mui/material/Typography'
 
-type FoodItemProps = {
+type PropsFoodItemStructure = {
     className?: string;
-    foods: FoodDetail[];
+    foods: ListOfDishes[];
 }
 
-export function FoodItem(props: FoodItemProps) {
+export function FoodItemStructure(props: PropsFoodItemStructure) {
 
     const { className, foods } = props
 
@@ -15,8 +15,8 @@ export function FoodItem(props: FoodItemProps) {
 
     return (
         <div>
-            {foods.map((foods) => (
-                <div key={foods.id} className={cx(classes.root, className)}>
+            {foods.map((foods, i) => (
+                <div key={i} className={cx(classes.root, className)}>
                     <div
                         className={classes.illustration}
                         style={{ backgroundImage: `url(${foods.illustration})` }}

@@ -1,36 +1,33 @@
-import { starters, desserts, mains, drinks } from './FoodDetails';
+import { starters, desserts, mains, drinks } from './ListOfDishes';
 import Divider from '@mui/material/Divider';
-import { FoodItem } from './FoodItem'
+import { FoodItemStructure } from './FoodItemStructure'
 import { tss } from 'tss-react/mui'
 import Typography from '@mui/material/Typography'
 
-type FoodListProps = {
+type PropsMenuStructure = {
     className?: string;
     heading: string;
     foods: "starters" | "desserts" | "mains" | "drinks";
 }
 
-export function FoodList(props: FoodListProps) {
+export function MenuStructure(props: PropsMenuStructure) {
 
     const { foods, heading } = props
 
     const { classes } = useStyles()
 
-    let foodData;
-    switch (foods) {
-        case "starters":
-            foodData = starters;
-            break;
-        case "desserts":
-            foodData = desserts;
-            break;
-        case "mains":
-            foodData = mains;
-            break;
-        case "drinks":
-            foodData = drinks;
-            break;
-    }
+    const foodData = (() => {
+        switch (foods) {
+            case "starters":
+                return starters;
+            case "desserts":
+                return desserts;
+            case "mains":
+                return mains;
+            case "drinks":
+                return drinks;
+        }
+    })();
 
     return (
 
@@ -54,8 +51,8 @@ export function FoodList(props: FoodListProps) {
 
             </div>
             <div className={classes.foodList}>
-                <FoodItem foods={foodData}>
-                </FoodItem>
+                <FoodItemStructure foods={foodData}>
+                </FoodItemStructure>
             </div>
 
 
