@@ -8,6 +8,8 @@ import Menu from '@mui/icons-material/Menu'
 import { useState } from 'react'
 import { NavigationMenu } from './NavigationMenu'
 import Drawer from '@mui/material/Drawer';
+import { declareComponentKeys } from "i18nifty"
+import { useTranslation } from "i18n"
 
 
 type PropsMenuBar = {
@@ -20,6 +22,7 @@ type SelectedPage = "home" | "menu" | "about" | "reservation"
 
 export function AppBar(props: PropsMenuBar) {
 
+    const { t } = useTranslation({ AppBar })
     const { className, onChangePage } = props
     const { cx, classes, theme } = useStyles()
 
@@ -56,7 +59,7 @@ export function AppBar(props: PropsMenuBar) {
                 selected={props.selectedPage === "menu"}
                 className={classes.button}
             >
-                Menu
+                {t("menu")}
             </CustomButton>
 
             <CustomButton
@@ -64,7 +67,7 @@ export function AppBar(props: PropsMenuBar) {
                 selected={props.selectedPage === "about"}
                 className={classes.button}
             >
-                About
+                {t("about")}
             </CustomButton>
 
             <CustomButton
@@ -72,7 +75,7 @@ export function AppBar(props: PropsMenuBar) {
                 selected={props.selectedPage === "reservation"}
                 className={classes.reservation}
             >
-                Book a table
+                {t("reservation")}
             </CustomButton>
         </div>
     )
@@ -116,3 +119,9 @@ const useStyles = tss
             "border": `1px solid ${alpha(theme.palette.secondary.light, 0.5)}`,
         }
     }))
+
+export const { i18n } = declareComponentKeys<
+    | "menu"
+    | "about"
+    | "reservation"
+>()({ AppBar });

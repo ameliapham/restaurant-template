@@ -20,7 +20,7 @@ export const {
         languages,
         fallbackLanguage
     },
-    {   // Modifier ou ajouter les resources ici : 
+    {  
         "en": () => import("./resources/en").then(({ translations }) => translations),
         "fr": () => import("./resources/fr").then(({ translations }) => translations),
     }

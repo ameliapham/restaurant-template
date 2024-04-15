@@ -6,4 +6,9 @@ export const translations: Translations<"en"> = {
         "reservation": "Reservation",
         "about": "Our restaurant",
     },
+    "AppBar": {
+        "menu": "Menu",
+        "about": "About",
+        "reservation": "Reservation",
+    },
 };
