@@ -6,18 +6,18 @@ import thirdImage from "assets/resto4.webp"
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
 
-type PropsRightSide = {
+type PropsHomeDetail = {
     className?: string;
     onChangePage: (page: SelectedPage) => void;
 }
 
 type SelectedPage = "home" | "menu" | "about" | "reservation"
 
-export function RightSide(props: PropsRightSide) {
+export function HomeDetail(props: PropsHomeDetail) {
 
     const { className, onChangePage } = props
     const { cx, classes } = useStyles()
-    const { t } = useTranslation({ RightSide})
+    const { t } = useTranslation({ HomeDetail})
 
     return (
         <div className={cx(classes.root, className)}>
@@ -41,7 +41,7 @@ export function RightSide(props: PropsRightSide) {
                 backgroundImageUrl={thirdImage}
                 onClick={() => onChangePage("about")}
             >
-                {t("about")}
+                {t("our restaurant")}
             </CustomCard>
         </div>
 
@@ -49,6 +49,7 @@ export function RightSide(props: PropsRightSide) {
 }
 
 const useStyles = tss
+    .withName({ HomeDetail })
     .create(({ theme }) => ({
         "root": {
             "display": "flex",
@@ -77,5 +78,5 @@ const useStyles = tss
 export const { i18n } = declareComponentKeys<
     | "menu"
     | "reservation"
-    | "about"
->()({ RightSide });
+    | "our restaurant"
+>()({ HomeDetail });
