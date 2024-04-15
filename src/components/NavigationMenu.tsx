@@ -46,7 +46,7 @@ export function NavigationMenu(props: PropsDrawerList) {
                 </List>
 
                 <List>
-                    {['home', 'menu', 'about', 'reservation'].map((text) => (
+                    {(['home', 'menu', 'about', 'reservation'] as const).map((text) => (
                         <ListItem key={text} disablePadding >
                             <ListItemButton className={classes.text}>
                                 <Typography
@@ -54,7 +54,7 @@ export function NavigationMenu(props: PropsDrawerList) {
                                     fontSize={theme.typography.h3.fontSize}
                                     onClick={() => onChangePage(text as SelectedPage)}
                                 >
-                                    {text}
+                                    {t(text)}
                                 </Typography>
                             </ListItemButton>
                         </ListItem>
