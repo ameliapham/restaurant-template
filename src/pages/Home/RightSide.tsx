@@ -3,7 +3,8 @@ import { CustomCard } from 'components/CustomCard'
 import firstImage from "assets/food-nem.webp"
 import secondImage from "assets/reservation2.webp"
 import thirdImage from "assets/resto4.webp"
-
+import { declareComponentKeys } from "i18nifty"
+import { useTranslation } from "i18n"
 
 type PropsRightSide = {
     className?: string;
@@ -16,30 +17,31 @@ export function RightSide(props: PropsRightSide) {
 
     const { className, onChangePage } = props
     const { cx, classes } = useStyles()
+    const { t } = useTranslation({ RightSide})
 
     return (
         <div className={cx(classes.root, className)}>
-            <CustomCard 
+            <CustomCard
                 className={classes.card}
                 backgroundImageUrl={firstImage}
                 onClick={() => onChangePage("menu")}
             >
-                Menu
+                {t("menu")}
             </CustomCard>
 
-            <CustomCard 
+            <CustomCard
                 className={classes.card}
                 backgroundImageUrl={secondImage}
                 onClick={() => onChangePage("reservation")}
             >
-                Reservation
+                {t("reservation")}
             </CustomCard>
-            <CustomCard 
+            <CustomCard
                 className={classes.card}
                 backgroundImageUrl={thirdImage}
                 onClick={() => onChangePage("about")}
             >
-                Our restaurant
+                {t("about")}
             </CustomCard>
         </div>
 
@@ -71,3 +73,9 @@ const useStyles = tss
 
         }
     }))
+
+export const { i18n } = declareComponentKeys<
+    | "menu"
+    | "reservation"
+    | "about"
+>()({ RightSide });
