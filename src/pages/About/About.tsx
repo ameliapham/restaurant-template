@@ -1,7 +1,7 @@
 import { tss } from 'tss-react/mui'
 import Fade from "@mui/material/Fade"
 
-import { AboutDetail } from "./AboutDetail"
+import { DesignOfAboutPage } from "./DesignOfAboutPage"
 import { HeroSection } from "components/HeroSection"
 import backgroundImageUrl from "assets/resto4.webp"
 import { declareComponentKeys } from "i18nifty"
@@ -40,7 +40,7 @@ export function About(props: PropsAbout) {
                         </>
                     }
                 />
-                <AboutDetail className={classes.right} />
+                <DesignOfAboutPage className={classes.right} />
             </div>
         </Fade>
     )

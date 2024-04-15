@@ -10,15 +10,15 @@ import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
 
 
-type PropsAboutDetail = {
+type PropsDesignOfAboutPage = {
     className?: string;
 }
 
-export function AboutDetail(props: PropsAboutDetail) {
+export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
 
     const { className } = props
     const { cx, classes } = useStyles()
-    const { t } = useTranslation({ AboutDetail })
+    const { t } = useTranslation({ DesignOfAboutPage })
 
     return (
         <div className={cx(classes.root, className)}>
@@ -101,7 +101,7 @@ export function AboutDetail(props: PropsAboutDetail) {
 }
 
 const useStyles = tss
-    .withName({ AboutDetail })
+    .withName({ DesignOfAboutPage })
     .create(({ theme }) => ({
         "root": {
             "display": "flex",

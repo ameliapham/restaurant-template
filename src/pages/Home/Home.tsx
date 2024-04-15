@@ -3,7 +3,7 @@ import Fade from "@mui/material/Fade"
 import { useState, useEffect } from "react"
 
 import { HeroSection } from "components/HeroSection"
-import { HomeDetail } from "./HomeDetail"
+import { DesignOfHomePage } from "./DesignOfHomePage"
 import backgroundImageUrl from "assets/food-pho.webp"
 
 
@@ -39,7 +39,7 @@ export function Home(props: PropsHome) {
                     backgroundImageUrl={backgroundImageUrl}
                     heroText={<>Zen <br /> Gourmet</>}
                 />
-                <HomeDetail
+                <DesignOfHomePage
                     className={classes.right}
                     onChangePage={onChangePage}
                 />

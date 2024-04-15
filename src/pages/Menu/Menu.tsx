@@ -1,7 +1,7 @@
 import { tss } from 'tss-react/mui'
 import Fade from "@mui/material/Fade"
 
-import { MenuDetail } from "./MenuDetail"
+import { DesignOfMenuPage } from "./DesignOfMenuPage"
 import { HeroSection } from "components/HeroSection"
 import backgroundImageUrl from "assets/food-nem.webp"
 
@@ -31,7 +31,7 @@ export function Menu(props: PropsMenu) {
                     backgroundImageUrl={backgroundImageUrl}
                     heroText={<>Menu</>}
                 />
-                <MenuDetail className={classes.right} />
+                <DesignOfMenuPage className={classes.right} />
             </div>
         </Fade>
     )

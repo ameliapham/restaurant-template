@@ -6,18 +6,18 @@ import thirdImage from "assets/resto4.webp"
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
 
-type PropsHomeDetail = {
+type PropsDesignOfHomePage = {
     className?: string;
     onChangePage: (page: SelectedPage) => void;
 }
 
 type SelectedPage = "home" | "menu" | "about" | "reservation"
 
-export function HomeDetail(props: PropsHomeDetail) {
+export function DesignOfHomePage(props: PropsDesignOfHomePage) {
 
     const { className, onChangePage } = props
     const { cx, classes } = useStyles()
-    const { t } = useTranslation({ HomeDetail})
+    const { t } = useTranslation({ DesignOfHomePage})
 
     return (
         <div className={cx(classes.root, className)}>
@@ -49,7 +49,7 @@ export function HomeDetail(props: PropsHomeDetail) {
 }
 
 const useStyles = tss
-    .withName({ HomeDetail })
+    .withName({ DesignOfHomePage })
     .create(({ theme }) => ({
         "root": {
             "display": "flex",
@@ -79,4 +79,4 @@ export const { i18n } = declareComponentKeys<
     | "menu"
     | "reservation"
     | "our restaurant"
->()({ HomeDetail });
+>()({ DesignOfHomePage });

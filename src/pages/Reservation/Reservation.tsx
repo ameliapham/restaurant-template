@@ -1,7 +1,7 @@
 import { tss } from 'tss-react/mui'
 import Fade from "@mui/material/Fade"
 
-import { ReservationDetail } from "./ReservationDetail"
+import { DesignOfReservationPage } from "./DesignOfReservationPage"
 import { HeroSection } from "components/HeroSection"
 import backgroundImageUrl from "assets/reservation2.webp"
 
@@ -32,7 +32,7 @@ export function Reservation(props: PropsReservation) {
                     backgroundImageUrl={backgroundImageUrl}
                     heroText={<>Book <br /> A Table </>}
                 />
-                <ReservationDetail className={classes.right} />
+                <DesignOfReservationPage className={classes.right} />
             </div>
         </Fade>
     )

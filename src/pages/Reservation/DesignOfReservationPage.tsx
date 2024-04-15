@@ -6,11 +6,11 @@ import Typography from '@mui/material/Typography'
 import { ReservationForm } from 'pages/Reservation/ReservationForm'
 import { CustomButton } from 'components/CustomButton'
 
-type PropsReservationDetail = {
+type PropsDesignOfReservationPage = {
     className?: string;
 }
 
-export function ReservationDetail(props: PropsReservationDetail) {
+export function DesignOfReservationPage(props: PropsDesignOfReservationPage) {
 
     const { className } = props
     const { cx, classes } = useStyles()
@@ -52,7 +52,7 @@ export function ReservationDetail(props: PropsReservationDetail) {
 }
 
 const useStyles = tss
-    .withName({ ReservationDetail })
+    .withName({ DesignOfReservationPage })
     .create(({ theme }) => ({
         "root": {
             "display": "flex",
