@@ -3,7 +3,8 @@ import { MenuStructure } from './MenuStructure'
 import { useState } from 'react'
 import { Divider } from '@mui/material'
 import { HashtagButton } from './HashtagButton'
-
+import { declareComponentKeys } from "i18nifty"
+import { useTranslation } from "i18n"
 
 type PropsDesignOfMenuPage = {
     className?: string;
@@ -17,6 +18,7 @@ export function DesignOfMenuPage(props: PropsDesignOfMenuPage) {
     const { className } = props
     const { cx, classes } = useStyles({ selected: false })
     const [selectedCategory, setSelectedCategory] = useState<FoodCategory>("starters")
+    const { t } = useTranslation({ DesignOfMenuPage })
 
     return (
         <div className={cx(classes.root, className)}>
@@ -25,7 +27,7 @@ export function DesignOfMenuPage(props: PropsDesignOfMenuPage) {
                     onClick={() => setSelectedCategory("starters")}
                     selected={selectedCategory === "starters"}
                 >
-                    Starters
+                    {t("starters")}
                 </HashtagButton>
 
                 <Divider
@@ -39,7 +41,7 @@ export function DesignOfMenuPage(props: PropsDesignOfMenuPage) {
                     onClick={() => setSelectedCategory("mains")}
                     selected={selectedCategory === "mains"}
                 >
-                    Mains
+                    {t("mains")}
                 </HashtagButton>
 
 
@@ -54,7 +56,7 @@ export function DesignOfMenuPage(props: PropsDesignOfMenuPage) {
                     onClick={() => setSelectedCategory("desserts")}
                     selected={selectedCategory === "desserts"}
                 >
-                    Desserts
+                    {t("desserts")}
                 </HashtagButton>
 
 
@@ -69,7 +71,7 @@ export function DesignOfMenuPage(props: PropsDesignOfMenuPage) {
                     onClick={() => setSelectedCategory("drinks")}
                     selected={selectedCategory === "drinks"}
                 >
-                    Drinks
+                    {t("drinks")}
                 </HashtagButton>
             </div>
 
@@ -84,7 +86,7 @@ export function DesignOfMenuPage(props: PropsDesignOfMenuPage) {
 }
 
 const useStyles = tss
-    .withName({ MenuDetail: DesignOfMenuPage })
+    .withName({ DesignOfMenuPage })
     .withParams<{ selected: boolean }>()
     .create(({ theme }) => ({
         "root": {
@@ -111,3 +113,10 @@ const useStyles = tss
             "background": theme.palette.secondary.light,
         }
     }))
+
+export const { i18n } = declareComponentKeys<
+| "starters"
+| "mains"
+| "desserts"
+| "drinks"
+>()({ DesignOfMenuPage });

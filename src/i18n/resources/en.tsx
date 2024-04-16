@@ -43,4 +43,13 @@ export const translations: Translations<"en"> = {
         "punchline": "Book at ZenAsia for a captivating culinary adventure with Asia's finest flavors. Reserve now!",
         "reserve now": "Reserve now",
     },
+    "Menu": {
+        "menu": "Menu",
+    },
+    "DesignOfMenuPage": {
+        "starters": "Starters",
+        "mains": "Mains",
+        "desserts": "Desserts",
+        "drinks": "Drinks",
+    },
 };

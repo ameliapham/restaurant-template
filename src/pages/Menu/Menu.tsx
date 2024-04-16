@@ -4,6 +4,8 @@ import Fade from "@mui/material/Fade"
 import { DesignOfMenuPage } from "./DesignOfMenuPage"
 import { HeroSection } from "components/HeroSection"
 import backgroundImageUrl from "assets/food-nem.webp"
+import { declareComponentKeys } from "i18nifty"
+import { useTranslation } from "i18n"
 
 
 type PropsMenu = {
@@ -17,6 +19,7 @@ export function Menu(props: PropsMenu) {
 
     const { cx, classes } = useStyles()
     const { onChangePage } = props
+    const { t } = useTranslation({ Menu })
 
     return (
         <Fade
@@ -29,7 +32,9 @@ export function Menu(props: PropsMenu) {
                     className={classes.left}
                     onChangePage={onChangePage}
                     backgroundImageUrl={backgroundImageUrl}
-                    heroText={<>Menu</>}
+                    heroText={<>
+                        {t("menu")}
+                    </>}
                 />
                 <DesignOfMenuPage className={classes.right} />
             </div>
@@ -48,7 +53,7 @@ const useStyles = tss
             "height": "100%",
 
             [theme.breakpoints.down('desktop')]: {
-                "display": "block",  
+                "display": "block",
                 "overflow": "auto",
             },
         },
@@ -69,3 +74,7 @@ const useStyles = tss
             "flex": 1,
         }
     }));
+
+export const { i18n } = declareComponentKeys<
+    | "menu"
+>()({ Menu });

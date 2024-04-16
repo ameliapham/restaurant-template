@@ -44,5 +44,14 @@ export const translations: Translations<"fr"> = {
         "punchline": "Réservez chez ZenAsia pour une aventure culinaire captivante avec les saveurs les plus fines de l'Asie. Réservez maintenant!",
         "reserve now": "Réservez maintenant",
     },
+    "Menu": {
+        "menu": "La Carte",
+    },
+    "DesignOfMenuPage": {
+        "starters": "Entrées",
+        "mains": "Plats principaux",
+        "desserts": "Desserts",
+        "drinks": "Boissons",
+    },
     /* spell-checker: enable */
 };

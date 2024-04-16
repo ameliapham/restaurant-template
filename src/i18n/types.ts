@@ -18,6 +18,8 @@ export type ComponentKey =
     | typeof import('pages/Reservation').i18n
     | typeof import('pages/Reservation/ReservationForm').i18n
     | typeof import('pages/Reservation/DesignOfReservationPage').i18n
+    | typeof import('pages/Menu/DesignOfMenuPage').i18n
+    | typeof import('pages/Menu').i18n
     ;
 
 export type Translations<L extends Language> = GenericTranslations<ComponentKey, Language, typeof fallbackLanguage, L>;
