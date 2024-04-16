@@ -1,13 +1,8 @@
 import { tss } from 'tss-react/mui'
-import logo from 'assets/logoColor.svg'
 import { Carousel } from './Carousel'
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import { Map } from 'components/Map'
 import Typography from '@mui/material/Typography';
-import { declareComponentKeys } from "i18nifty"
-import { useTranslation } from "i18n"
+import { RestaurantDetail } from "pages/About/RestaurantDetail";
 
 
 type PropsDesignOfAboutPage = {
@@ -18,13 +13,12 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
 
     const { className } = props
     const { cx, classes } = useStyles()
-    const { t } = useTranslation({ DesignOfAboutPage })
 
     return (
         <div className={cx(classes.root, className)}>
             <div className={classes.about}>
                 <img
-                    src={logo}
+                    src={RestaurantDetail.logoUrl}
                     alt="logo"
                     className={classes.logo}
                 />
@@ -32,7 +26,7 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
                     variant="body2"
                     className={classes.describe}
                 >
-                    Just a short walk from the heart of Paris, our ZenAsia restaurant is the ideal spot for a lunch or dinner before exploring the city. ZenAsia offers a refreshing ambiance and authentic Asian flavours right in the centre of Europe. Our establishment features traditional sunken tables for a unique dining experience. We recommend booking these in advance, as they are highly sought after.
+                    {RestaurantDetail.description}
                 </Typography>
             </div>
 
@@ -48,13 +42,12 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
                     >
                         Opening Times
                     </Typography>
-                    <Typography
-                        variant='body2'
-                    >
-                        Monday - Friday: 12:00 - 22:00
-                        <br />
-                        Saturday - Sunday: 10:00 - 23:00
-                    </Typography>
+
+                    {RestaurantDetail.openingTime.map((time, index) => (
+                        <Typography key={index} variant="body2">
+                            {time}
+                        </Typography>
+                    ))}
                 </div>
 
                 <div className={classes.infoDetail}>
@@ -76,23 +69,19 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
                     <Typography
                         variant='body2'
                     >
-                        3 Avenue Theophile Gautier, 75005 Paris
+                        {RestaurantDetail.address}
                         <br />
-                        01 42 88 56 46
+                        {RestaurantDetail.phone}
                     </Typography>
                 </div>
             </div>
 
             <div className={classes.social}>
-                <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" >
-                    <FacebookIcon className={classes.icon} />
-                </a>
-                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" >
-                    <InstagramIcon className={classes.icon} />
-                </a>
-                <a href="https://www.twitter.com/" target="_blank" rel="noreferrer">
-                    <TwitterIcon className={classes.icon} />
-                </a>
+                {RestaurantDetail.socialUrl.map((social, index) => (
+                    <a key={index} href={social.url} target="_blank" rel="noreferrer">
+                        <social.Icon className={classes.icon}/>
+                    </a>
+                ))}
             </div>
 
         </div>
