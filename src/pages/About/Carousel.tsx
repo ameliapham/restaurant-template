@@ -1,5 +1,4 @@
-import restoImage from 'assets/resto3.jpeg';
-import restoImage2 from "assets/resto4.webp"
+import { RestaurantDetail } from "pages/About/RestaurantDetail";
 import { useState } from 'react';
 import { tss } from 'tss-react/mui';
 import { alpha } from '@mui/material/styles';
@@ -8,46 +7,32 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { CustomButton } from 'components/CustomButton';
 
 
-type PropsImage = {
-    className?: string;
-    src: string;
-    alt: string;
-}
 
-const images: PropsImage[] = [
-    {
-        src: restoImage,
-        alt: "restoImage"
-    },
-    {
-        src: restoImage2,
-        alt: "restoImage"
-    }
-];
 
 export function Carousel() {
 
+    const illustrations = RestaurantDetail.illustrations.photos;
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const { cx, classes } = useStyles();
 
     const goToNextImage = () => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % illustrations.length);
     }
 
     const goToPreviousImage = () => {
-        setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+        setCurrentImageIndex((prevIndex) => (prevIndex - 1 + illustrations.length) % illustrations.length);
     }
 
     return (
         <div className={cx(classes.root)}>
 
-            {images.map((image, index) => (
+            {illustrations.map((illustrations, index) => (
                 <img
                     key={index}
                     className={cx(classes.image)}
-                    src={image.src}
-                    alt={image.alt}
+                    src={illustrations.url}
+                    alt={illustrations.alt}
                     style={{
                         opacity: index === currentImageIndex ? 1 : 0,
                         position: 'absolute',
@@ -76,7 +61,7 @@ export function Carousel() {
 
 
 const useStyles = tss
-    .withName("Carousel")
+    .withName({ Carousel })
     .create(({ theme }) => ({
         "root": {
             "position": "relative",
