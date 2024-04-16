@@ -2,10 +2,10 @@ import type { Translations } from '../types';
 
 export const translations: Translations<"fr"> = {
     /* spell-checker: disable */
-    "RightSide": {
+    "DesignOfHomePage": {
         "menu": "Menu",
         "reservation": "Réservation",
-        "about": "Notre restaurant"
+        "our restaurant": "Notre restaurant",
     },
     "AppBar": {
         "menu": "Menu",
@@ -17,6 +17,13 @@ export const translations: Translations<"fr"> = {
         "menu": "Menu",
         "about": "À propos",
         "reservation": "Réservation"
-    }
+    },
+    "About": {
+        "about": "À propos",
+    },
+    "DesignOfAboutPage": {
+        "opening times": "Horaires d'ouverture",
+        "find us": "Notre adresse",
+    },
     /* spell-checker: enable */
 };

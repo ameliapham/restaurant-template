@@ -1,10 +1,10 @@
 import type { Translations } from '../types';
 
 export const translations: Translations<"en"> = {
-    "RightSide": {
+    "DesignOfHomePage": {
         "menu": "Menu",
         "reservation": "Reservation",
-        "about": "Our restaurant",
+        "our restaurant": "Our restaurant",
     },
     "AppBar": {
         "menu": "Menu",
@@ -16,5 +16,12 @@ export const translations: Translations<"en"> = {
         "menu": "Menu",
         "about": "About",
         "reservation": "Reservation",
+    },
+    "About": {
+        "about": "About",
+    },
+    "DesignOfAboutPage": {
+        "opening times": "Opening times",
+        "find us": "Find us",
     },
 };

@@ -3,7 +3,8 @@ import { Carousel } from './Carousel'
 import { Map } from 'components/Map'
 import Typography from '@mui/material/Typography';
 import { RestaurantDetail } from "pages/About/RestaurantDetail";
-
+import { declareComponentKeys } from "i18nifty"
+import { useTranslation } from "i18n"
 
 type PropsDesignOfAboutPage = {
     className?: string;
@@ -13,6 +14,7 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
 
     const { className } = props
     const { cx, classes } = useStyles()
+    const { t } = useTranslation({ DesignOfAboutPage })
 
     return (
         <div className={cx(classes.root, className)}>
@@ -40,7 +42,7 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
                         variant='body1'
                         className={classes.infoHeading}
                     >
-                        Opening Times
+                        {t("opening times")}
                     </Typography>
 
                     {RestaurantDetail.openingTime.map((time, index) => (
@@ -55,7 +57,7 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
                         variant='body1'
                         className={classes.infoHeading}
                     >
-                        Find us
+                        {t("find us")}
                     </Typography>
 
                     <Map
@@ -70,7 +72,11 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
                         variant='body2'
                     >
                         {RestaurantDetail.address}
-                        <br />
+                    </Typography>
+                    
+                    <Typography
+                        variant='body2'
+                    >
                         {RestaurantDetail.phone}
                     </Typography>
                 </div>
@@ -79,7 +85,7 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
             <div className={classes.social}>
                 {RestaurantDetail.socialUrl.map((social, index) => (
                     <a key={index} href={social.url} target="_blank" rel="noreferrer">
-                        <social.Icon className={classes.icon}/>
+                        <social.Icon className={classes.icon} />
                     </a>
                 ))}
             </div>
@@ -186,3 +192,8 @@ const useStyles = tss
             "color": theme.palette.secondary.dark,
         },
     }))
+
+export const { i18n } = declareComponentKeys<
+    | "opening times"
+    | "find us"
+>()({ DesignOfAboutPage });

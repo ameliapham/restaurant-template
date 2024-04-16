@@ -10,9 +10,11 @@ export const fallbackLanguage = "en";
 export type Language = typeof languages[number];
 
 export type ComponentKey =
-	| typeof import('pages/Home/RightSide').i18n 
+	| typeof import('pages/Home/DesignOfHomePage').i18n 
 	| typeof import('components/AppBar').i18n 
     | typeof import('components/NavigationMenu').i18n
+    | typeof import('pages/About').i18n
+    | typeof import('pages/About/DesignOfAboutPage').i18n
     ;
 
 export type Translations<L extends Language> = GenericTranslations<ComponentKey, Language, typeof fallbackLanguage, L>;
