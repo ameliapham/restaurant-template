@@ -1,7 +1,7 @@
 import TextField from '@mui/material/TextField'
 import { TextFieldProps } from '@mui/material/TextField';
 import { tss } from 'tss-react/mui'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { alpha } from '@mui/material/styles'
 
 type PropsCustomTextField = TextFieldProps & {
@@ -14,6 +14,19 @@ export function CustomTextField(props: PropsCustomTextField) {
     const { className, label, type, required = false, ...otherProps } = props
     const { cx, classes } = useStyles()
     const [error, setError] = useState<boolean>(false)
+    const [minValue, setMinValue] = useState<string>('');
+
+    useEffect(() => {
+        if (type === 'date') {
+            const today = new Date();
+            const formattedDate = today.toISOString().split('T')[0];
+            setMinValue(formattedDate);
+        } else if (type === 'time' && props.value && props.value === minValue.split('T')[0]) {
+            const now = new Date();
+            const formattedTime = now.toTimeString().split(':')[0] + ':' + now.toTimeString().split(':')[1];
+            setMinValue(formattedTime);
+        }
+    }, [type, props.value]);
 
     const handleValidation = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (required && event.target.value === "") {
@@ -36,8 +49,6 @@ export function CustomTextField(props: PropsCustomTextField) {
             helperText={error ? "This field is required" : ""}
             onChange={handleValidation}
 
-            {...otherProps} // Le reste des props au TextField
-
             InputLabelProps={{
                 shrink: true,
                 classes: {
@@ -50,7 +61,12 @@ export function CustomTextField(props: PropsCustomTextField) {
                     "input": classes.input,
                     "underline": classes.inputUnderline,
                 },
+                inputProps: {
+                    min: minValue,
+                },
             }}
+
+            {...otherProps} // Rest of the props to TextField
 
         />
     )
