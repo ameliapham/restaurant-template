@@ -38,4 +38,9 @@ export const translations: Translations<"en"> = {
         "special requests": "Special requests",
         "i agree to use my personal data": "I agree to use my personal data",
     },
+    "DesignOfReservationPage": {
+        "reservation": "Reservation",
+        "punchline": "Book at ZenAsia for a captivating culinary adventure with Asia's finest flavors. Reserve now!",
+        "reserve now": "Reserve now",
+    },
 };

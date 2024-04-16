@@ -1,9 +1,10 @@
 import { tss } from 'tss-react/mui'
 import Fade from "@mui/material/Fade"
-
 import { DesignOfReservationPage } from "./DesignOfReservationPage"
 import { HeroSection } from "components/HeroSection"
 import backgroundImageUrl from "assets/reservation2.webp"
+import { declareComponentKeys } from "i18nifty"
+import { useTranslation } from "i18n"
 
 
 type PropsReservation = {
@@ -19,6 +20,8 @@ export function Reservation(props: PropsReservation) {
 
     const { onChangePage } = props
 
+    const { t } = useTranslation({ Reservation })
+
     return (
         <Fade
             in={true}
@@ -30,7 +33,13 @@ export function Reservation(props: PropsReservation) {
                     className={classes.left}
                     onChangePage={onChangePage}
                     backgroundImageUrl={backgroundImageUrl}
-                    heroText={<>Book <br /> A Table </>}
+                    heroText={
+                        <>
+                            {t("book")}
+                            <br/>
+                            {t("a table")}
+                        </>
+                    }
                 />
                 <DesignOfReservationPage className={classes.right} />
             </div>
@@ -47,9 +56,9 @@ const useStyles = tss
             "padding": theme.spacing(2),
             "boxSizing": "border-box",
             "height": "100%",
-   
+
             [theme.breakpoints.down('desktop')]: {
-                "display": "block",  
+                "display": "block",
                 "overflow": "auto",
             },
         },
@@ -70,3 +79,8 @@ const useStyles = tss
             "flex": 1,
         }
     }));
+
+export const { i18n } = declareComponentKeys<
+    | "book"
+    | "a table"
+>()({ Reservation });

@@ -5,6 +5,8 @@ import Typography from '@mui/material/Typography'
 
 import { ReservationForm } from 'pages/Reservation/ReservationForm'
 import { CustomButton } from 'components/CustomButton'
+import { declareComponentKeys } from "i18nifty"
+import { useTranslation } from "i18n"
 
 type PropsDesignOfReservationPage = {
     className?: string;
@@ -14,6 +16,7 @@ export function DesignOfReservationPage(props: PropsDesignOfReservationPage) {
 
     const { className } = props
     const { cx, classes } = useStyles()
+    const { t } = useTranslation({ DesignOfReservationPage })
 
     return (
         <div className={cx(classes.root, className)}>
@@ -24,7 +27,7 @@ export function DesignOfReservationPage(props: PropsDesignOfReservationPage) {
                     <Typography
                         variant="h6"
                     >
-                        Reservation
+                        {t("reservation")}
                     </Typography>
 
                 
@@ -35,7 +38,7 @@ export function DesignOfReservationPage(props: PropsDesignOfReservationPage) {
                 variant="body2"
                 className={classes.text}
             >
-                Book at ZenAsia for a captivating culinary adventure with Asia's finest flavors. Reserve now!
+                {t("punchline")}
             </Typography>
 
             <ReservationForm className={classes.inputForm} />
@@ -43,7 +46,7 @@ export function DesignOfReservationPage(props: PropsDesignOfReservationPage) {
             <CustomButton
                 className={classes.reservation}
             >
-                Reserve now
+                {t("reserve now")}
             </CustomButton>
 
         </div>
@@ -88,3 +91,9 @@ const useStyles = tss
             "border": `1px solid ${alpha(theme.palette.secondary.light, 0.5)}`,
         }
     }))
+
+export const { i18n } = declareComponentKeys<
+    | "reservation"
+    | "punchline"
+    | "reserve now"
+>()({ DesignOfReservationPage })

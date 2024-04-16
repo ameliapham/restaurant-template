@@ -39,5 +39,10 @@ export const translations: Translations<"fr"> = {
         "special requests": "Demandes spéciales",
         "i agree to use my personal data": "J'accepte d'utiliser mes données personnelles",
     },
+    "DesignOfReservationPage": {
+        "reservation": "Réservation",
+        "punchline": "Réservez chez ZenAsia pour une aventure culinaire captivante avec les saveurs les plus fines de l'Asie. Réservez maintenant!",
+        "reserve now": "Réservez maintenant",
+    },
     /* spell-checker: enable */
 };
