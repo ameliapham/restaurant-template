@@ -25,5 +25,19 @@ export const translations: Translations<"fr"> = {
         "opening times": "Horaires d'ouverture",
         "find us": "Notre adresse",
     },
+    "Reservation": {
+        "book": "Réserver",
+        "a table": "Une Table",
+    },
+    "ReservationForm": {
+        "your name": "Votre nom",
+        "email": "Email",
+        "phone number": "Numéro de téléphone",
+        "number of guests": "Nombre de convives",
+        "date": "Date",
+        "time": "Heure",
+        "special requests": "Demandes spéciales",
+        "i agree to use my personal data": "J'accepte d'utiliser mes données personnelles",
+    },
     /* spell-checker: enable */
 };

@@ -24,4 +24,18 @@ export const translations: Translations<"en"> = {
         "opening times": "Opening times",
         "find us": "Find us",
     },
+    "Reservation": {
+        "book": "Book",
+        "a table": "A Table",
+    },
+    "ReservationForm": {
+        "your name": "Your name",
+        "email": "Email",
+        "phone number": "Phone number",
+        "number of guests": "Number of guests",
+        "date": "Date",
+        "time": "Time",
+        "special requests": "Special requests",
+        "i agree to use my personal data": "I agree to use my personal data",
+    },
 };
