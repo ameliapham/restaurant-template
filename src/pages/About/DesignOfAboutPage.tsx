@@ -2,7 +2,7 @@ import { tss } from 'tss-react/mui'
 import { Carousel } from './Carousel'
 import { Map } from 'components/Map'
 import Typography from '@mui/material/Typography';
-import { RestaurantDetail } from "pages/About/RestaurantDetail";
+import { RestaurantDetail } from "data/RestaurantDetail";
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
 

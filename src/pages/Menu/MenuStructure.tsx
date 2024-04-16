@@ -1,4 +1,4 @@
-import { starters, desserts, mains, drinks } from './ListOfDishes';
+import { starters, desserts, mains, drinks } from '../../data/ListOfDishes';
 import Divider from '@mui/material/Divider';
 import { FoodItemStructure } from './FoodItemStructure'
 import { tss } from 'tss-react/mui'

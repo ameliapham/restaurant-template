@@ -1,4 +1,4 @@
-import { RestaurantDetail } from "pages/About/RestaurantDetail";
+import { RestaurantDetail } from "data/RestaurantDetail";
 import { useState } from 'react';
 import { tss } from 'tss-react/mui';
 import { alpha } from '@mui/material/styles';

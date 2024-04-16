@@ -1,5 +1,5 @@
 import { tss } from 'tss-react/mui'
-import { ListOfDishes } from "./ListOfDishes"
+import { ListOfDishes } from "../../data/ListOfDishes"
 import Typography from '@mui/material/Typography'
 
 type PropsFoodItemStructure = {
