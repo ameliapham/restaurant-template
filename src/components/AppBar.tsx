@@ -1,7 +1,5 @@
 import { tss } from 'tss-react/mui'
 import { CustomButton } from './CustomButton'
-import logoDark from 'assets/logoDark.svg'
-import logoLight from 'assets/logoLight.svg'
 import { alpha } from '@mui/material/styles'
 import IconButton from '@mui/material/IconButton'
 import Menu from '@mui/icons-material/Menu'
@@ -10,7 +8,7 @@ import { NavigationMenu } from './NavigationMenu'
 import Drawer from '@mui/material/Drawer';
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
-
+import { RestaurantDetail } from 'data/RestaurantDetail'
 
 type PropsMenuBar = {
     className?: string;
@@ -30,6 +28,8 @@ export function AppBar(props: PropsMenuBar) {
     const toggleDrawer = (newOpenDrawer: boolean) => () => {
         setOpenDrawer(newOpenDrawer);
     };
+
+    const { logoDark, logoLight } = RestaurantDetail.logoUrl
 
     return (
         <div className={cx(classes.root, className)}>
