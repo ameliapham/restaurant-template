@@ -1,12 +1,16 @@
-import logoColor from 'assets/logoColor.svg'
 import restoImage from 'assets/resto3.jpeg'
 import restoImage2 from "assets/resto4.webp"
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import logoDark from 'assets/logoDark.svg'
+import logoLight from 'assets/logoLight.svg'
 
 type PropsRestaurantDetail = {
-    logoUrl: string;
+    logoUrl: {
+        logoDark: string;
+        logoLight: string;
+    };
     description: string;
     openingTime: string[];
     address: string;
@@ -25,7 +29,10 @@ type PropsRestaurantDetail = {
 }
 
 export const RestaurantDetail: PropsRestaurantDetail = {
-    logoUrl: logoColor,
+    logoUrl: {
+        logoDark: logoDark,
+        logoLight: logoLight
+    },
     description: "Just a short walk from the heart of Paris, our ZenAsia restaurant is the ideal spot for a lunch or dinner before exploring the city. ZenAsia offers a refreshing ambiance and authentic Asian flavours right in the centre of Europe. Our establishment features traditional sunken tables for a unique dining experience. We recommend booking these in advance, as they are highly sought after.",
     openingTime: [
         "Monday - Friday: 12:00 - 22:00",
