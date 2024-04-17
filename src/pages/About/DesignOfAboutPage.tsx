@@ -15,12 +15,13 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
     const { className } = props
     const { cx, classes } = useStyles()
     const { t } = useTranslation({ DesignOfAboutPage })
+    const { logoColor } = RestaurantDetail.logoUrl
 
     return (
         <div className={cx(classes.root, className)}>
             <div className={classes.about}>
                 <img
-                    src={RestaurantDetail.logoUrl}
+                    src={logoColor}
                     alt="logo"
                     className={classes.logo}
                 />
