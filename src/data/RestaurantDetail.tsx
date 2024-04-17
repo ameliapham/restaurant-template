@@ -5,11 +5,13 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import logoDark from 'assets/logoDark.svg'
 import logoLight from 'assets/logoLight.svg'
+import logoColor from 'assets/logoColor.svg'
 
 type PropsRestaurantDetail = {
     logoUrl: {
         logoDark: string;
         logoLight: string;
+        logoColor?: string;
     };
     description: string;
     openingTime: string[];
@@ -31,7 +33,8 @@ type PropsRestaurantDetail = {
 export const RestaurantDetail: PropsRestaurantDetail = {
     logoUrl: {
         logoDark: logoDark,
-        logoLight: logoLight
+        logoLight: logoLight,
+        logoColor: logoColor,
     },
     description: "Just a short walk from the heart of Paris, our ZenAsia restaurant is the ideal spot for a lunch or dinner before exploring the city. ZenAsia offers a refreshing ambiance and authentic Asian flavours right in the centre of Europe. Our establishment features traditional sunken tables for a unique dining experience. We recommend booking these in advance, as they are highly sought after.",
     openingTime: [
