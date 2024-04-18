@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { assert } from "tsafe/assert";
 import { getIsDarkModeEnabledByDefault } from "tools/getIsDarkModeEnabledByDefault";
 
@@ -21,6 +21,34 @@ export function DarkModeProvider(props: DarkModeProviderProps) {
     const { children } = props;
 
     const [isDarkMode, setIsDarkMode] = useState(() => getIsDarkModeEnabledByDefault());
+
+    useEffect(()=>{
+
+        const id = "root-color-scheme";
+
+        remove_existing_element: {
+            const element = document.getElementById(id);
+
+            if (element === null) {
+                break remove_existing_element;
+            }
+
+            element.remove();
+        }
+
+        const element = document.createElement("style");
+
+        element.id = id;
+
+        element.innerHTML = `
+			:root {
+				color-scheme: ${isDarkMode ? "dark" : "light"}
+			}
+		`;
+
+        document.getElementsByTagName("head")[0].appendChild(element);
+
+    },[isDarkMode]);
 
     const contextValue = {
         isDarkMode,

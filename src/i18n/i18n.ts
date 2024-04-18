@@ -6,6 +6,8 @@ import { fallbackLanguage, languages } from "./types";
 import { ComponentKey } from "./types";
 export { declareComponentKeys };
 
+export type LocalizedString = Parameters<typeof resolveLocalizedString>[0];
+
 export const {
     useTranslation,
     resolveLocalizedString,
