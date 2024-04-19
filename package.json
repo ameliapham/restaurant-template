@@ -13,6 +13,7 @@
     "@date-io/date-fns": "^3.0.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@googlemaps/js-api-loader": "^1.16.6",
     "@mui/icons-material": "^5.15.12",
     "@mui/joy": "^5.0.0-beta.32",
     "@mui/lab": "^5.0.0-alpha.170",

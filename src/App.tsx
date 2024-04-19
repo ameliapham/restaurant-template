@@ -28,12 +28,16 @@ export function App() {
             margin: 0,
             padding: 0,
           },
+          "html": {
+            "scrollBehavior": "smooth",
+          },
           "body": {
             "backgroundColor": theme.palette.background.default,
           }
         }}
       />
 
+        <a href="#foo">Go to foo</a>
       <div className={classes.root}>
         {(() => {
           switch (selectedPage) {
@@ -47,6 +51,52 @@ export function App() {
               return <Reservation onChangePage={setSelectedPage} />
           }
         })()}
+        <div id="foo">
+          sdfqsdfqsdf d fqsdf qsdf sqdf sqf
+          sd fq
+          sf qsf qsdf qsf qsf qsf 
+        </div>
+
+        <div >
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+          <p>xxx</p>
+        </div>
 
       </div>
     </>

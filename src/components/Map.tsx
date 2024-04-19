@@ -1,5 +1,12 @@
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import { Loader } from "@googlemaps/js-api-loader"
+import { useEffect, useState } from "react";
+import { useStyles } from "tss-react/mui";
 
+// https://developers.google.com/maps/documentation/javascript/overview#js_api_loader_package
+const loader = new Loader({
+    apiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
+    version: "weekly",
+});
 
 type Props = {
     className?: string;
@@ -11,26 +18,41 @@ type Props = {
 
 export function Map(props: Props) {
 
-    const { center } = props;
+    const { className } = props;
 
-    const containerStyle = {
-        width: '100%',
-        height: '100%',
-        maxHeight: '100px',
-        borderRadius: '15px',
-    };
+    const { cx, css } = useStyles();
+
+    const [element, setElement] = useState<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+
+        if (element === null) {
+            return;
+        }
+
+        loader.load().then(async () => {
+            const { Map } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
+            new Map(
+                element,
+                {
+                    center: { lat: -34.397, lng: 150.644 },
+                    zoom: 8,
+                }
+            );
+        });
+
+    }, [element]);
 
     return (
-        <LoadScript
-            googleMapsApiKey="CLÉ_API_GOOGLE_MAPS"
-        >
-            <GoogleMap
-                mapContainerStyle={containerStyle}
-                center={center}
-                zoom={10}
-            >
-                { /* Enfants de GoogleMap ici */}
-            </GoogleMap>
-        </LoadScript>
+        <div
+            ref={setElement}
+            id="map"
+            className={cx(css({
+                width: '100%',
+                height: '100%',
+                maxHeight: '100px',
+                borderRadius: '15px',
+            }), className)}
+        />
     )
 }

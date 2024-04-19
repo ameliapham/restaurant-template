@@ -32,7 +32,7 @@ export const ReservationForm2: React.FC = () => {
 
     const onSubmit = (data: FormInput) => {
 
-        fetch("https://restaurant-form-email.deno.dev/", {
+        fetch(import.meta.env.VITE_SERVERLESS_FUNCTION_URL, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
