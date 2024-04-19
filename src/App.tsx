@@ -1,22 +1,15 @@
 import { GlobalStyles } from 'tss-react';
 import { tss } from 'tss-react/mui';
-import { useState } from "react";
-
 import { Home } from "pages/Home"
 import { Menu } from "pages/Menu"
 import { About } from "pages/About"
 import { Reservation } from "pages/Reservation"
-
-
-
-
-type SelectedPage = "home" | "menu" | "about" | "reservation"
-
-
+import { useSelectedPage } from "useSelectedPage";
+import { assert, type Equals } from "tsafe/assert";
 
 export function App() {
 
-  const [selectedPage, setSelectedPage] = useState<SelectedPage>("home")
+  const { selectedPage } = useSelectedPage();
 
   const { classes, theme } = useStyles()
 
@@ -28,26 +21,30 @@ export function App() {
             margin: 0,
             padding: 0,
           },
+          "html": {
+            "scrollBehavior": "smooth",
+          },
           "body": {
             "backgroundColor": theme.palette.background.default,
           }
         }}
       />
-
       <div className={classes.root}>
         {(() => {
           switch (selectedPage) {
             case "home":
-              return <Home onChangePage={setSelectedPage} />
+              return <Home />
             case "menu":
-              return <Menu onChangePage={setSelectedPage} />
+              return <Menu  />
             case "about":
-              return <About onChangePage={setSelectedPage} />
+              return <About />
             case "reservation":
-              return <Reservation onChangePage={setSelectedPage} />
+              return <Reservation />
+            case "404":
+              return <h1>Sorry page not found</h1>
           }
+          assert<Equals<typeof selectedPage, never>>(false)
         })()}
-
       </div>
     </>
   )

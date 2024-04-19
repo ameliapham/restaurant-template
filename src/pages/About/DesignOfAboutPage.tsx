@@ -2,7 +2,7 @@ import { tss } from 'tss-react/mui'
 import { Carousel } from './Carousel'
 import { Map } from 'components/Map'
 import Typography from '@mui/material/Typography';
-import { RestaurantDetail } from "data/RestaurantDetail";
+import { restaurantDetails } from "data/restaurantDetails";
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
 
@@ -15,7 +15,7 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
     const { className } = props
     const { cx, classes } = useStyles()
     const { t } = useTranslation({ DesignOfAboutPage })
-    const { logoColor } = RestaurantDetail.logoUrl
+    const { logoColor } = restaurantDetails.logoUrl
 
     return (
         <div className={cx(classes.root, className)}>
@@ -29,7 +29,7 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
                     variant="body2"
                     className={classes.describe}
                 >
-                    {RestaurantDetail.description}
+                    {restaurantDetails.description}
                 </Typography>
             </div>
 
@@ -46,7 +46,7 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
                         {t("opening times")}
                     </Typography>
 
-                    {RestaurantDetail.openingTime.map((time, index) => (
+                    {restaurantDetails.openingTime.map((time, index) => (
                         <Typography key={index} variant="body2">
                             {time}
                         </Typography>
@@ -72,19 +72,19 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
                     <Typography
                         variant='body2'
                     >
-                        {RestaurantDetail.address}
+                        {restaurantDetails.address}
                     </Typography>
                     
                     <Typography
                         variant='body2'
                     >
-                        {RestaurantDetail.phone}
+                        {restaurantDetails.phone}
                     </Typography>
                 </div>
             </div>
 
             <div className={classes.social}>
-                {RestaurantDetail.socialUrl.map((social, index) => (
+                {restaurantDetails.socialUrl.map((social, index) => (
                     <a key={index} href={social.url} target="_blank" rel="noreferrer">
                         <social.Icon className={classes.icon} />
                     </a>

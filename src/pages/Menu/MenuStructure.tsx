@@ -3,6 +3,7 @@ import Divider from '@mui/material/Divider';
 import { FoodItemStructure } from './FoodItemStructure'
 import { tss } from 'tss-react/mui'
 import Typography from '@mui/material/Typography'
+import { useMemo } from "react";
 
 type PropsMenuStructure = {
     className?: string;
@@ -16,21 +17,24 @@ export function MenuStructure(props: PropsMenuStructure) {
 
     const { classes } = useStyles()
 
-    const foodData = (() => {
-        switch (foods) {
-            case "starters":
-                return starters;
-            case "desserts":
-                return desserts;
-            case "mains":
-                return mains;
-            case "drinks":
-                return drinks;
-        }
-    })();
+    // NOTE: Bad usecase for use memo, but just for demonstration
+    const foodData = useMemo(
+        () => {
+            switch (foods) {
+                case "starters":
+                    return starters;
+                case "desserts":
+                    return desserts;
+                case "mains":
+                    return mains;
+                case "drinks":
+                    return drinks;
+            }
+        },
+        [foods]
+    );
 
     return (
-
         <div className={classes.root}>
 
             <div className={classes.objectHeading}>

@@ -7,20 +7,14 @@ import { DesignOfHomePage } from "./DesignOfHomePage"
 import backgroundImageUrl from "assets/food-pho.webp"
 
 
-type PropsHome = {
-    className?: string;
-    onChangePage: (page: SelectedPage) => void;
-}
 
-type SelectedPage = "home" | "menu" | "about" | "reservation"
 
-export function Home(props: PropsHome) {
+export function Home() {
+
 
     const [checked, setChecked] = useState(false)
 
-    const { onChangePage } = props
-
-    const { cx, classes } = useStyles()
+    const { classes } = useStyles()
 
     useEffect(() => {
         setChecked(true)
@@ -31,17 +25,14 @@ export function Home(props: PropsHome) {
             in={checked}
             timeout={800}
         >
-            <div className={cx(classes.root)}>
+            <div className={classes.root}>
                 <HeroSection
-                    selectedPage='home'
                     className={classes.left}
-                    onChangePage={onChangePage}
                     backgroundImageUrl={backgroundImageUrl}
                     heroText={<>Zen <br /> Gourmet</>}
                 />
                 <DesignOfHomePage
                     className={classes.right}
-                    onChangePage={onChangePage}
                 />
             </div>
         </Fade>

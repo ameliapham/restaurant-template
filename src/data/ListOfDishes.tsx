@@ -12,12 +12,14 @@ import springRoll from "assets/food-springRolls.png"
 import cafe from "assets/food-cafe.png"
 import pudding from "assets/food-pudding.png"
 import boBun from "assets/food-boBun.png"
+import { LocalizedString } from "i18n";
+
 
 
 export type ListOfDishes = {
-    nameOfDish: string;
+    nameOfDish: LocalizedString;
     price: string;
-    details?: string;
+    details?: LocalizedString;
     illustration: string;
 }
 
@@ -25,11 +27,16 @@ export const starters: ListOfDishes[] = [
     {
         nameOfDish: "Nem",
         price: "€6",
-        details: "4 fried spring rolls (nem) of your choice: pork, chicken, shrimp, vegetarian.",
+        details: {
+            en: "4 fried spring rolls (nem) of your choice: pork, chicken, shrimp, vegetarian.",
+            fr: "4 nems frits de votre choix : porc, poulet, crevette, végétarien."
+        },
         illustration: nemRan
     },
     {
-        nameOfDish: "Spring rolls",
+        nameOfDish: {
+            "fr": "Rouleaux de printemps"
+        },
         price: "€4",
         details: "2 spring rolls of your choice: shrimp/beef/chicken/tofu.",
         illustration: springRoll
