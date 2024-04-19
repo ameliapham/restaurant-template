@@ -7,18 +7,10 @@ import backgroundImageUrl from "assets/food-nem.webp"
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
 
+export function Menu() {
 
-type PropsMenu = {
-    className?: string;
-    onChangePage: (page: SelectedPage) => void;
-}
-
-type SelectedPage = "home" | "menu" | "about" | "reservation"
-
-export function Menu(props: PropsMenu) {
 
     const { cx, classes } = useStyles()
-    const { onChangePage } = props
     const { t } = useTranslation({ Menu })
 
     return (
@@ -26,11 +18,9 @@ export function Menu(props: PropsMenu) {
             in={true}
             timeout={800}
         >
-            <div className={cx(classes.root)}>
+            <div className={classes.root}>
                 <HeroSection
-                    selectedPage='menu'
                     className={classes.left}
-                    onChangePage={onChangePage}
                     backgroundImageUrl={backgroundImageUrl}
                     heroText={<>
                         {t("menu")}

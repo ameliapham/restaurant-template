@@ -1,22 +1,15 @@
 import { GlobalStyles } from 'tss-react';
 import { tss } from 'tss-react/mui';
-import { useState } from "react";
 
 import { Home } from "pages/Home"
 import { Menu } from "pages/Menu"
 import { About } from "pages/About"
 import { Reservation } from "pages/Reservation"
-
-
-
-
-type SelectedPage = "home" | "menu" | "about" | "reservation"
-
-
+import { useSelectedPage } from "useSelectedPage";
 
 export function App() {
 
-  const [selectedPage, setSelectedPage] = useState<SelectedPage>("home")
+  const { selectedPage } = useSelectedPage();
 
   const { classes, theme } = useStyles()
 
@@ -42,13 +35,13 @@ export function App() {
         {(() => {
           switch (selectedPage) {
             case "home":
-              return <Home onChangePage={setSelectedPage} />
+              return <Home />
             case "menu":
-              return <Menu onChangePage={setSelectedPage} />
+              return <Menu  />
             case "about":
-              return <About onChangePage={setSelectedPage} />
+              return <About />
             case "reservation":
-              return <Reservation onChangePage={setSelectedPage} />
+              return <Reservation />
           }
         })()}
         <div id="foo">

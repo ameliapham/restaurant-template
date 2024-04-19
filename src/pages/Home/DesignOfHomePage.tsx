@@ -5,26 +5,26 @@ import secondImage from "assets/reservation2.webp"
 import thirdImage from "assets/resto4.webp"
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
+import { useSelectedPage } from "useSelectedPage";
 
 type PropsDesignOfHomePage = {
     className?: string;
-    onChangePage: (page: SelectedPage) => void;
 }
 
-type SelectedPage = "home" | "menu" | "about" | "reservation"
 
 export function DesignOfHomePage(props: PropsDesignOfHomePage) {
 
-    const { className, onChangePage } = props
+    const { className } = props
     const { cx, classes } = useStyles()
     const { t } = useTranslation({ DesignOfHomePage})
+    const { setSelectedPage } = useSelectedPage();
 
     return (
         <div className={cx(classes.root, className)}>
             <CustomCard
                 className={classes.card}
                 backgroundImageUrl={firstImage}
-                onClick={() => onChangePage("menu")}
+                onClick={() => setSelectedPage("menu")}
             >
                 {t("menu")}
             </CustomCard>
@@ -32,14 +32,14 @@ export function DesignOfHomePage(props: PropsDesignOfHomePage) {
             <CustomCard
                 className={classes.card}
                 backgroundImageUrl={secondImage}
-                onClick={() => onChangePage("reservation")}
+                onClick={() => setSelectedPage("reservation")}
             >
                 {t("reservation")}
             </CustomCard>
             <CustomCard
                 className={classes.card}
                 backgroundImageUrl={thirdImage}
-                onClick={() => onChangePage("about")}
+                onClick={() => setSelectedPage("about")}
             >
                 {t("our restaurant")}
             </CustomCard>

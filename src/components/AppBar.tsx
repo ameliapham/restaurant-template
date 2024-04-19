@@ -9,20 +9,19 @@ import Drawer from '@mui/material/Drawer';
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
 import { restaurantDetails } from 'data/restaurantDetails'
+import { useSelectedPage } from "useSelectedPage";
 
 type PropsMenuBar = {
     className?: string;
-    selectedPage: SelectedPage;
-    onChangePage: (page: SelectedPage) => void;
 }
 
-type SelectedPage = "home" | "menu" | "about" | "reservation"
 
 export function AppBar(props: PropsMenuBar) {
 
     const { t } = useTranslation({ AppBar })
-    const { className, onChangePage } = props
+    const { className } = props
     const { cx, classes, theme } = useStyles()
+    const { selectedPage, setSelectedPage } = useSelectedPage();
 
     const [openDrawer, setOpenDrawer] = useState(false)
     const toggleDrawer = (newOpenDrawer: boolean) => () => {
@@ -43,7 +42,7 @@ export function AppBar(props: PropsMenuBar) {
             <Drawer open={openDrawer} onClose={toggleDrawer(false)}>
                 <NavigationMenu
                     onCLick={toggleDrawer(false)}
-                    onChangePage={onChangePage}
+                    onChangePage={setSelectedPage}
                 />
             </Drawer>
 
@@ -51,28 +50,28 @@ export function AppBar(props: PropsMenuBar) {
                 className={cx(classes.logo)}
                 src={theme.palette.mode === 'dark' ? logoDark : logoLight}
                 alt="logo"
-                onClick={() => onChangePage("home")}
+                onClick={() => setSelectedPage("home")}
             />
 
             <CustomButton
-                onClick={() => onChangePage("menu")}
-                selected={props.selectedPage === "menu"}
+                onClick={() => setSelectedPage("menu")}
+                selected={selectedPage === "menu"}
                 className={classes.button}
             >
                 {t("menu")}
             </CustomButton>
 
             <CustomButton
-                onClick={() => onChangePage("about")}
-                selected={props.selectedPage === "about"}
+                onClick={() => setSelectedPage("about")}
+                selected={selectedPage === "about"}
                 className={classes.button}
             >
                 {t("about")}
             </CustomButton>
 
             <CustomButton
-                onClick={() => onChangePage("reservation")}
-                selected={props.selectedPage === "reservation"}
+                onClick={() => setSelectedPage("reservation")}
+                selected={selectedPage === "reservation"}
                 className={classes.reservation}
             >
                 {t("reservation")}
