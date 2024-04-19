@@ -1,3 +1,5 @@
+import { LocalizedString } from "i18n"
+
 import restoImage from 'assets/resto3.jpeg'
 import restoImage2 from "assets/resto4.webp"
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -13,8 +15,8 @@ type PropsRestaurantDetail = {
         logoLight: string;
         logoColor?: string;
     };
-    description: string;
-    openingTime: string[];
+    description: LocalizedString;
+    openingTime: LocalizedString[];
     address: string;
     phone: string;
     socialUrl: {
@@ -36,10 +38,19 @@ export const RestaurantDetail: PropsRestaurantDetail = {
         logoLight: logoLight,
         logoColor: logoColor,
     },
-    description: "Just a short walk from the heart of Paris, our ZenAsia restaurant is the ideal spot for a lunch or dinner before exploring the city. ZenAsia offers a refreshing ambiance and authentic Asian flavours right in the centre of Europe. Our establishment features traditional sunken tables for a unique dining experience. We recommend booking these in advance, as they are highly sought after.",
+    description: {
+        en: "Just a short walk from the heart of Paris, our ZenAsia restaurant is the ideal spot for a lunch or dinner before exploring the city. ZenAsia offers a refreshing ambiance and authentic Asian flavours right in the centre of Europe. Our establishment features traditional sunken tables for a unique dining experience. We recommend booking these in advance, as they are highly sought after.",
+        fr: "À deux pas du cœur de Paris, notre restaurant ZenAsia est l'endroit idéal pour déjeuner ou dîner avant de partir à la découverte de la ville. ZenAsia propose une ambiance rafraîchissante et des saveurs asiatiques authentiques en plein centre de l'Europe. Notre établissement dispose de tables traditionnelles encastrées pour une expérience culinaire unique. Nous vous recommandons de les réserver à l'avance, car elles sont très demandées."
+    },
     openingTime: [
-        "Monday - Friday: 12:00 - 22:00",
-        "Saturday - Sunday: 10:00 - 23:00"
+        {
+            en : "Monday - Friday: 12:00 - 22:00",
+            fr : "Lundi - Vendredi: 12:00 - 22:00",
+        },
+        {
+            en: "Saturday - Sunday: 10:00 - 23:00",
+            fr: "Samedi - Dimanche: 10:00 - 23:00",
+        }
     ],
     address: "Rue de la Paix 75002 Paris",
     phone: "+33 1 23 45 67 89",
