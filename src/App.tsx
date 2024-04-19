@@ -1,6 +1,5 @@
 import { GlobalStyles } from 'tss-react';
 import { tss } from 'tss-react/mui';
-
 import { Home } from "pages/Home"
 import { Menu } from "pages/Menu"
 import { About } from "pages/About"
@@ -29,8 +28,6 @@ export function App() {
           }
         }}
       />
-
-        <a href="#foo">Go to foo</a>
       <div className={classes.root}>
         {(() => {
           switch (selectedPage) {
@@ -44,53 +41,6 @@ export function App() {
               return <Reservation />
           }
         })()}
-        <div id="foo">
-          sdfqsdfqsdf d fqsdf qsdf sqdf sqf
-          sd fq
-          sf qsf qsdf qsf qsf qsf 
-        </div>
-
-        <div >
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-        </div>
-
       </div>
     </>
   )

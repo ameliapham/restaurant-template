@@ -9,8 +9,7 @@ import { useTranslation } from "i18n"
 
 export function Menu() {
 
-
-    const { cx, classes } = useStyles()
+    const { classes } = useStyles()
     const { t } = useTranslation({ Menu })
 
     return (
