@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import { RestaurantDetail } from "data/RestaurantDetail";
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
+import { useResolveLocalizedString } from "i18n";
 
 type PropsDesignOfAboutPage = {
     className?: string;
@@ -13,8 +14,13 @@ type PropsDesignOfAboutPage = {
 export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
 
     const { className } = props
-    const { cx, classes } = useStyles()
+
+    const { resolveLocalizedString } = useResolveLocalizedString({
+        "labelWhenMismatchingLanguage": true
+    });
+    
     const { t } = useTranslation({ DesignOfAboutPage })
+    const { cx, classes } = useStyles()
     const { logoColor } = RestaurantDetail.logoUrl
 
     return (
@@ -29,7 +35,7 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
                     variant="body2"
                     className={classes.describe}
                 >
-                    {RestaurantDetail.description}
+                    {resolveLocalizedString(RestaurantDetail.description)}
                 </Typography>
             </div>
 
@@ -48,7 +54,7 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
 
                     {RestaurantDetail.openingTime.map((time, index) => (
                         <Typography key={index} variant="body2">
-                            {time}
+                            {resolveLocalizedString(time)}
                         </Typography>
                     ))}
                 </div>
