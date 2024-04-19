@@ -1,8 +1,11 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { assert } from "tsafe/assert";
+import { useConstCallback } from "powerhooks/useConstCallback";
 
+const selectedPages = ["home", "menu", "about", "reservation", "404"] as const;
 
-type SelectedPage = "home" | "menu" | "about" | "reservation"
+export type SelectedPage = typeof selectedPages[number];
+
 
 type ContextValue = {
     selectedPage: SelectedPage;
@@ -12,14 +15,50 @@ type ContextValue = {
 const context = createContext<ContextValue>(undefined);
 
 type SelectedPageProviderProps = {
-    defaultSelectedPage: SelectedPage;
     children: React.ReactNode;
 };
 
-export function SelectedPageProvider(props: SelectedPageProviderProps) {
-    const { children, defaultSelectedPage } = props;
+function getSelectedPageFromUrlPath(): SelectedPage {
 
-    const [selectedPage, setSelectedPage] = useState(defaultSelectedPage);
+        //Remove the slash at the beginning of the path
+        const locationWithoutSlash = window.location.pathname.slice(1);
+
+        const selectedPage =
+            locationWithoutSlash === "" ? 
+                "home" : 
+                locationWithoutSlash as SelectedPage;
+            
+        if( !selectedPages.includes(selectedPage) ){
+            return "404";
+        }
+
+        return selectedPage;
+
+}
+
+export function SelectedPageProvider(props: SelectedPageProviderProps) {
+    const { children } = props;
+
+    const [selectedPage, setSelectedPage_real ] = useState(getSelectedPageFromUrlPath);
+
+    const setSelectedPage = useConstCallback((selectedPage: SelectedPage) => {
+        history.pushState(null, '', `/${selectedPage}`);
+        setSelectedPage_real(selectedPage);
+    });
+
+    useEffect(()=> {
+
+        const eventListener = ()=>{
+            setSelectedPage_real(getSelectedPageFromUrlPath());
+        };
+
+        window.addEventListener("popstate", eventListener);
+
+        return ()=> {
+            window.removeEventListener("popstate", eventListener);
+        }
+
+    }, []);
 
     return (
         <context.Provider value={{ selectedPage, setSelectedPage }}>

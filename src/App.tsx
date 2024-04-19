@@ -5,6 +5,7 @@ import { Menu } from "pages/Menu"
 import { About } from "pages/About"
 import { Reservation } from "pages/Reservation"
 import { useSelectedPage } from "useSelectedPage";
+import { assert, type Equals } from "tsafe/assert";
 
 export function App() {
 
@@ -39,7 +40,10 @@ export function App() {
               return <About />
             case "reservation":
               return <Reservation />
+            case "404":
+              return <h1>Sorry page not found</h1>
           }
+          assert<Equals<typeof selectedPage, never>>(false)
         })()}
       </div>
     </>
