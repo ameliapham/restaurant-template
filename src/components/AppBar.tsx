@@ -8,7 +8,7 @@ import { NavigationMenu } from './NavigationMenu'
 import Drawer from '@mui/material/Drawer';
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
-import { RestaurantDetail } from 'data/RestaurantDetail'
+import { restaurantDetails } from 'data/restaurantDetails'
 
 type PropsMenuBar = {
     className?: string;
@@ -29,7 +29,7 @@ export function AppBar(props: PropsMenuBar) {
         setOpenDrawer(newOpenDrawer);
     };
 
-    const { logoDark, logoLight } = RestaurantDetail.logoUrl
+    const { logoDark, logoLight } = restaurantDetails.logoUrl
 
     return (
         <div className={cx(classes.root, className)}>

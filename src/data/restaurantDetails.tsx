@@ -7,7 +7,8 @@ import logoDark from 'assets/logoDark.svg'
 import logoLight from 'assets/logoLight.svg'
 import logoColor from 'assets/logoColor.svg'
 
-type PropsRestaurantDetail = {
+type RestaurantDetails = {
+    name: string;
     logoUrl: {
         logoDark: string;
         logoLight: string;
@@ -16,6 +17,7 @@ type PropsRestaurantDetail = {
     description: string;
     openingTime: string[];
     address: string;
+    email: string;
     phone: string;
     socialUrl: {
         name: string;
@@ -30,7 +32,8 @@ type PropsRestaurantDetail = {
     };
 }
 
-export const RestaurantDetail: PropsRestaurantDetail = {
+export const restaurantDetails: RestaurantDetails = {
+    name: "ZenAsia",
     logoUrl: {
         logoDark: logoDark,
         logoLight: logoLight,
@@ -43,6 +46,8 @@ export const RestaurantDetail: PropsRestaurantDetail = {
     ],
     address: "Rue de la Paix 75002 Paris",
     phone: "+33 1 23 45 67 89",
+    // Replace with the client email
+    email: "pham@ameliart.fr",
     socialUrl: [
         {
             name: 'facebook',

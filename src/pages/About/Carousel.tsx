@@ -1,4 +1,4 @@
-import { RestaurantDetail } from "data/RestaurantDetail";
+import { restaurantDetails } from "data/restaurantDetails";
 import { useState } from 'react';
 import { tss } from 'tss-react/mui';
 import { alpha } from '@mui/material/styles';
@@ -11,7 +11,7 @@ import { CustomButton } from 'components/CustomButton';
 
 export function Carousel() {
 
-    const illustrations = RestaurantDetail.illustrations.photos;
+    const illustrations = restaurantDetails.illustrations.photos;
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const { cx, classes } = useStyles();

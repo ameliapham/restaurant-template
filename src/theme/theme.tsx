@@ -74,6 +74,32 @@ export const darkTheme = createTheme({
     },
     typography,
     breakpoints,
+    "components": {
+        "MuiTextField": {
+            "styleOverrides": {
+                "root": ({ theme }) => ({
+                    "& .MuiFormLabel-root": {
+                        "color": theme.palette.secondary.main,
+                        "&.Mui-error": {
+                            "color": theme.palette.error.main,
+                        }
+                    },
+                })
+            }
+        },
+        "MuiInputBase": {
+            "styleOverrides": {
+                "root": ({ theme })=> ({
+                    "&.Mui-focused": {
+                        "border": `1px solid ${theme.palette.secondary.main}`,
+                        "&.Mui-error": {
+                            "border": "unset",
+                        }
+                    }
+                }),
+            }
+        }
+    }
 });
 
 export const lightTheme = createTheme({

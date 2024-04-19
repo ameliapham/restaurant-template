@@ -10,11 +10,19 @@ type CustomButtonProps = {
     children: React.ReactNode;
     icon?: React.ReactNode | boolean;
     selected?: boolean;
+    disabled?: boolean;
 }
 
 export function CustomButton(props: CustomButtonProps) {
 
-    const { className, onClick, children, icon, selected } = props
+    const { 
+        className, 
+        onClick, 
+        children, 
+        icon, 
+        selected, 
+        disabled = false 
+    } = props
     const { cx, classes } = useStyles({ selected: !!selected })
     const Icon = React.isValidElement(icon) ? icon : icon ? <ArrowForwardIcon /> : null
 
@@ -22,6 +30,7 @@ export function CustomButton(props: CustomButtonProps) {
         <Button
             className={cx(classes.button, { [classes.selected]: selected }, className)}
             onClick={onClick}
+            disabled={disabled}
         >
             {children}
             {Icon}

@@ -10,16 +10,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@date-io/date-fns": "^3.0.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.12",
     "@mui/joy": "^5.0.0-beta.32",
+    "@mui/lab": "^5.0.0-alpha.170",
     "@mui/material": "^5.15.12",
+    "@mui/x-date-pickers": "^7.2.0",
     "@react-google-maps/api": "^2.19.3",
+    "date-fns": "2.13.0",
     "framer-motion": "^11.0.28",
     "i18nifty": "^3.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.3",
     "tsafe": "^1.6.6",
     "tss-react": "^4.9.4"
   },

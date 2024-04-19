@@ -4,26 +4,87 @@ import Checkbox from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
+import TextField from '@mui/material/TextField'
+
+export type FormData = {
+        name: string;
+        email: string;
+        phoneNumber: string;
+        numberOfGuests: number;
+        time: string;
+        specialRequests: string;
+};
 
 type PropsInputForm = {
     className?: string;
+    formData: FormData;
+    onFormDataChange: (formData: FormData) => void;
 }
+
+function getIsEmailWellFormatted(email: string): boolean {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+export function getIsFormSubmittable(formData: FormData): boolean {
+
+    // check name is not empty
+    if (formData.name === '') {
+        return false;
+    }
+
+    if( formData.name.length < 2 ) {
+        return false;
+    }
+
+    // check email well formatted
+    if (!getIsEmailWellFormatted(formData.email)) {
+        return false;
+    }
+
+    // check the rest
+    if (formData.phoneNumber === '') {
+        return false;
+    }
+
+    return true;
+
+}
+
+
 
 export function ReservationForm(props: PropsInputForm) {
 
-    const { className } = props
+    const { className, formData, onFormDataChange } = props
     const { cx, classes, theme } = useStyles()
     const { t } = useTranslation({ ReservationForm })
+
 
     return (
         <div className={cx(classes.root, className)}>
             <div className={classes.line}>
-                <CustomTextField
+                <TextField
+                    value={formData.name}
+                    onChange={event => {
+                        onFormDataChange({ 
+                            ...formData, 
+                            "name": event.target.value 
+                        })
+                    }}
                     label={t("your name")}
                     required
                 />
-                <CustomTextField
+                <TextField
                     label={t("email")}
+                    value={formData.email}
+                    onChange={event => {
+                        onFormDataChange({ 
+                            ...formData, 
+                            "email": event.target.value 
+                        })
+                    }}
+                    error={!getIsEmailWellFormatted(formData.email)}
+                    helperText={getIsEmailWellFormatted(formData.email) ? '' : "Invalid email"}
+                    type="email"
                     required
                 />
             </div>
