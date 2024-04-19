@@ -1,6 +1,7 @@
 import { tss } from 'tss-react/mui'
 import { ListOfDishes } from "../../data/ListOfDishes"
 import Typography from '@mui/material/Typography'
+import { useResolveLocalizedString } from "i18n";
 
 type PropsFoodItemStructure = {
     className?: string;
@@ -12,6 +13,10 @@ export function FoodItemStructure(props: PropsFoodItemStructure) {
     const { className, foods } = props
 
     const { cx, classes } = useStyles()
+
+    const { resolveLocalizedString } = useResolveLocalizedString({
+        "labelWhenMismatchingLanguage": true
+    });
 
     return (
         <div>
@@ -27,7 +32,7 @@ export function FoodItemStructure(props: PropsFoodItemStructure) {
                             <Typography
                                 variant='body1'
                             >
-                                {foods.nameOfDish}
+                                {resolveLocalizedString(foods.nameOfDish)}
                             </Typography>
 
                             <Typography
@@ -37,13 +42,14 @@ export function FoodItemStructure(props: PropsFoodItemStructure) {
                             </Typography>
                         </div>
 
-                        <Typography
-                            variant='caption'
-                            className={classes.details}
-                        >
-                            {foods.details}
-                        </Typography>
-
+                        {foods.details !== undefined &&
+                            <Typography
+                                variant='caption'
+                                className={classes.details}
+                            >
+                                {resolveLocalizedString(foods.details)}
+                            </Typography>
+                        }
                     </div>
                 </div>
             ))
