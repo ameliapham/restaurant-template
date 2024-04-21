@@ -8,17 +8,9 @@ import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
 
 
-type PropsMenu = {
-    className?: string;
-    onChangePage: (page: SelectedPage) => void;
-}
-
-type SelectedPage = "home" | "menu" | "about" | "reservation"
-
-export function Menu(props: PropsMenu) {
+export function Menu() {
 
     const { cx, classes } = useStyles()
-    const { onChangePage } = props
     const { t } = useTranslation({ Menu })
 
     return (
@@ -28,9 +20,7 @@ export function Menu(props: PropsMenu) {
         >
             <div className={cx(classes.root)}>
                 <HeroSection
-                    selectedPage='menu'
                     className={classes.left}
-                    onChangePage={onChangePage}
                     backgroundImageUrl={backgroundImageUrl}
                     heroText={<>
                         {t("menu")}
