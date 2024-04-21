@@ -7,18 +7,9 @@ import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
 
 
-type PropsReservation = {
-    className?: string;
-    onChangePage: (page: SelectedPage) => void;
-}
-
-type SelectedPage = "home" | "menu" | "about" | "reservation"
-
-export function Reservation(props: PropsReservation) {
+export function Reservation() {
 
     const { cx, classes } = useStyles()
-
-    const { onChangePage } = props
 
     const { t } = useTranslation({ Reservation })
 
@@ -29,9 +20,7 @@ export function Reservation(props: PropsReservation) {
         >
             <div className={cx(classes.root)}>
                 <HeroSection
-                    selectedPage='reservation'
                     className={classes.left}
-                    onChangePage={onChangePage}
                     backgroundImageUrl={backgroundImageUrl}
                     heroText={
                         <>
