@@ -7,21 +7,16 @@ type PropsHeroSection = {
     className?: string;
     backgroundImageUrl: string;
     heroText: ReactNode;
-    selectedPage: "home" | "menu" | "about" | "reservation";
-    onChangePage: (page: "home" | "menu" | "about" | "reservation") => void;
 }
 
 export function HeroSection(props: PropsHeroSection) {
 
-    const { className, backgroundImageUrl, heroText, selectedPage, onChangePage } = props
+    const { className, backgroundImageUrl, heroText } = props
     const { cx, classes } = useStyles({ backgroundImageUrl })
 
     return (
         <div className={cx(classes.root, className)}>
-            <AppBar
-                selectedPage={selectedPage}
-                onChangePage={onChangePage}
-            />
+            <AppBar/>
 
             <Typography
                 variant='h1'
