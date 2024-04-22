@@ -23,20 +23,24 @@ export function SelectedPageProvider(props: SelectedPageProviderProps) {
     const [selectedPage, setSelectedPage] = useState(defaultSelectedPage);
 
     return (
-        <context.Provider value={{ selectedPage: selectedPage, setSelectedPage: setSelectedPage }}>
+        <context.Provider value={{ selectedPage, setSelectedPage }}>
             {children}
         </context.Provider>
     );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useSelectedPage() {
+
     const contextValue = useContext(context);
 
     assert(
         contextValue !== undefined, 
-        "This hook must be called in a descendant of SelectedPageProvider");
+        "This hook must be called in a descendant of SelectedPageProvider"
+    );
 
     const { selectedPage, setSelectedPage } = contextValue;
 
     return { selectedPage, setSelectedPage };
+
 }
