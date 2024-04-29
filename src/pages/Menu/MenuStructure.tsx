@@ -1,7 +1,7 @@
 import { starters, desserts, mains, drinks } from '../../data/ListOfDishes';
 import Divider from '@mui/material/Divider';
 import { FoodItemStructure } from './FoodItemStructure'
-import { tss } from 'tss-react/mui'
+import { tss } from 'tss'
 import Typography from '@mui/material/Typography'
 
 type PropsMenuStructure = {
@@ -62,14 +62,15 @@ export function MenuStructure(props: PropsMenuStructure) {
 
 const useStyles = tss
     .withName("FoodList")
-    .create(({ theme }) => ({
+    .create(({ theme, scrollbarStyles }) => ({
         "root": {
             "display": "flex",
             "flexDirection": "column",
             "gap": theme.spacing(3),
             "height": "100%",
+            // TODO: Error here
             "overflow": "auto",
-            "boxSizing": "border-box",
+            "boxSizing": "border-box"
         },
         "objectHeading": {
             "display": "flex",
@@ -86,6 +87,7 @@ const useStyles = tss
         },
         "foodList": {
             "overflow": "auto",
+            ...scrollbarStyles
         },
 
     }))
