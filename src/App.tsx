@@ -37,8 +37,9 @@ export function App() {
             margin: 0,
             padding: 0,
           },
-          "body": {
-            "backgroundColor": theme.palette.background.default,
+          "html": {
+            "colorScheme": theme.palette.mode,
+            "backgroundColor": theme.palette.background.default
           }
         }}
       />
@@ -65,7 +66,6 @@ export function App() {
 const useStyles = tss.create(({ theme }) => ({
   "root": {
     "height": "100vh",
-    //"width": "100vw",
     "overflow": "hidden",
     "color": theme.palette.text.primary,
     [theme.breakpoints.only('mobile')]: {
