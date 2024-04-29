@@ -8,6 +8,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <SelectedPageProvider defaultSelectedPage="home">
     <ThemeProvider>
       <App />
-    </ThemeProvider>,
+    </ThemeProvider>
   </SelectedPageProvider>
 )
