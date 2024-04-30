@@ -1,5 +1,5 @@
 import { GlobalStyles } from 'tss-react';
-import { tss } from 'tss-react/mui';
+import { tss } from 'tss';
 import { useEffect } from 'react';
 
 import { Home } from "pages/Home"
@@ -12,22 +12,20 @@ import { useSelectedPage } from 'useSelectedPage';
 export function App() {
 
   const { selectedPage } = useSelectedPage()
-  const { classes, theme } = useStyles()
+  const { classes, theme, scrollbarStyles } = useStyles()
 
   // This is for the theme color of the browser, it will take effect when the user is on mobile
   useEffect(() => {
     const existingMeta = document.querySelector("meta[name='theme-color']")
-      if (existingMeta !== null) {
-        existingMeta.remove()
-      }
+    if (existingMeta !== null) {
+      existingMeta.remove()
+    }
 
-      const meta = document.createElement("meta");
-      meta.name = "theme-color";
-      meta.content = theme.palette.background.default;
-      document.head.appendChild(meta);
-  }, 
-    [theme.palette.mode]
-  )
+    const meta = document.createElement("meta");
+    meta.name = "theme-color";
+    meta.content = theme.palette.background.default;
+    document.head.appendChild(meta);
+  }, [theme.palette.mode])
 
   return (
     <>
@@ -37,9 +35,13 @@ export function App() {
             margin: 0,
             padding: 0,
           },
-          "body": {
+          "html": {
+            "colorScheme": theme.palette.mode,
             "backgroundColor": theme.palette.background.default,
-          }
+          },
+          "body": {
+            ...scrollbarStyles
+          },
         }}
       />
 
@@ -47,13 +49,13 @@ export function App() {
         {(() => {
           switch (selectedPage) {
             case "home":
-              return <Home/>
+              return <Home />
             case "menu":
-              return <Menu/>
+              return <Menu />
             case "about":
-              return <About/>
+              return <About />
             case "reservation":
-              return <Reservation/>
+              return <Reservation />
           }
         })()}
 
@@ -65,7 +67,6 @@ export function App() {
 const useStyles = tss.create(({ theme }) => ({
   "root": {
     "height": "100vh",
-    //"width": "100vw",
     "overflow": "hidden",
     "color": theme.palette.text.primary,
     [theme.breakpoints.only('mobile')]: {

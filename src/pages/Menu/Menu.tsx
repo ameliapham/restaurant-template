@@ -1,12 +1,10 @@
-import { tss } from 'tss-react/mui'
+import { tss } from 'tss'
 import Fade from "@mui/material/Fade"
-
 import { DesignOfMenuPage } from "./DesignOfMenuPage"
 import { HeroSection } from "components/HeroSection"
 import backgroundImageUrl from "assets/food-nem.webp"
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
-
 
 export function Menu() {
 
@@ -34,27 +32,25 @@ export function Menu() {
 
 const useStyles = tss
     .withName({ Menu })
-    .create(({ theme }) => ({
+    .create(({ theme, scrollbarStyles }) => ({
         "root": {
             "display": "flex",
             "gap": theme.spacing(2),
             "padding": theme.spacing(2),
             "boxSizing": "border-box",
             "height": "100%",
-
             [theme.breakpoints.down('desktop')]: {
                 "display": "block",
                 "overflow": "auto",
+                ...scrollbarStyles
             },
         },
         "left": {
             "width": "60%",
-
             [theme.breakpoints.only('tablet')]: {
                 "width": "unset",
                 "height": "70%",
             },
-
             [theme.breakpoints.only("mobile")]: {
                 "width": "unset",
                 "height": theme.spacing(40),
