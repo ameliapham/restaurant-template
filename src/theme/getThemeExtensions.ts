@@ -20,3 +20,12 @@ export function getScrollbarStyles(theme: Theme) {
 
     }
 }
+
+export function getThemeExtensions(theme: Theme) {
+
+    const scrollbarStyles = getScrollbarStyles(theme)
+
+    return {
+        scrollbarStyles
+    }
+}
