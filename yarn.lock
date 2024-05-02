@@ -2072,7 +2072,7 @@ postcss@^8.4.35:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-powerhooks@^1.0.9:
+powerhooks@^1.0.10, powerhooks@^1.0.9:
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/powerhooks/-/powerhooks-1.0.10.tgz#9d532b23294cba69d5872d859bdf843b91cb9c41"
   integrity sha512-fJmKSVJk9Bkotl9rK1ryVPSqhY4xOZKxM6deyTaMbICK8jHh/CQztN2mNTxlKu6vkJBIFj1cRd/7N6slh3uM6w==
