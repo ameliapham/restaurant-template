@@ -1,7 +1,7 @@
 import { starters, desserts, mains, drinks } from '../../data/ListOfDishes';
 import Divider from '@mui/material/Divider';
 import { FoodItemStructure } from './FoodItemStructure'
-import { tss } from 'tss-react/mui'
+import { tss } from 'tss'
 import Typography from '@mui/material/Typography'
 
 type PropsMenuStructure = {
@@ -62,7 +62,7 @@ export function MenuStructure(props: PropsMenuStructure) {
 
 const useStyles = tss
     .withName("FoodList")
-    .create(({ theme }) => ({
+    .create(({ theme, scrollbarStyles }) => ({
         "root": {
             "display": "flex",
             "flexDirection": "column",
@@ -86,6 +86,7 @@ const useStyles = tss
         },
         "foodList": {
             "overflow": "auto",
+            ...scrollbarStyles,
         },
 
     }))

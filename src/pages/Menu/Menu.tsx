@@ -1,4 +1,4 @@
-import { tss } from 'tss-react/mui'
+import { tss } from 'tss'
 import Fade from "@mui/material/Fade"
 
 import { DesignOfMenuPage } from "./DesignOfMenuPage"
@@ -34,7 +34,7 @@ export function Menu() {
 
 const useStyles = tss
     .withName({ Menu })
-    .create(({ theme }) => ({
+    .create(({ theme, scrollbarStyles }) => ({
         "root": {
             "display": "flex",
             "gap": theme.spacing(2),
@@ -45,6 +45,7 @@ const useStyles = tss
             [theme.breakpoints.down('desktop')]: {
                 "display": "block",
                 "overflow": "auto",
+                ...scrollbarStyles,
             },
         },
         "left": {
