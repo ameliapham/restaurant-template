@@ -1,4 +1,4 @@
-import { tss } from 'tss-react/mui'
+import { tss } from 'tss'
 import Fade from "@mui/material/Fade"
 import { DesignOfReservationPage } from "./DesignOfReservationPage"
 import { HeroSection } from "components/HeroSection"
@@ -38,7 +38,7 @@ export function Reservation() {
 
 const useStyles = tss
     .withName({ Reservation })
-    .create(({ theme }) => ({
+    .create(({ theme, scrollbarStyles }) => ({
         "root": {
             "display": "flex",
             "gap": theme.spacing(2),
@@ -49,6 +49,7 @@ const useStyles = tss
             [theme.breakpoints.down('desktop')]: {
                 "display": "block",
                 "overflow": "auto",
+                ...scrollbarStyles,
             },
         },
         "left": {
