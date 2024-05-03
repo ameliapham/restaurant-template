@@ -4,8 +4,19 @@ import { useState, useEffect } from "react"
 import { HeroSection } from "components/HeroSection"
 import { DesignOfHomePage } from "./DesignOfHomePage"
 import backgroundImageUrl from "assets/food-pho.webp"
+import { useHeight } from "hooks/useHeightContext"
+import { useDomRect } from "powerhooks/useDomRect"
+
 
 export function Home() {
+
+    const { ref, domRect: { height } } = useDomRect()
+    const { setHeight } = useHeight()
+
+    useEffect(()=>{
+        setHeight(height);
+    }, [height]);
+
 
     const [checked, setChecked] = useState(false)
 
@@ -22,6 +33,7 @@ export function Home() {
         >
             <div className={classes.root}>
                 <HeroSection
+                    ref={ref}
                     className={classes.left}
                     backgroundImageUrl={backgroundImageUrl}
                     heroText={<>Zen <br /> Gourmet</>}
@@ -69,5 +81,5 @@ const useStyles = tss
         },
         "right": {
             "flex": "1",
-        }
+        },
     }));

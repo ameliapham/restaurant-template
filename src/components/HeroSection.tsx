@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { forwardRef, ReactNode } from 'react'
 import { tss } from 'tss-react/mui'
 import Typography from '@mui/material/Typography'
 import { AppBar } from 'components/AppBar';
@@ -9,13 +9,13 @@ type PropsHeroSection = {
     heroText: ReactNode;
 }
 
-export function HeroSection(props: PropsHeroSection) {
+export const HeroSection = forwardRef<HTMLDivElement, PropsHeroSection>((props, ref)=> {
 
     const { className, backgroundImageUrl, heroText } = props
     const { cx, classes } = useStyles({ backgroundImageUrl })
 
     return (
-        <div className={cx(classes.root, className)}>
+        <div ref={ref} className={cx(classes.root, className)}>
             <AppBar/>
 
             <Typography
@@ -27,7 +27,7 @@ export function HeroSection(props: PropsHeroSection) {
 
         </div >
     )
-}
+});
 
 const useStyles = tss
     .withName({ HeroSection })
