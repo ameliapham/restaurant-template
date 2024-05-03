@@ -6,7 +6,7 @@ import { Home } from "pages/Home"
 import { Menu } from "pages/Menu"
 import { About } from "pages/About"
 import { Reservation } from "pages/Reservation"
-import { useSelectedPage } from 'useSelectedPage';
+import { useSelectedPage } from 'useSelectedPage'
 
 
 export function App() {
@@ -44,7 +44,6 @@ export function App() {
           }
         }}
       />
-
       <div className={classes.root}>
         {(() => {
           switch (selectedPage) {
@@ -70,7 +69,8 @@ const useStyles = tss.create(({ theme }) => ({
     //"width": "100vw",
     "overflow": "hidden",
     "color": theme.palette.text.primary,
-    [theme.breakpoints.only('mobile')]: {
+
+    [theme.breakpoints.down('desktop')]: {
       "overflow": "unset",
       "height": "unset",
     },

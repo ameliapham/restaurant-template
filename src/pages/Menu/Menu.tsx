@@ -7,10 +7,9 @@ import backgroundImageUrl from "assets/food-nem.webp"
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
 
-
 export function Menu() {
 
-    const { cx, classes } = useStyles()
+    const { cx, classes } = useStyles({})
     const { t } = useTranslation({ Menu })
 
     return (
@@ -53,7 +52,7 @@ const useStyles = tss
 
             [theme.breakpoints.only('tablet')]: {
                 "width": "unset",
-                "height": "70%",
+                "height": theme.spacing(80),
             },
 
             [theme.breakpoints.only("mobile")]: {

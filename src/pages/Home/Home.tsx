@@ -1,7 +1,6 @@
 import { tss } from 'tss-react/mui'
 import Fade from "@mui/material/Fade"
 import { useState, useEffect } from "react"
-
 import { HeroSection } from "components/HeroSection"
 import { DesignOfHomePage } from "./DesignOfHomePage"
 import backgroundImageUrl from "assets/food-pho.webp"
@@ -47,6 +46,7 @@ const useStyles = tss
 
             [theme.breakpoints.only('tablet')]: {
                 "flexDirection": "column",
+                "height": "100vh",
             },
 
             [theme.breakpoints.only("mobile")]: {

@@ -57,7 +57,7 @@ const useStyles = tss
 
             [theme.breakpoints.only('tablet')]: {
                 "width": "unset",
-                "height": "70%",
+                "height": theme.spacing(80),
             },
 
             [theme.breakpoints.only("mobile")]: {
