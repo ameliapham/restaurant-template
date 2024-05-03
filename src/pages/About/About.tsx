@@ -6,12 +6,15 @@ import { HeroSection } from "components/HeroSection"
 import backgroundImageUrl from "assets/resto4.webp"
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
+import { useHeight } from 'hooks/useHeightContext'
 
 
 
 export function About() {
 
-    const { cx, classes } = useStyles()
+    const { height } = useHeight()
+
+    const { cx, classes } = useStyles({ height })
 
     const { t } = useTranslation({ About })
 
@@ -38,7 +41,8 @@ export function About() {
 
 const useStyles = tss
     .withName({ About })
-    .create(({ theme, scrollbarStyles }) => ({
+    .withParams<{ height: number }>()
+    .create(({ theme, scrollbarStyles, height }) => ({
         "root": {
             "display": "flex",
             "gap": theme.spacing(2),
@@ -57,7 +61,7 @@ const useStyles = tss
 
             [theme.breakpoints.only('tablet')]: {
                 "width": "unset",
-                "height": theme.spacing(80),
+                "height": height,
             },
 
             [theme.breakpoints.only("mobile")]: {

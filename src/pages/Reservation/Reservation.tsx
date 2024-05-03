@@ -5,11 +5,13 @@ import { HeroSection } from "components/HeroSection"
 import backgroundImageUrl from "assets/reservation2.webp"
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
-
+import { useHeight } from "hooks/useHeightContext"
 
 export function Reservation() {
 
-    const { cx, classes } = useStyles()
+    const { height } = useHeight()
+
+    const { cx, classes } = useStyles({ height })
 
     const { t } = useTranslation({ Reservation })
 
@@ -38,7 +40,8 @@ export function Reservation() {
 
 const useStyles = tss
     .withName({ Reservation })
-    .create(({ theme, scrollbarStyles }) => ({
+    .withParams<{ height: number }>()
+    .create(({ theme, scrollbarStyles, height }) => ({
         "root": {
             "display": "flex",
             "gap": theme.spacing(2),
@@ -57,7 +60,7 @@ const useStyles = tss
 
             [theme.breakpoints.only('tablet')]: {
                 "width": "unset",
-                "height": theme.spacing(80),
+                "height": height,
             },
 
             [theme.breakpoints.only("mobile")]: {
