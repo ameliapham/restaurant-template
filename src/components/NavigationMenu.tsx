@@ -11,7 +11,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { alpha } from '@mui/material/styles';
-
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -42,7 +42,10 @@ export function NavigationMenu(props: PropsDrawerList) {
                     >
                         <CloseIcon />
                     </IconButton>
-                    <DarkModeSwitch />
+                    <div className={classes.extensions}>
+                        <LanguageSwitcher />
+                        <DarkModeSwitch />
+                    </div>
                 </List>
 
                 <List>
@@ -113,6 +116,11 @@ const useStyles = tss
             "padding": theme.spacing(0.6),
             "transition": "background 0.4s ease-in-out, border 0.4s ease-in-out, color 0.4s ease-in-out",
 
+        },
+        "extensions": {
+            "display": "flex",
+            "gap": theme.spacing(2),
+            "alignItems": "center",
         },
         "text": {
             "display": "flex",
