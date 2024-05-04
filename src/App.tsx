@@ -6,7 +6,7 @@ import { Home } from "pages/Home"
 import { Menu } from "pages/Menu"
 import { About } from "pages/About"
 import { Reservation } from "pages/Reservation"
-import { useSelectedPage } from 'useSelectedPage'
+import { useSelectedPage } from 'hooks/useSelectedPage'
 
 
 export function App() {

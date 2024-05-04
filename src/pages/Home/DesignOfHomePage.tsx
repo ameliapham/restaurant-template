@@ -5,7 +5,7 @@ import secondImage from "assets/reservation2.webp"
 import thirdImage from "assets/resto4.webp"
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
-import { useSelectedPage } from 'useSelectedPage';
+import { useSelectedPage } from 'hooks/useSelectedPage';
 
 type PropsDesignOfHomePage = {
     className?: string;

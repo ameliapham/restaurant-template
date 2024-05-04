@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client'
 import { App } from 'App'
 import { ThemeProvider } from "theme"
-import { SelectedPageProvider } from 'useSelectedPage'
+import { SelectedPageProvider } from 'hooks/useSelectedPage'
 import { HeightProvider } from 'hooks/useHeightContext'
 
 

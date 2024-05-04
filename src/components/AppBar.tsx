@@ -9,7 +9,7 @@ import { useTranslation } from "i18n"
 import { CustomButton } from './CustomButton'
 import { NavigationMenu } from './NavigationMenu'
 import { RestaurantDetail } from 'data/RestaurantDetail'
-import { useSelectedPage } from 'useSelectedPage';
+import { useSelectedPage } from 'hooks/useSelectedPage';
 
 type PropsMenuBar = {
     className?: string;
