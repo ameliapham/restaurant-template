@@ -52,4 +52,7 @@ export const translations: Translations<"en"> = {
         "desserts": "Desserts",
         "drinks": "Drinks",
     },
+    "LanguageSwitcher": {
+        "language": "Language",
+    },
 };
