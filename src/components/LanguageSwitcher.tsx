@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { tss } from "tss-react/mui";
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
@@ -13,6 +14,8 @@ export function LanguageSwitcher() {
         setAnchorEl(null);
     };
 
+    const { classes } = useStyles();
+
     const handleLanguageChange = (language: Language) => {
         console.log(`Language changed to ${language}`);
         handleClose();
@@ -21,6 +24,7 @@ export function LanguageSwitcher() {
     return (
         <div>
             <Button
+                className={classes.languageSwitcherButton}
                 id="language-switcher-button"
                 aria-controls={open ? "language-menu" : undefined}
                 aria-haspopup="true"
@@ -45,3 +49,12 @@ export function LanguageSwitcher() {
         </div>
     );
 }
+
+const useStyles = tss
+    .withName("LanguageSwitcher")
+    .create(({ theme }) => ({
+        "languageSwitcherButton": {
+            "color": theme.palette.text.primary,
+            "textTransform": "none",
+        },
+    }));
