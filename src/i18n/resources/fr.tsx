@@ -53,8 +53,5 @@ export const translations: Translations<"fr"> = {
         "desserts": "Desserts",
         "drinks": "Boissons",
     },
-    "LanguageSwitcher": {
-        "language": "Langue",
-    },
     /* spell-checker: enable */
 };

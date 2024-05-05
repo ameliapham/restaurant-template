@@ -4,7 +4,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import TranslateIcon from '@mui/icons-material/Translate';
-import { languages, useLang, declareComponentKeys, useTranslation } from "i18n";
+import { languages, useLang } from "i18n";
 
 type Props = {
     className?: string;
@@ -12,7 +12,6 @@ type Props = {
 
 export function LanguageSwitcher(props: Props) {
     const { className } = props;
-    const { t } = useTranslation({ LanguageSwitcher });
     const { lang, setLang } = useLang();
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = anchorEl !== null;
@@ -34,7 +33,16 @@ export function LanguageSwitcher(props: Props) {
                 onClick={event => setAnchorEl((event as any).currentTarget)}
                 startIcon={<TranslateIcon />}
             >
-                {t("language")}
+                {
+                    (() => {
+                        switch (lang) {
+                            case "en":
+                                return "English";
+                            case "fr":
+                                return "Français";
+                        }
+                    })()
+                }
             </Button>
             <Menu
                 //id="language-switcher-button"
@@ -50,7 +58,6 @@ export function LanguageSwitcher(props: Props) {
                         key={lang_i}
                         selected={lang === lang_i}
                         onClick={() => {
-                            console.log(`Language changed to ${lang_i}`);
                             setLang(lang_i);
                             handleClose();
                         }}
@@ -78,7 +85,3 @@ const useStyles = tss
             "textTransform": "none",
         },
     }));
-
-export const { i18n } = declareComponentKeys<
-    | "language"
->()({ LanguageSwitcher });
