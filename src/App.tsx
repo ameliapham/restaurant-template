@@ -1,13 +1,13 @@
 import { GlobalStyles } from 'tss-react';
 import { tss } from 'tss';
-import { useEffect } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
 
-import { Home } from "pages/Home"
-import { Menu } from "pages/Menu"
-import { About } from "pages/About"
-import { Reservation } from "pages/Reservation"
 import { useSelectedPage } from 'hooks/useSelectedPage'
 
+const Home = lazy(() => import("pages/Home"));
+const Menu = lazy(() => import("pages/Menu"));
+const About = lazy(() => import("pages/About"));
+const Reservation = lazy(() => import("pages/Reservation"));
 
 export function App() {
 
@@ -45,18 +45,20 @@ export function App() {
         }}
       />
       <div className={classes.root}>
-        {(() => {
-          switch (selectedPage) {
-            case "home":
-              return <Home />
-            case "menu":
-              return <Menu />
-            case "about":
-              return <About />
-            case "reservation":
-              return <Reservation />
-          }
-        })()}
+        <Suspense fallback={null}>
+          {(() => {
+            switch (selectedPage) {
+              case "home":
+                return <Home />
+              case "menu":
+                return <Menu />
+              case "about":
+                return <About />
+              case "reservation":
+                return <Reservation />
+            }
+          })()}
+        </Suspense>
 
       </div>
     </>
