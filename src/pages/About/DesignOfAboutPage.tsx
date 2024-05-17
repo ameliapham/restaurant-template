@@ -2,7 +2,7 @@ import { tss } from 'tss-react/mui'
 import { Carousel } from './Carousel'
 import { Map } from 'components/Map'
 import Typography from '@mui/material/Typography';
-import { RestaurantDetail } from "data/RestaurantDetail";
+import { restaurantDetail } from "data/RestaurantDetail";
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
 import { useResolveLocalizedString } from "i18n";
@@ -21,7 +21,7 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
     
     const { t } = useTranslation({ DesignOfAboutPage })
     const { cx, classes } = useStyles()
-    const { logoColor } = RestaurantDetail.logoUrl
+    const { logoColor } = restaurantDetail.logoUrl
 
     return (
         <div className={cx(classes.root, className)}>
@@ -35,7 +35,7 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
                     variant="body2"
                     className={classes.describe}
                 >
-                    {resolveLocalizedString(RestaurantDetail.description)}
+                    {resolveLocalizedString(restaurantDetail.description)}
                 </Typography>
             </div>
 
@@ -52,7 +52,7 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
                         {t("opening times")}
                     </Typography>
 
-                    {RestaurantDetail.openingTime.map((time, index) => (
+                    {restaurantDetail.openingTime.map((time, index) => (
                         <Typography key={index} variant="body2">
                             {resolveLocalizedString(time)}
                         </Typography>
@@ -78,19 +78,19 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
                     <Typography
                         variant='body2'
                     >
-                        {RestaurantDetail.address}
+                        {restaurantDetail.address}
                     </Typography>
                     
                     <Typography
                         variant='body2'
                     >
-                        {RestaurantDetail.phone}
+                        {restaurantDetail.phone}
                     </Typography>
                 </div>
             </div>
 
             <div className={classes.social}>
-                {RestaurantDetail.socialUrl.map((social, index) => (
+                {restaurantDetail.socialUrl.map((social, index) => (
                     <a key={index} href={social.url} target="_blank" rel="noreferrer">
                         <social.Icon className={classes.icon} />
                     </a>

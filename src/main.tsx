@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <ThemeProvider>
       <HeightProvider>
         <App />
-    </HeightProvider>
-  </ThemeProvider>
+      </HeightProvider>
+    </ThemeProvider>
   </SelectedPageProvider >
 )

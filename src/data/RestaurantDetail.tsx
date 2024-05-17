@@ -32,7 +32,7 @@ type PropsRestaurantDetail = {
     };
 }
 
-export const RestaurantDetail: PropsRestaurantDetail = {
+export const restaurantDetail: PropsRestaurantDetail = {
     logoUrl: {
         logoDark: logoDark,
         logoLight: logoLight,

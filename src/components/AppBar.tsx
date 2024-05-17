@@ -8,7 +8,7 @@ import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
 import { CustomButton } from './CustomButton'
 import { NavigationMenu } from './NavigationMenu'
-import { RestaurantDetail } from 'data/RestaurantDetail'
+import { restaurantDetail } from 'data/RestaurantDetail'
 import { useSelectedPage } from 'hooks/useSelectedPage';
 
 type PropsMenuBar = {
@@ -27,7 +27,7 @@ export function AppBar(props: PropsMenuBar) {
         setOpenDrawer(newOpenDrawer);
     };
 
-    const { logoDark, logoLight } = RestaurantDetail.logoUrl
+    const { logoDark, logoLight } = restaurantDetail.logoUrl
 
     return (
         <div className={cx(classes.root, className)}>
@@ -106,7 +106,6 @@ const useStyles = tss
             "width": theme.spacing(10),
             "cursor": "pointer",
             "padding": `0 ${theme.spacing(1)}`,
-            "color": theme.palette.text.secondary,
         },
         "button": {
             [theme.breakpoints.only('mobile')]: {
