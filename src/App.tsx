@@ -45,7 +45,7 @@ export function App() {
         }}
       />
       <div className={classes.root}>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense>
           {(() => {
             switch (selectedPage) {
               case "home":
