@@ -1,6 +1,6 @@
 import { LocalizedString } from "i18n"
 
-import restoImage from 'assets/resto3.jpeg'
+import restoImage from 'assets/resto3.webp'
 import restoImage2 from "assets/resto4.webp"
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
